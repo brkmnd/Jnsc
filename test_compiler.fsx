@@ -40,10 +40,10 @@ type Result () =
         for r in res do
             f r.Key r.Value
     member this.toString () =
-        let mutable retval = ""
-        this.foreach(fun k v -> retval <- retval + (sprintf "%s = %d\n" k v))
-        if retval.Length > 0 then retval.[0 .. retval.Length - 2]
-        else retval
+        let mutable retval = "{"
+        this.foreach(fun k v -> retval <- retval + (sprintf "\"%s\":%d," k v))
+        if retval.Length > 0 then retval.[0 .. retval.Length - 2] + "}"
+        else retval + "}"
     with
     static member (==) (res1 : Result,res2 : Result) =
         if res1.len() <> res2.len() then false
@@ -98,6 +98,8 @@ let compileJanus str =
         else
             try (Janus2Bob.compile typedTree,"") with
             | Failure msg -> (("",new List<string>()),msg)
+    // clean-up
+    JanusLexer.clearModule()
     if compileMsg <> "" then
         printfn_color compileMsg ConsoleColor.Red
         ""
@@ -107,15 +109,19 @@ let compileJanus str =
         bobcode
 
 module Html =
-    let writeOut txt =
-        let path = "sim.html"
-        File.WriteAllText (path,txt)
+    let mutable code = ""
     let newStyle () =
         let styles =
             ".bobprg{display:none;font-family:monospace;white-space:pre}"+
-            ".error-text{color:red}"
+            ".error-out{color:red}"+
+            ".out{font-family:monospace;font-size:12pt;white-space:pre}"+
+            "h2{color:blue}"+
+            ".codetable{"+
+            "display:block;width:100%;height:300px;background-color:black;"+
+            "color:white;font-family:monospace;font-size:12pt;overflow-y:scroll;"+
+            "}"
         sprintf "<style>%s</style>" styles
-    let newScripts () =
+    let newHeadScripts () =
         "<script src='BobSim/stack.js'></script>"+
         "<script src='BobSim/machine.js'></script>"+
         "<script src='BobSim/bob.js'></script>"+
@@ -126,32 +132,53 @@ module Html =
         "<head>"+newStyle()+"</head>\n"+
         "<body>\n"+
         body+"\n"+
-        newScripts()+"\n"+
+        newHeadScripts()+"\n"+
         "</body>\n"+
         "</html>"
-    let newPout1 t = sprintf "<p id='out1'>%s</p>" t
-    let newPerror t = sprintf "<p class='error-text'>%s</p>" t
+    let newScript s = sprintf "<script>%s</script>" s
+    let newPout t = sprintf "<p class='out'>%s</p>" t
+    let newPerror t = sprintf "<p class='error-out'>%s</p>" t
+    let newH1 t = sprintf "<h1>%s</h1>" t
     let newH2 t = sprintf "<h2>%s</h2>" t
+    let newCodeBox t = sprintf "<table class='codetable'>%s</table>" t
     let newBobCode c = sprintf "<span class='bobprg'>%s</span>" c
+    // For dealing with res
+    let addCodeLineTop t = code <- sprintf "%s\n%s" t code
+    let addCodeLine t =
+        code <- sprintf "%s%s\n" code t
+    let clearCode () = code <- ""
+    let toString() = code
+    let writeToSim () =
+        let path = "sim.html"
+        File.WriteAllText (path,newDoc code)
 
-            
 [<EntryPoint>]
 let main args =
     let len = Array.length args
-    printfn "\n"
-    if Array.length args <> 1 then
+    if Array.length args = 0 then
         printfn "error in number of arguments given to test, expected 1, given %d" len
         0
     else
-        let prg = args.[0]
-        let src,smsg = fopen prg
-        let expct =
-            let e = new Result()
-            e.fromFile (prg)
-            e
-        let res =
-            Html.newH2 (sprintf "testing '%s'\n" prg) +
-            if smsg <> "" then Html.newPerror smsg
-            else Html.newBobCode (compileJanus src)
-        Html.writeOut (Html.newDoc (res + Html.newPout1 ""))
+        let mutable results = ""
+        Html.addCodeLine (Html.newH1 "Testing Janus2Bob")
+        for prg in args do
+            let src,smsg = fopen prg
+            let expct =
+                let e = new Result()
+                e.fromFile (prg)
+                e
+            if smsg <> "" then printfn_color smsg ConsoleColor.Red
+            else
+                let res = new Result()
+                res.fromFile(prg)
+                results <- results + res.toString() + ","
+                Html.addCodeLine (Html.newH2 (sprintf "%s" prg))
+                Html.addCodeLine (Html.newBobCode (compileJanus src))
+                Html.addCodeLine (Html.newPout "")
+                Html.addCodeLine (Html.newPerror "")
+                Html.addCodeLine (Html.newCodeBox "")
+        results <- if results.Length > 0 then results.[0 .. results.Length - 2] else results
+        results <- sprintf "var results = [%s];" results
+        Html.addCodeLineTop (Html.newScript results)
+        Html.writeToSim ()
         1

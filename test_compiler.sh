@@ -1,42 +1,22 @@
 mono FsLexYacc.9.0.2/build/fsyacc/net46/fsyacc.exe --module "JanusParser" JanusParser.yy
-mono FsLexYacc.9.0.2/build/fsyacc/net46/fsyacc.exe --module "BOBParser" BOBParser.yy
 fsharpc test_compiler.fsx --standalone
-: '
-mono --assembly-loader=legacy test_compiler.exe if1
-mono --assembly-loader=legacy test_compiler.exe if1_un
-mono --assembly-loader=legacy test_compiler.exe else1
-mono --assembly-loader=legacy test_compiler.exe else1_un
-mono --assembly-loader=legacy test_compiler.exe if2
-mono --assembly-loader=legacy test_compiler.exe if2_un
-mono --assembly-loader=legacy test_compiler.exe else2
-mono --assembly-loader=legacy test_compiler.exe else2_un
-mono --assembly-loader=legacy test_compiler.exe ind1
-mono --assembly-loader=legacy test_compiler.exe ind1_rev
-mono --assembly-loader=legacy test_compiler.exe loop1
-mono --assembly-loader=legacy test_compiler.exe loop1_un
-mono --assembly-loader=legacy test_compiler.exe loop2
-mono --assembly-loader=legacy test_compiler.exe loop2_un
-mono --assembly-loader=legacy test_compiler.exe local1
-mono --assembly-loader=legacy test_compiler.exe local1_un
-mono --assembly-loader=legacy test_compiler.exe local2
-mono --assembly-loader=legacy test_compiler.exe local2_un
-mono --assembly-loader=legacy test_compiler.exe loop1
-mono --assembly-loader=legacy test_compiler.exe loop1_un
-mono --assembly-loader=legacy test_compiler.exe loop3_un
-mono --assembly-loader=legacy test_compiler.exe loop3
-mono --assembly-loader=legacy test_compiler.exe loop4
-mono --assembly-loader=legacy test_compiler.exe loop4_un
-mono --assembly-loader=legacy test_compiler.exe perm2code
-mono --assembly-loader=legacy test_compiler.exe perm2code_un
-mono --assembly-loader=legacy test_compiler.exe factor
-mono --assembly-loader=legacy test_compiler.exe factor_un
-mono --assembly-loader=legacy test_compiler.exe fib1
-mono --assembly-loader=legacy test_compiler.exe fib1_un
-mono --assembly-loader=legacy test_compiler.exe sqrroot
-mono --assembly-loader=legacy test_compiler.exe sqrroot_un
-mono --assembly-loader=legacy test_compiler.exe runlength
-mono --assembly-loader=legacy test_compiler.exe runlength_un
-mono --assembly-loader=legacy test_compiler.exe args1
-'
-mono --assembly-loader=legacy test_compiler.exe perm2code
+PRGS="if1 if1_un"
+PRGS="$PRGS else1 else1_un "
+PRGS="$PRGS if2 if2_un"
+PRGS="$PRGS else2 else2_un"
+PRGS="$PRGS ind1 ind1_rev"
+PRGS="$PRGS loop1 loop1_un"
+PRGS="$PRGS loop2 loop2_un"
+PRGS="$PRGS local1 local1_un"
+PRGS="$PRGS local2 local2_un"
+PRGS="$PRGS loop3 loop3_un"
+PRGS="$PRGS loop4 loop4_un"
+PRGS="$PRGS perm2code perm2code_un"
+PRGS="$PRGS factor factor_un"
+PRGS="$PRGS fib1 fib1_un"
+PRGS="$PRGS sqrroot sqrroot_un"
+PRGS="$PRGS runlength runlength_un"
+PRGS="$PRGS args1"
+RUN="mono --assembly-loader=legacy test_compiler.exe $PRGS"
+$RUN
 firefox sim.html
