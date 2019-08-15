@@ -1,0 +1,23 @@
+procedure main()
+    int x
+    int y
+    int z
+    int a
+    int b
+    int c[5]
+    x += 100
+    y += 150
+    call f(x,y,z,a,b,c)
+procedure f(int x, int y,int z,int a, int b, int c[])
+    if x + y >= y + x + 10
+    then
+        y -= 4
+        a += 100
+        b += 100
+    else
+        y += 4
+        a -= 100
+        b -= 200
+        c[2] += a
+        a <=> z
+    fi x + y = 250

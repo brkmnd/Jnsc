@@ -1,0 +1,11 @@
+procedure main()
+    int a[10]
+    int i
+    call f(a,i)
+procedure f(int a[],int i)
+    from i = 2 * 4 - 8 && 1 = 0 + 1
+    do skip
+    loop
+        i += 1
+        a[i] += i
+    until i = 2 * 4 + 1 && 1 = 0 + 1

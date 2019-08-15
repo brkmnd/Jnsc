@@ -1,0 +1,8 @@
+procedure main()
+    int x
+    call f(x)
+procedure f(int x)
+    local int a = 200
+        x += a
+        a -= 30
+    delocal int a = 160

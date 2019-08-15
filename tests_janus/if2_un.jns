@@ -1,0 +1,13 @@
+procedure main()
+    int x
+    int y
+    x += 100
+    y += 150
+    uncall f(x,y)
+procedure f(int x, int y)
+    if x < y && y > 10 + 20
+    then
+        y -= 4
+    else
+        y += 4
+    fi x + y = 250 && y > x

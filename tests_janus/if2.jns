@@ -1,0 +1,13 @@
+procedure main()
+    int x
+    int y
+    x += 100
+    y += 150
+    call f(x,y)
+procedure f(int x, int y)
+    if x < y && y > 2 * (x - 50)
+    then
+        y -= 2 * (x - 98)
+    else
+        y += 4
+    fi x + y = 246 && y > x

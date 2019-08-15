@@ -1,0 +1,11 @@
+procedure main()
+    int a[10]
+    int i
+    call f(a,i)
+procedure f(int a[],int i)
+    from i = 0
+    do skip
+    loop
+        i += 1
+        a[(i + i) / 2] += i
+    until i = 9

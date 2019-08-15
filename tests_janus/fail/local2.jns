@@ -1,0 +1,5 @@
+procedure main()
+    int x1
+    local int x2 = 200
+        x1 += x2
+    delocal int y = 200

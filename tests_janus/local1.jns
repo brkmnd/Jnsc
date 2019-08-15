@@ -1,0 +1,12 @@
+procedure main()
+    int a[10]
+    call f(a)
+procedure f(int a[])
+    local int i = 0
+        from i = 0
+        do skip
+        loop
+            i += 1
+            a[(i + i) / 2] += i
+        until i = 9
+    delocal int i = 9

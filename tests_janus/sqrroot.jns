@@ -1,0 +1,30 @@
+procedure main()
+    int num
+    int root
+
+    num += 66
+    call root(num, root)
+procedure root(int num, int root)
+    local int bit = 1
+    from bit = 1
+    do skip
+    loop  // find exponential ball park
+        call doublebit(bit)
+    until (bit * bit) > num
+
+    from (bit * bit) > num
+    do
+        uncall doublebit(bit)
+        if ((root + bit) * (root + bit)) <= num
+        then
+            root += bit
+        else skip
+        fi (root / bit) % 2 != 0
+    loop skip
+    until bit = 1
+    delocal int bit = 1
+    num -= root * root
+procedure doublebit(int bit)
+    local int z = bit
+    bit += z
+    delocal int z = bit / 2

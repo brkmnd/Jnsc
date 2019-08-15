@@ -1,0 +1,16 @@
+procedure main()
+    int x
+    int y
+    int z
+    int a
+    int b
+    x += 100
+    y += 150
+    call f(x,y,a,b)
+procedure f(int x, stack y)
+    if 1 = 2
+    then
+        y += x < 2 + x
+    else
+        y += 4
+    fi x + y = 250

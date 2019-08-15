@@ -1,0 +1,26 @@
+procedure main()
+    int a[10]
+    int i
+    i += 10
+    uncall f(a,i)
+procedure f(int a[],int i)
+    a[i] += i
+    i += 1
+    a[i] += i
+    i += 1
+    a[i] += i
+    i += 1
+    a[i] += i
+    i += 1
+    a[i] += i
+    i += 1
+    a[i] += i
+    i += 1
+    a[i] += i
+    i += 1
+    a[i] += i
+    i += 1
+    a[i] += i
+    i += 1
+    a[i] += i
+    i += 1

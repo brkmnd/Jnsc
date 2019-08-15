@@ -1,0 +1,19 @@
+procedure main()
+    int x[4]
+    int i
+    i += 4
+    x[0] -= 9
+    x[1] += 2
+    x[2] += 3
+    x[3] += 4
+    uncall f(x,i)
+procedure f(int x[], int i)
+    from i = 0
+    do skip
+    loop
+        if x[i] < x[1] then
+            x[i] -= 10
+        else skip
+        fi x[i] < x[1]
+        i += 1
+    until i = size(x)

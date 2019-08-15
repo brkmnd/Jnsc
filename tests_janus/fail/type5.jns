@@ -1,0 +1,13 @@
+procedure main()
+    int x
+    int y[1000]
+    x += 100
+    y[10] += 150
+    call f(x,y)
+procedure f1(int x, int y[])
+    if y[10] != 2
+    then
+        y[100] += y[10]
+    else
+        y[10] += 4
+    fi x + y[1000] = 250

@@ -1,0 +1,21 @@
+procedure main()
+    int x[2]
+    int i
+    i += 2
+    x[0] += 1
+    x[1] += 2
+    uncall f(x,i)
+procedure f(int x[], int i)
+    from i = 0
+    do skip
+    loop
+        local int j = 1
+        from j = 1
+        do skip
+        loop
+            x[i] += j
+            j += 1
+        until j = 3
+        delocal int j = 3
+        i += 1
+    until i = size(x)

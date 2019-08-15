@@ -1,0 +1,29 @@
+procedure main()
+    int x[6]
+    x[0] += 2
+    x[1] += 0
+    x[2] += 3
+    x[3] += 1
+    x[4] += 5
+    x[5] += 4
+    //show(x)
+    uncall perm_to_code(x)
+procedure perm_to_code(int x[])
+    local int k = size(x)
+    from k = size(x)
+    do skip
+    loop
+        k -= 1
+        local int j = 0
+        from j = 0
+        do skip
+        loop
+            if x[j] > x[k] then
+                x[j] -= 1
+            else skip
+            fi x[j] >= x[k]
+            j += 1
+        until j = k
+        delocal int j = k
+    until k = 0
+    delocal int k = 0
