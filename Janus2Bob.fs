@@ -500,7 +500,6 @@ and traverseStmts acc (scope : Scope) state stmts0 =
             expr_bot_pre2 +
             BobCode.label id_then +
             BobCode.bra id_bot
-            //(BobCode.removeFirstInstr expr_bot_post2)
         let l_else =
             expr_top_pre2 +
             BobCode.label id_else +
