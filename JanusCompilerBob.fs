@@ -1,4 +1,4 @@
-module Janus2Bob
+module JanusCompilerBob
 open System.Collections.Generic
 open JanusAbSyn
 (* Instruction Args

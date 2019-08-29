@@ -25,34 +25,34 @@ let defDataAtts = {size = -1}
 
 %}
 /* Value Tokens */
-%token<string*(int*int)> VAL_ID
-%token<string*(int*int)> VAL_INT
+%token<string*(int*int*int)> VAL_ID
+%token<string*(int*int*int)> VAL_INT
 /* Pars */
-%token<int*int> LBRACKET RBRACKET
-%token<int*int> LPAR RPAR
+%token<int*int*int> LBRACKET RBRACKET
+%token<int*int*int> LPAR RPAR
 /* Operators */
-%token<int*int> COMMA
-%token<int*int> EQ NEQ LT GT LEQ GEQ
-%token<int*int> PLUS MINUS TIMES UP
-%token<int*int> PERC DIV AMP AMPAMP MID MIDMID
-%token<int*int> IFF
+%token<int*int*int> COMMA
+%token<int*int*int> EQ NEQ LT GT LEQ GEQ
+%token<int*int*int> PLUS MINUS TIMES UP
+%token<int*int*int> PERC DIV AMP AMPAMP MID MIDMID
+%token<int*int*int> IFF
 /* Bind operators */
-%token<int*int> BIND_MINUS
-%token<int*int> BIND_PLUS
-%token<int*int> BIND_UP
+%token<int*int*int> BIND_MINUS
+%token<int*int*int> BIND_PLUS
+%token<int*int*int> BIND_UP
 /* Keywords */
-%token<int*int> INT STACK
-%token<int*int> MAIN PROC SKIP NIL
-%token<int*int> IF THEN ELSE FI
-%token<int*int> FROM DO LOOP UNTIL
-%token<int*int> PUSH POP
-%token<int*int> LOCAL DELOCAL
-%token<int*int> CALL UNCALL
-%token<int*int> EMPTY TOP
-%token<int*int> EOI
+%token<int*int*int> INT STACK
+%token<int*int*int> MAIN PROC SKIP NIL
+%token<int*int*int> IF THEN ELSE FI
+%token<int*int*int> FROM DO LOOP UNTIL
+%token<int*int*int> PUSH POP
+%token<int*int*int> LOCAL DELOCAL
+%token<int*int*int> CALL UNCALL
+%token<int*int*int> EMPTY TOP
+%token<int*int*int> EOI
 /* Buildin Procedures */
-%token<int*int> SIZE
-%token<int*int> SHOW
+%token<int*int*int> SIZE
+%token<int*int*int> SHOW
 /* Precedence and so on */
 %nonassoc BIND_UP BIND_PLUS BIND_MINUS
 %left COMMA

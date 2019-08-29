@@ -3,7 +3,7 @@
 #load "JanusParser.fs"
 #load "JanusLexer.fs"
 #load "JanusTypeChecker.fs"
-#load "Janus2Bob.fs"
+#load "JanusCompilerBob.fs"
 #load "Jnsc.fs"
 open System
 open System.IO
@@ -71,7 +71,7 @@ let fopen name =
 let compileJanus str =
     // on success return bobcode
     // on error print error and return empty string
-    let res = Jnsc.compile str
+    let res = Jnsc.toBob str
     if res|>Jnsc.hasSuccess then
         res.code
     else

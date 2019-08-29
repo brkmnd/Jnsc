@@ -14,28 +14,28 @@ type Result = {
     status:Status
     warnings:string
     }
-let newResult code status =
+let private newResult code status =
     {code = code;status=status;warnings=""}
-let lex str =
+let private lex str =
     try (JanusLexer.lex str,"") with
     | Failure msg -> ([||],msg)
-let parse tokens lexbuf =
+let private parse tokens lexbuf =
     let retval =
         try (JanusParser.start_entry (JanusLexer.getNextToken tokens) lexbuf,"") with
         | _ ->
             (JanusAbSyn.Prg.Error,JanusParser.ErrorContextDescriptor)
     JanusLexer.clearModule()
     retval
-let typeCheck tree =
+let private typeCheck tree =
     try (JanusTypeChecker.eval tree,"") with
     | Failure msg -> (tree,msg)
     | f ->
         let msg = sprintf "internal error [%A]" f
         (tree,msg)
-let comp tree =
-    try (Janus2Bob.compile tree,"") with
+let private comp2bob tree =
+    try (JanusCompilerBob.compile tree,"") with
     | Failure msg -> (("",new List<string>()),msg)
-let compile str =
+let toBob str =
     let lexbuf = FSharp.Text.Lexing.LexBuffer<char>.FromString str
     match lex str with
     | (tokens,"") ->
@@ -43,7 +43,7 @@ let compile str =
         | (tree,"") ->
             match typeCheck tree with
             | (ttree,"") ->
-                match comp tree with
+                match comp2bob tree with
                 | ((code,warns),"") -> newResult code Success
                 | (_,msg) -> newResult ""  (CompilerError msg)
             | (_,msg) -> newResult "" (TypeError msg)

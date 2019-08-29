@@ -1050,7 +1050,7 @@ f:
     PUSH        $raddr
     # f body
     # if[0]
-    # if[0]((&& (< x y) (> y (* 2 (- x 50)))))
+    # if[0]((&& (&lt; x y) (&gt; y (* 2 (- x 50)))))
     # ampamp[0]
     EXCH        $f.0  $arg0
     XOR         $f.1  $f.0
@@ -1279,7 +1279,7 @@ f.lt2_top_post:
     XORI        $f.38  4
     EXCH        $f.37  $arg1
     # /y += 4
-    # fi[0]((&& (= (+ x y) 246) (> y x)))
+    # fi[0]((&& (= (+ x y) 246) (&gt; y x)))
     # ampamp[4]
     EXCH        $f.16  $arg0
     XOR         $f.17  $f.16
@@ -1411,7 +1411,7 @@ f:
     PUSH        $raddr
     # f body
     # if[0]
-    # if[0]((&& (< x y) (> y (+ 10 20))))
+    # if[0]((&& (&lt; x y) (&gt; y (+ 10 20))))
     # ampamp[0]
     EXCH        $f.0  $arg0
     XOR         $f.1  $f.0
@@ -1616,7 +1616,7 @@ f.lt2_top_post:
     XORI        $f.32  4
     EXCH        $f.31  $arg1
     # /y += 4
-    # fi[0]((&& (= (+ x y) 250) (> y x)))
+    # fi[0]((&& (= (+ x y) 250) (&gt; y x)))
     # ampamp[4]
     EXCH        $f.14  $arg0
     XOR         $f.15  $f.14
@@ -1748,7 +1748,7 @@ f:
     PUSH        $raddr
     # f body
     # if[0]
-    # if[0]((&& (> x y) (> y (+ 10 20))))
+    # if[0]((&& (&gt; x y) (&gt; y (+ 10 20))))
     # ampamp[0]
     EXCH        $f.0  $arg0
     XOR         $f.1  $f.0
@@ -1953,7 +1953,7 @@ f.gt2_top_post:
     XORI        $f.32  4
     EXCH        $f.31  $arg1
     # /y += 4
-    # fi[0]((&& (= (+ x y) 246) (> y x)))
+    # fi[0]((&& (= (+ x y) 246) (&gt; y x)))
     # ampamp[4]
     EXCH        $f.14  $arg0
     XOR         $f.15  $f.14
@@ -2085,7 +2085,7 @@ f:
     PUSH        $raddr
     # f body
     # if[0]
-    # if[0]((&& (> x y) (> y (+ 10 20))))
+    # if[0]((&& (&gt; x y) (&gt; y (+ 10 20))))
     # ampamp[0]
     EXCH        $f.0  $arg0
     XOR         $f.1  $f.0
@@ -2290,7 +2290,7 @@ f.gt2_top_post:
     XORI        $f.32  4
     EXCH        $f.31  $arg1
     # /y += 4
-    # fi[0]((&& (= (+ x y) 246) (> y x)))
+    # fi[0]((&& (= (+ x y) 246) (&gt; y x)))
     # ampamp[4]
     EXCH        $f.14  $arg0
     XOR         $f.15  $f.14
@@ -2695,7 +2695,7 @@ f:
     ADD1        $f.63
     ADD         $f.63  $f.66
     EXCH        $f.64  $f.63
-    # indexing a[(+ i 2)](22, 14)
+    # indexing a[(+ i 2)](22, 14, 304)
     EXCH        $f.70  $arg1
     XOR         $f.71  $f.70
     EXCH        $f.70  $arg1
@@ -2729,7 +2729,7 @@ f:
     EXCH        $f.70  $arg1
     XOR         $f.71  $f.70
     EXCH        $f.70  $arg1
-    # /indexing a[(+ i 2)](22, 14)
+    # /indexing a[(+ i 2)](22, 14, 304)
     EXCH        $f.64  $f.63
     SUB         $f.63  $f.66
     SUB1        $f.63
@@ -3168,7 +3168,7 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # from (&& (= i (- (* 2 4) 8)) (= 1 (+ 0 1))) at (6, 5)
+    # from (&& (= i (- (* 2 4) 8)) (= 1 (+ 0 1))) at (6, 5, 88)
     # ampamp[0]
     EXCH        $f.0  $arg1
     XOR         $f.1  $f.0
@@ -3246,7 +3246,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (&& (= i (+ (* 2 4) 1)) (= 1 (+ 0 1))) at (11, 5)
+    # until (&& (= i (+ (* 2 4) 1)) (= 1 (+ 0 1))) at (11, 5, 178)
     # ampamp[4]
     EXCH        $f.15  $arg1
     XOR         $f.16  $f.15
@@ -3581,7 +3581,7 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # from (&& (= i (- (* 2 4) 8)) (= 1 (+ 0 1))) at (7, 5)
+    # from (&& (= i (- (* 2 4) 8)) (= 1 (+ 0 1))) at (7, 5, 101)
     # ampamp[0]
     EXCH        $f.0  $arg1
     XOR         $f.1  $f.0
@@ -3659,7 +3659,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (&& (= i (+ (* 2 4) 1)) (= 1 (+ 0 1))) at (12, 5)
+    # until (&& (= i (+ (* 2 4) 1)) (= 1 (+ 0 1))) at (12, 5, 191)
     # ampamp[4]
     EXCH        $f.15  $arg1
     XOR         $f.16  $f.15
@@ -3987,7 +3987,7 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # from (= i 0) at (6, 5)
+    # from (= i 0) at (6, 5, 88)
     # eq[0]
     EXCH        $f.0  $arg1
     XOR         $f.1  $f.0
@@ -4022,7 +4022,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i 9) at (11, 5)
+    # until (= i 9) at (11, 5, 167)
     # eq[2]
     EXCH        $f.4  $arg1
     XOR         $f.5  $f.4
@@ -4236,7 +4236,7 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # from (= i 0) at (7, 5)
+    # from (= i 0) at (7, 5, 101)
     # eq[0]
     EXCH        $f.0  $arg1
     XOR         $f.1  $f.0
@@ -4271,7 +4271,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i 9) at (12, 5)
+    # until (= i 9) at (12, 5, 180)
     # eq[2]
     EXCH        $f.4  $arg1
     XOR         $f.5  $f.4
@@ -4475,14 +4475,14 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # local[i = 0](5, 5)
+    # local[i = 0](5, 5, 70)
     XORI        $f.1  0
     XOR         $f.0  $f.1
     PUSH        $f.0
     XOR         $f.i.0  $spointer
     XORI        $f.1  0
-    # /local[i = 0](5, 5)
-    # from (= i 0) at (6, 9)
+    # /local[i = 0](5, 5, 70)
+    # from (= i 0) at (6, 9, 94)
     # eq[0]
     EXCH        $f.3  $f.i.0
     XOR         $f.4  $f.3
@@ -4517,7 +4517,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i 9) at (11, 9)
+    # until (= i 9) at (11, 9, 193)
     # eq[2]
     EXCH        $f.7  $f.i.0
     XOR         $f.8  $f.7
@@ -4655,13 +4655,13 @@ f.eq3_top_post:
     XOR         $f.8  $f.7
     EXCH        $f.7  $f.i.0
     # /eq[3]
-    # delocal[i = 9](12, 19)
+    # delocal[i = 9](12, 19, 223)
     XORI        $f.2  9
     XOR         $f.i.0  $spointer
     POP         $f.0
     XOR         $f.0  $f.2
     XORI        $f.2  9
-    # /delocal[i = 9](12, 19)
+    # /delocal[i = 9](12, 19, 223)
 f.bot:
     BRA         f.top
 </span>
@@ -4728,14 +4728,14 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # local[i = 0](5, 5)
+    # local[i = 0](5, 5, 72)
     XORI        $f.1  0
     XOR         $f.0  $f.1
     PUSH        $f.0
     XOR         $f.i.0  $spointer
     XORI        $f.1  0
-    # /local[i = 0](5, 5)
-    # from (= i 0) at (6, 9)
+    # /local[i = 0](5, 5, 72)
+    # from (= i 0) at (6, 9, 96)
     # eq[0]
     EXCH        $f.3  $f.i.0
     XOR         $f.4  $f.3
@@ -4770,7 +4770,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i 9) at (11, 9)
+    # until (= i 9) at (11, 9, 195)
     # eq[2]
     EXCH        $f.7  $f.i.0
     XOR         $f.8  $f.7
@@ -4908,13 +4908,13 @@ f.eq3_top_post:
     XOR         $f.8  $f.7
     EXCH        $f.7  $f.i.0
     # /eq[3]
-    # delocal[i = 9](12, 19)
+    # delocal[i = 9](12, 19, 225)
     XORI        $f.2  9
     XOR         $f.i.0  $spointer
     POP         $f.0
     XOR         $f.0  $f.2
     XORI        $f.2  9
-    # /delocal[i = 9](12, 19)
+    # /delocal[i = 9](12, 19, 225)
 f.bot:
     BRA         f.top
 </span>
@@ -4981,14 +4981,14 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # local[i = 0](5, 5)
+    # local[i = 0](5, 5, 70)
     XORI        $f.1  0
     XOR         $f.0  $f.1
     PUSH        $f.0
     XOR         $f.i.0  $spointer
     XORI        $f.1  0
-    # /local[i = 0](5, 5)
-    # from (= i 0) at (6, 9)
+    # /local[i = 0](5, 5, 70)
+    # from (= i 0) at (6, 9, 94)
     # eq[0]
     EXCH        $f.3  $f.i.0
     XOR         $f.4  $f.3
@@ -5023,7 +5023,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i 9) at (13, 9)
+    # until (= i 9) at (13, 9, 263)
     # eq[2]
     EXCH        $f.7  $f.i.0
     XOR         $f.8  $f.7
@@ -5055,7 +5055,7 @@ f.eq2_top_post:
     XOR         $f.8  $f.7
     EXCH        $f.7  $f.i.0
     # /eq[2]
-    # local[j = (+ i 1)](9, 13)
+    # local[j = (+ i 1)](9, 13, 146)
     EXCH        $f.12  $f.i.0
     XOR         $f.13  $f.12
     EXCH        $f.12  $f.i.0
@@ -5071,7 +5071,7 @@ f.eq2_top_post:
     EXCH        $f.12  $f.i.0
     XOR         $f.13  $f.12
     EXCH        $f.12  $f.i.0
-    # /local[j = (+ i 1)](9, 13)
+    # /local[j = (+ i 1)](9, 13, 146)
     # i += 1
     EXCH        $f.18  $f.i.0
     ADD1        $f.18
@@ -5116,7 +5116,7 @@ f.eq2_top_post:
     XOR         $f.22  $f.21
     EXCH        $f.21  $f.j.0
     # /a[(/ (+ j j) 2)] += i
-    # delocal[j = i](12, 27)
+    # delocal[j = i](12, 27, 251)
     EXCH        $f.16  $f.i.0
     XOR         $f.17  $f.16
     EXCH        $f.16  $f.i.0
@@ -5126,7 +5126,7 @@ f.eq2_top_post:
     EXCH        $f.16  $f.i.0
     XOR         $f.17  $f.16
     EXCH        $f.16  $f.i.0
-    # /delocal[j = i](12, 27)
+    # /delocal[j = i](12, 27, 251)
     # eq[1]
     EXCH        $f.3  $f.i.0
     XOR         $f.4  $f.3
@@ -5189,13 +5189,13 @@ f.eq3_top_post:
     XOR         $f.8  $f.7
     EXCH        $f.7  $f.i.0
     # /eq[3]
-    # delocal[i = 9](14, 19)
+    # delocal[i = 9](14, 19, 293)
     XORI        $f.2  9
     XOR         $f.i.0  $spointer
     POP         $f.0
     XOR         $f.0  $f.2
     XORI        $f.2  9
-    # /delocal[i = 9](14, 19)
+    # /delocal[i = 9](14, 19, 293)
 f.bot:
     BRA         f.top
 </span>
@@ -5262,14 +5262,14 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # local[i = 0](5, 5)
+    # local[i = 0](5, 5, 72)
     XORI        $f.1  0
     XOR         $f.0  $f.1
     PUSH        $f.0
     XOR         $f.i.0  $spointer
     XORI        $f.1  0
-    # /local[i = 0](5, 5)
-    # from (= i 0) at (6, 9)
+    # /local[i = 0](5, 5, 72)
+    # from (= i 0) at (6, 9, 96)
     # eq[0]
     EXCH        $f.3  $f.i.0
     XOR         $f.4  $f.3
@@ -5304,7 +5304,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i 9) at (13, 9)
+    # until (= i 9) at (13, 9, 265)
     # eq[2]
     EXCH        $f.7  $f.i.0
     XOR         $f.8  $f.7
@@ -5336,7 +5336,7 @@ f.eq2_top_post:
     XOR         $f.8  $f.7
     EXCH        $f.7  $f.i.0
     # /eq[2]
-    # local[j = (+ i 1)](9, 13)
+    # local[j = (+ i 1)](9, 13, 148)
     EXCH        $f.12  $f.i.0
     XOR         $f.13  $f.12
     EXCH        $f.12  $f.i.0
@@ -5352,7 +5352,7 @@ f.eq2_top_post:
     EXCH        $f.12  $f.i.0
     XOR         $f.13  $f.12
     EXCH        $f.12  $f.i.0
-    # /local[j = (+ i 1)](9, 13)
+    # /local[j = (+ i 1)](9, 13, 148)
     # i += 1
     EXCH        $f.18  $f.i.0
     ADD1        $f.18
@@ -5397,7 +5397,7 @@ f.eq2_top_post:
     XOR         $f.22  $f.21
     EXCH        $f.21  $f.j.0
     # /a[(/ (+ j j) 2)] += i
-    # delocal[j = i](12, 27)
+    # delocal[j = i](12, 27, 253)
     EXCH        $f.16  $f.i.0
     XOR         $f.17  $f.16
     EXCH        $f.16  $f.i.0
@@ -5407,7 +5407,7 @@ f.eq2_top_post:
     EXCH        $f.16  $f.i.0
     XOR         $f.17  $f.16
     EXCH        $f.16  $f.i.0
-    # /delocal[j = i](12, 27)
+    # /delocal[j = i](12, 27, 253)
     # eq[1]
     EXCH        $f.3  $f.i.0
     XOR         $f.4  $f.3
@@ -5470,13 +5470,13 @@ f.eq3_top_post:
     XOR         $f.8  $f.7
     EXCH        $f.7  $f.i.0
     # /eq[3]
-    # delocal[i = 9](14, 19)
+    # delocal[i = 9](14, 19, 295)
     XORI        $f.2  9
     XOR         $f.i.0  $spointer
     POP         $f.0
     XOR         $f.0  $f.2
     XORI        $f.2  9
-    # /delocal[i = 9](14, 19)
+    # /delocal[i = 9](14, 19, 295)
 f.bot:
     BRA         f.top
 </span>
@@ -5586,7 +5586,7 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # from (= i 0) at (10, 5)
+    # from (= i 0) at (10, 5, 144)
     # eq[0]
     EXCH        $f.0  $arg1
     XOR         $f.1  $f.0
@@ -5621,7 +5621,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i size(x)) at (22, 5)
+    # until (= i size(x)) at (22, 5, 354)
     # eq[2]
     EXCH        $f.4  $arg1
     XOR         $f.5  $f.4
@@ -5659,14 +5659,14 @@ f.eq2_top_post:
     XOR         $f.5  $f.4
     EXCH        $f.4  $arg1
     # /eq[2]
-    # local[j = 1](13, 9)
+    # local[j = 1](13, 9, 184)
     XORI        $f.10  1
     XOR         $f.9  $f.10
     PUSH        $f.9
     XOR         $f.j.0  $spointer
     XORI        $f.10  1
-    # /local[j = 1](13, 9)
-    # from (= j 1) at (14, 9)
+    # /local[j = 1](13, 9, 184)
+    # from (= j 1) at (14, 9, 208)
     # eq[4]
     EXCH        $f.12  $f.j.0
     XOR         $f.13  $f.12
@@ -5701,7 +5701,7 @@ f.eq4_top_post:
     # do-code
     # skip
     NOP         
-    # until (= j 3) at (19, 9)
+    # until (= j 3) at (19, 9, 297)
     # eq[6]
     EXCH        $f.16  $f.j.0
     XOR         $f.17  $f.16
@@ -5823,13 +5823,13 @@ f.eq7_top_post:
     XOR         $f.17  $f.16
     EXCH        $f.16  $f.j.0
     # /eq[7]
-    # delocal[j = 3](20, 23)
+    # delocal[j = 3](20, 23, 331)
     XORI        $f.11  3
     XOR         $f.j.0  $spointer
     POP         $f.9
     XOR         $f.9  $f.11
     XORI        $f.11  3
-    # /delocal[j = 3](20, 23)
+    # /delocal[j = 3](20, 23, 331)
     # i += 1
     EXCH        $f.27  $arg1
     ADD1        $f.27
@@ -5983,7 +5983,7 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # from (= i 0) at (9, 5)
+    # from (= i 0) at (9, 5, 129)
     # eq[0]
     EXCH        $f.0  $arg1
     XOR         $f.1  $f.0
@@ -6018,7 +6018,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i size(x)) at (21, 5)
+    # until (= i size(x)) at (21, 5, 339)
     # eq[2]
     EXCH        $f.4  $arg1
     XOR         $f.5  $f.4
@@ -6056,14 +6056,14 @@ f.eq2_top_post:
     XOR         $f.5  $f.4
     EXCH        $f.4  $arg1
     # /eq[2]
-    # local[j = 1](12, 9)
+    # local[j = 1](12, 9, 169)
     XORI        $f.10  1
     XOR         $f.9  $f.10
     PUSH        $f.9
     XOR         $f.j.0  $spointer
     XORI        $f.10  1
-    # /local[j = 1](12, 9)
-    # from (= j 1) at (13, 9)
+    # /local[j = 1](12, 9, 169)
+    # from (= j 1) at (13, 9, 193)
     # eq[4]
     EXCH        $f.12  $f.j.0
     XOR         $f.13  $f.12
@@ -6098,7 +6098,7 @@ f.eq4_top_post:
     # do-code
     # skip
     NOP         
-    # until (= j 3) at (18, 9)
+    # until (= j 3) at (18, 9, 282)
     # eq[6]
     EXCH        $f.16  $f.j.0
     XOR         $f.17  $f.16
@@ -6220,13 +6220,13 @@ f.eq7_top_post:
     XOR         $f.17  $f.16
     EXCH        $f.16  $f.j.0
     # /eq[7]
-    # delocal[j = 3](19, 23)
+    # delocal[j = 3](19, 23, 316)
     XORI        $f.11  3
     XOR         $f.j.0  $spointer
     POP         $f.9
     XOR         $f.9  $f.11
     XORI        $f.11  3
-    # /delocal[j = 3](19, 23)
+    # /delocal[j = 3](19, 23, 316)
     # i += 1
     EXCH        $f.27  $arg1
     ADD1        $f.27
@@ -6409,7 +6409,7 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # from (= i 0) at (10, 5)
+    # from (= i 0) at (10, 5, 144)
     # eq[0]
     EXCH        $f.0  $arg1
     XOR         $f.1  $f.0
@@ -6444,7 +6444,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i size(x)) at (18, 5)
+    # until (= i size(x)) at (18, 5, 287)
     # eq[2]
     EXCH        $f.4  $arg1
     XOR         $f.5  $f.4
@@ -6483,9 +6483,9 @@ f.eq2_top_post:
     EXCH        $f.4  $arg1
     # /eq[2]
     # if[0]
-    # if[0]((< x[i] x[1]))
+    # if[0]((&lt; x[i] x[1]))
     # lt[4]
-    # indexing x[i](13, 13)
+    # indexing x[i](13, 13, 188)
     EXCH        $f.12  $arg1
     XOR         $f.13  $f.12
     EXCH        $f.12  $arg1
@@ -6496,7 +6496,7 @@ f.eq2_top_post:
     XOR         $f.11  $f.10
     EXCH        $f.10  $f.9
     # ind-expr
-    # indexing x[1](13, 20)
+    # indexing x[1](13, 20, 195)
     XORI        $f.17  1
     XOR         $f.14  $arg0
     ADD         $f.14  $f.17
@@ -6534,7 +6534,7 @@ f.lt4_top_post:
     SUB         $f.14  $f.17
     XOR         $f.14  $arg0
     XORI        $f.17  1
-    # /indexing x[1](13, 20)
+    # /indexing x[1](13, 20, 195)
     # /ind-expr
     EXCH        $f.10  $f.9
     XOR         $f.11  $f.10
@@ -6545,7 +6545,7 @@ f.lt4_top_post:
     EXCH        $f.12  $arg1
     XOR         $f.13  $f.12
     EXCH        $f.12  $arg1
-    # /indexing x[i](13, 13)
+    # /indexing x[i](13, 13, 188)
     # /lt[4]
 f.if0_if:
     # x[i] -= 10
@@ -6568,7 +6568,7 @@ f.if0_if:
     EXCH        $f.31  $arg1
     # /x[i] -= 10
     # lt[7]
-    # indexing x[i](16, 13)
+    # indexing x[i](16, 13, 257)
     EXCH        $f.22  $arg1
     XOR         $f.23  $f.22
     EXCH        $f.22  $arg1
@@ -6579,7 +6579,7 @@ f.if0_if:
     XOR         $f.21  $f.20
     EXCH        $f.20  $f.19
     # ind-expr
-    # indexing x[1](16, 20)
+    # indexing x[1](16, 20, 264)
     XORI        $f.27  1
     XOR         $f.24  $arg0
     ADD         $f.24  $f.27
@@ -6601,7 +6601,7 @@ f.lt7_bot_pre:
 f.if0_then:
     BRA         f.if0_bot
     # lt[5]
-    # indexing x[i](13, 13)
+    # indexing x[i](13, 13, 188)
     EXCH        $f.12  $arg1
     XOR         $f.13  $f.12
     EXCH        $f.12  $arg1
@@ -6612,7 +6612,7 @@ f.if0_then:
     XOR         $f.11  $f.10
     EXCH        $f.10  $f.9
     # ind-expr
-    # indexing x[1](13, 20)
+    # indexing x[1](13, 20, 195)
     XORI        $f.17  1
     XOR         $f.14  $arg0
     ADD         $f.14  $f.17
@@ -6650,7 +6650,7 @@ f.lt5_top_post:
     SUB         $f.14  $f.17
     XOR         $f.14  $arg0
     XORI        $f.17  1
-    # /indexing x[1](13, 20)
+    # /indexing x[1](13, 20, 195)
     # /ind-expr
     EXCH        $f.10  $f.9
     XOR         $f.11  $f.10
@@ -6661,13 +6661,13 @@ f.lt5_top_post:
     EXCH        $f.12  $arg1
     XOR         $f.13  $f.12
     EXCH        $f.12  $arg1
-    # /indexing x[i](13, 13)
+    # /indexing x[i](13, 13, 188)
     # /lt[5]
     # skip
     NOP         
-    # fi[0]((< x[i] x[1]))
+    # fi[0]((&lt; x[i] x[1]))
     # lt[6]
-    # indexing x[i](16, 13)
+    # indexing x[i](16, 13, 257)
     EXCH        $f.22  $arg1
     XOR         $f.23  $f.22
     EXCH        $f.22  $arg1
@@ -6678,7 +6678,7 @@ f.lt5_top_post:
     XOR         $f.21  $f.20
     EXCH        $f.20  $f.19
     # ind-expr
-    # indexing x[1](16, 20)
+    # indexing x[1](16, 20, 264)
     XORI        $f.27  1
     XOR         $f.24  $arg0
     ADD         $f.24  $f.27
@@ -6716,7 +6716,7 @@ f.lt6_top_post:
     SUB         $f.24  $f.27
     XOR         $f.24  $arg0
     XORI        $f.27  1
-    # /indexing x[1](16, 20)
+    # /indexing x[1](16, 20, 264)
     # /ind-expr
     EXCH        $f.20  $f.19
     XOR         $f.21  $f.20
@@ -6727,7 +6727,7 @@ f.lt6_top_post:
     EXCH        $f.22  $arg1
     XOR         $f.23  $f.22
     EXCH        $f.22  $arg1
-    # /indexing x[i](16, 13)
+    # /indexing x[i](16, 13, 257)
     # /lt[6]
     # /if[0]
     # i += 1
@@ -6921,7 +6921,7 @@ f:
     NEG         $raddr
     PUSH        $raddr
     # f body
-    # from (= i 0) at (11, 5)
+    # from (= i 0) at (11, 5, 157)
     # eq[0]
     EXCH        $f.0  $arg1
     XOR         $f.1  $f.0
@@ -6956,7 +6956,7 @@ f.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= i size(x)) at (19, 5)
+    # until (= i size(x)) at (19, 5, 300)
     # eq[2]
     EXCH        $f.4  $arg1
     XOR         $f.5  $f.4
@@ -6995,9 +6995,9 @@ f.eq2_top_post:
     EXCH        $f.4  $arg1
     # /eq[2]
     # if[0]
-    # if[0]((< x[i] x[1]))
+    # if[0]((&lt; x[i] x[1]))
     # lt[4]
-    # indexing x[i](14, 13)
+    # indexing x[i](14, 13, 201)
     EXCH        $f.12  $arg1
     XOR         $f.13  $f.12
     EXCH        $f.12  $arg1
@@ -7008,7 +7008,7 @@ f.eq2_top_post:
     XOR         $f.11  $f.10
     EXCH        $f.10  $f.9
     # ind-expr
-    # indexing x[1](14, 20)
+    # indexing x[1](14, 20, 208)
     XORI        $f.17  1
     XOR         $f.14  $arg0
     ADD         $f.14  $f.17
@@ -7046,7 +7046,7 @@ f.lt4_top_post:
     SUB         $f.14  $f.17
     XOR         $f.14  $arg0
     XORI        $f.17  1
-    # /indexing x[1](14, 20)
+    # /indexing x[1](14, 20, 208)
     # /ind-expr
     EXCH        $f.10  $f.9
     XOR         $f.11  $f.10
@@ -7057,7 +7057,7 @@ f.lt4_top_post:
     EXCH        $f.12  $arg1
     XOR         $f.13  $f.12
     EXCH        $f.12  $arg1
-    # /indexing x[i](14, 13)
+    # /indexing x[i](14, 13, 201)
     # /lt[4]
 f.if0_if:
     # x[i] -= 10
@@ -7080,7 +7080,7 @@ f.if0_if:
     EXCH        $f.31  $arg1
     # /x[i] -= 10
     # lt[7]
-    # indexing x[i](17, 13)
+    # indexing x[i](17, 13, 270)
     EXCH        $f.22  $arg1
     XOR         $f.23  $f.22
     EXCH        $f.22  $arg1
@@ -7091,7 +7091,7 @@ f.if0_if:
     XOR         $f.21  $f.20
     EXCH        $f.20  $f.19
     # ind-expr
-    # indexing x[1](17, 20)
+    # indexing x[1](17, 20, 277)
     XORI        $f.27  1
     XOR         $f.24  $arg0
     ADD         $f.24  $f.27
@@ -7113,7 +7113,7 @@ f.lt7_bot_pre:
 f.if0_then:
     BRA         f.if0_bot
     # lt[5]
-    # indexing x[i](14, 13)
+    # indexing x[i](14, 13, 201)
     EXCH        $f.12  $arg1
     XOR         $f.13  $f.12
     EXCH        $f.12  $arg1
@@ -7124,7 +7124,7 @@ f.if0_then:
     XOR         $f.11  $f.10
     EXCH        $f.10  $f.9
     # ind-expr
-    # indexing x[1](14, 20)
+    # indexing x[1](14, 20, 208)
     XORI        $f.17  1
     XOR         $f.14  $arg0
     ADD         $f.14  $f.17
@@ -7162,7 +7162,7 @@ f.lt5_top_post:
     SUB         $f.14  $f.17
     XOR         $f.14  $arg0
     XORI        $f.17  1
-    # /indexing x[1](14, 20)
+    # /indexing x[1](14, 20, 208)
     # /ind-expr
     EXCH        $f.10  $f.9
     XOR         $f.11  $f.10
@@ -7173,13 +7173,13 @@ f.lt5_top_post:
     EXCH        $f.12  $arg1
     XOR         $f.13  $f.12
     EXCH        $f.12  $arg1
-    # /indexing x[i](14, 13)
+    # /indexing x[i](14, 13, 201)
     # /lt[5]
     # skip
     NOP         
-    # fi[0]((< x[i] x[1]))
+    # fi[0]((&lt; x[i] x[1]))
     # lt[6]
-    # indexing x[i](17, 13)
+    # indexing x[i](17, 13, 270)
     EXCH        $f.22  $arg1
     XOR         $f.23  $f.22
     EXCH        $f.22  $arg1
@@ -7190,7 +7190,7 @@ f.lt5_top_post:
     XOR         $f.21  $f.20
     EXCH        $f.20  $f.19
     # ind-expr
-    # indexing x[1](17, 20)
+    # indexing x[1](17, 20, 277)
     XORI        $f.27  1
     XOR         $f.24  $arg0
     ADD         $f.24  $f.27
@@ -7228,7 +7228,7 @@ f.lt6_top_post:
     SUB         $f.24  $f.27
     XOR         $f.24  $arg0
     XORI        $f.27  1
-    # /indexing x[1](17, 20)
+    # /indexing x[1](17, 20, 277)
     # /ind-expr
     EXCH        $f.20  $f.19
     XOR         $f.21  $f.20
@@ -7239,7 +7239,7 @@ f.lt6_top_post:
     EXCH        $f.22  $arg1
     XOR         $f.23  $f.22
     EXCH        $f.22  $arg1
-    # /indexing x[i](17, 13)
+    # /indexing x[i](17, 13, 270)
     # /lt[6]
     # /if[0]
     # i += 1
@@ -7457,7 +7457,7 @@ perm_to_code:
     NEG         $raddr
     PUSH        $raddr
     # perm_to_code body
-    # local[k = size(x)](12, 5)
+    # local[k = size(x)](12, 5, 189)
     # size(x)
     EXCH        $perm_to_code.2  $arg0
     XOR         $perm_to_code.1  $perm_to_code.2
@@ -7469,8 +7469,8 @@ perm_to_code:
     XOR         $perm_to_code.1  $perm_to_code.2
     EXCH        $perm_to_code.2  $arg0
     # /size(x)
-    # /local[k = size(x)](12, 5)
-    # from (= k size(x)) at (13, 5)
+    # /local[k = size(x)](12, 5, 189)
+    # from (= k size(x)) at (13, 5, 215)
     # eq[0]
     EXCH        $perm_to_code.4  $perm_to_code.k.0
     XOR         $perm_to_code.5  $perm_to_code.4
@@ -7511,7 +7511,7 @@ perm_to_code.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= k 0) at (28, 5)
+    # until (= k 0) at (28, 5, 517)
     # eq[2]
     EXCH        $perm_to_code.9  $perm_to_code.k.0
     XOR         $perm_to_code.10  $perm_to_code.9
@@ -7548,14 +7548,14 @@ perm_to_code.eq2_top_post:
     SUB1        $perm_to_code.13
     EXCH        $perm_to_code.13  $perm_to_code.k.0
     # /k -= 1
-    # local[j = 0](17, 9)
+    # local[j = 0](17, 9, 276)
     XORI        $perm_to_code.15  0
     XOR         $perm_to_code.14  $perm_to_code.15
     PUSH        $perm_to_code.14
     XOR         $perm_to_code.j.0  $spointer
     XORI        $perm_to_code.15  0
-    # /local[j = 0](17, 9)
-    # from (= j 0) at (18, 9)
+    # /local[j = 0](17, 9, 276)
+    # from (= j 0) at (18, 9, 300)
     # eq[4]
     EXCH        $perm_to_code.18  $perm_to_code.j.0
     XOR         $perm_to_code.19  $perm_to_code.18
@@ -7590,7 +7590,7 @@ perm_to_code.eq4_top_post:
     # do-code
     # skip
     NOP         
-    # until (= j k) at (26, 9)
+    # until (= j k) at (26, 9, 475)
     # eq[6]
     EXCH        $perm_to_code.22  $perm_to_code.j.0
     XOR         $perm_to_code.23  $perm_to_code.22
@@ -7627,9 +7627,9 @@ perm_to_code.eq6_top_post:
     EXCH        $perm_to_code.22  $perm_to_code.j.0
     # /eq[6]
     # if[0]
-    # if[0]((> x[j] x[k]))
+    # if[0]((&gt; x[j] x[k]))
     # gt[8]
-    # indexing x[j](21, 17)
+    # indexing x[j](21, 17, 356)
     EXCH        $perm_to_code.30  $perm_to_code.j.0
     XOR         $perm_to_code.31  $perm_to_code.30
     EXCH        $perm_to_code.30  $perm_to_code.j.0
@@ -7640,7 +7640,7 @@ perm_to_code.eq6_top_post:
     XOR         $perm_to_code.29  $perm_to_code.28
     EXCH        $perm_to_code.28  $perm_to_code.27
     # ind-expr
-    # indexing x[k](21, 24)
+    # indexing x[k](21, 24, 363)
     EXCH        $perm_to_code.35  $perm_to_code.k.0
     XOR         $perm_to_code.36  $perm_to_code.35
     EXCH        $perm_to_code.35  $perm_to_code.k.0
@@ -7682,7 +7682,7 @@ perm_to_code.gt8_top_post:
     EXCH        $perm_to_code.35  $perm_to_code.k.0
     XOR         $perm_to_code.36  $perm_to_code.35
     EXCH        $perm_to_code.35  $perm_to_code.k.0
-    # /indexing x[k](21, 24)
+    # /indexing x[k](21, 24, 363)
     # /ind-expr
     EXCH        $perm_to_code.28  $perm_to_code.27
     XOR         $perm_to_code.29  $perm_to_code.28
@@ -7693,7 +7693,7 @@ perm_to_code.gt8_top_post:
     EXCH        $perm_to_code.30  $perm_to_code.j.0
     XOR         $perm_to_code.31  $perm_to_code.30
     EXCH        $perm_to_code.30  $perm_to_code.j.0
-    # /indexing x[j](21, 17)
+    # /indexing x[j](21, 17, 356)
     # /gt[8]
 perm_to_code.if0_if:
     # x[j] -= 1
@@ -7714,7 +7714,7 @@ perm_to_code.if0_if:
     EXCH        $perm_to_code.51  $perm_to_code.j.0
     # /x[j] -= 1
     # geq[11]
-    # indexing x[j](24, 17)
+    # indexing x[j](24, 17, 436)
     EXCH        $perm_to_code.41  $perm_to_code.j.0
     XOR         $perm_to_code.42  $perm_to_code.41
     EXCH        $perm_to_code.41  $perm_to_code.j.0
@@ -7725,7 +7725,7 @@ perm_to_code.if0_if:
     XOR         $perm_to_code.40  $perm_to_code.39
     EXCH        $perm_to_code.39  $perm_to_code.38
     # ind-expr
-    # indexing x[k](24, 25)
+    # indexing x[k](24, 25, 444)
     EXCH        $perm_to_code.46  $perm_to_code.k.0
     XOR         $perm_to_code.47  $perm_to_code.46
     EXCH        $perm_to_code.46  $perm_to_code.k.0
@@ -7749,7 +7749,7 @@ perm_to_code.geq11_bot_pre:
 perm_to_code.if0_then:
     BRA         perm_to_code.if0_bot
     # gt[9]
-    # indexing x[j](21, 17)
+    # indexing x[j](21, 17, 356)
     EXCH        $perm_to_code.30  $perm_to_code.j.0
     XOR         $perm_to_code.31  $perm_to_code.30
     EXCH        $perm_to_code.30  $perm_to_code.j.0
@@ -7760,7 +7760,7 @@ perm_to_code.if0_then:
     XOR         $perm_to_code.29  $perm_to_code.28
     EXCH        $perm_to_code.28  $perm_to_code.27
     # ind-expr
-    # indexing x[k](21, 24)
+    # indexing x[k](21, 24, 363)
     EXCH        $perm_to_code.35  $perm_to_code.k.0
     XOR         $perm_to_code.36  $perm_to_code.35
     EXCH        $perm_to_code.35  $perm_to_code.k.0
@@ -7802,7 +7802,7 @@ perm_to_code.gt9_top_post:
     EXCH        $perm_to_code.35  $perm_to_code.k.0
     XOR         $perm_to_code.36  $perm_to_code.35
     EXCH        $perm_to_code.35  $perm_to_code.k.0
-    # /indexing x[k](21, 24)
+    # /indexing x[k](21, 24, 363)
     # /ind-expr
     EXCH        $perm_to_code.28  $perm_to_code.27
     XOR         $perm_to_code.29  $perm_to_code.28
@@ -7813,13 +7813,13 @@ perm_to_code.gt9_top_post:
     EXCH        $perm_to_code.30  $perm_to_code.j.0
     XOR         $perm_to_code.31  $perm_to_code.30
     EXCH        $perm_to_code.30  $perm_to_code.j.0
-    # /indexing x[j](21, 17)
+    # /indexing x[j](21, 17, 356)
     # /gt[9]
     # skip
     NOP         
     # fi[0]((geq x[j] x[k]))
     # geq[10]
-    # indexing x[j](24, 17)
+    # indexing x[j](24, 17, 436)
     EXCH        $perm_to_code.41  $perm_to_code.j.0
     XOR         $perm_to_code.42  $perm_to_code.41
     EXCH        $perm_to_code.41  $perm_to_code.j.0
@@ -7830,7 +7830,7 @@ perm_to_code.gt9_top_post:
     XOR         $perm_to_code.40  $perm_to_code.39
     EXCH        $perm_to_code.39  $perm_to_code.38
     # ind-expr
-    # indexing x[k](24, 25)
+    # indexing x[k](24, 25, 444)
     EXCH        $perm_to_code.46  $perm_to_code.k.0
     XOR         $perm_to_code.47  $perm_to_code.46
     EXCH        $perm_to_code.46  $perm_to_code.k.0
@@ -7872,7 +7872,7 @@ perm_to_code.geq10_top_post:
     EXCH        $perm_to_code.46  $perm_to_code.k.0
     XOR         $perm_to_code.47  $perm_to_code.46
     EXCH        $perm_to_code.46  $perm_to_code.k.0
-    # /indexing x[k](24, 25)
+    # /indexing x[k](24, 25, 444)
     # /ind-expr
     EXCH        $perm_to_code.39  $perm_to_code.38
     XOR         $perm_to_code.40  $perm_to_code.39
@@ -7883,7 +7883,7 @@ perm_to_code.geq10_top_post:
     EXCH        $perm_to_code.41  $perm_to_code.j.0
     XOR         $perm_to_code.42  $perm_to_code.41
     EXCH        $perm_to_code.41  $perm_to_code.j.0
-    # /indexing x[j](24, 17)
+    # /indexing x[j](24, 17, 436)
     # /geq[10]
     # /if[0]
     # j += 1
@@ -7957,7 +7957,7 @@ perm_to_code.eq7_top_post:
     XOR         $perm_to_code.23  $perm_to_code.22
     EXCH        $perm_to_code.22  $perm_to_code.j.0
     # /eq[7]
-    # delocal[j = k](27, 23)
+    # delocal[j = k](27, 23, 509)
     EXCH        $perm_to_code.16  $perm_to_code.k.0
     XOR         $perm_to_code.17  $perm_to_code.16
     EXCH        $perm_to_code.16  $perm_to_code.k.0
@@ -7967,7 +7967,7 @@ perm_to_code.eq7_top_post:
     EXCH        $perm_to_code.16  $perm_to_code.k.0
     XOR         $perm_to_code.17  $perm_to_code.16
     EXCH        $perm_to_code.16  $perm_to_code.k.0
-    # /delocal[j = k](27, 23)
+    # /delocal[j = k](27, 23, 509)
     # eq[1]
     EXCH        $perm_to_code.4  $perm_to_code.k.0
     XOR         $perm_to_code.5  $perm_to_code.4
@@ -8036,13 +8036,13 @@ perm_to_code.eq3_top_post:
     XOR         $perm_to_code.10  $perm_to_code.9
     EXCH        $perm_to_code.9  $perm_to_code.k.0
     # /eq[3]
-    # delocal[k = 0](29, 19)
+    # delocal[k = 0](29, 19, 547)
     XORI        $perm_to_code.3  0
     XOR         $perm_to_code.k.0  $spointer
     POP         $perm_to_code.0
     XOR         $perm_to_code.0  $perm_to_code.3
     XORI        $perm_to_code.3  0
-    # /delocal[k = 0](29, 19)
+    # /delocal[k = 0](29, 19, 547)
 perm_to_code.bot:
     BRA         perm_to_code.top
 </span>
@@ -8185,7 +8185,7 @@ perm_to_code:
     NEG         $raddr
     PUSH        $raddr
     # perm_to_code body
-    # local[k = size(x)](12, 5)
+    # local[k = size(x)](12, 5, 191)
     # size(x)
     EXCH        $perm_to_code.2  $arg0
     XOR         $perm_to_code.1  $perm_to_code.2
@@ -8197,8 +8197,8 @@ perm_to_code:
     XOR         $perm_to_code.1  $perm_to_code.2
     EXCH        $perm_to_code.2  $arg0
     # /size(x)
-    # /local[k = size(x)](12, 5)
-    # from (= k size(x)) at (13, 5)
+    # /local[k = size(x)](12, 5, 191)
+    # from (= k size(x)) at (13, 5, 217)
     # eq[0]
     EXCH        $perm_to_code.4  $perm_to_code.k.0
     XOR         $perm_to_code.5  $perm_to_code.4
@@ -8239,7 +8239,7 @@ perm_to_code.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= k 0) at (28, 5)
+    # until (= k 0) at (28, 5, 519)
     # eq[2]
     EXCH        $perm_to_code.9  $perm_to_code.k.0
     XOR         $perm_to_code.10  $perm_to_code.9
@@ -8276,14 +8276,14 @@ perm_to_code.eq2_top_post:
     SUB1        $perm_to_code.13
     EXCH        $perm_to_code.13  $perm_to_code.k.0
     # /k -= 1
-    # local[j = 0](17, 9)
+    # local[j = 0](17, 9, 278)
     XORI        $perm_to_code.15  0
     XOR         $perm_to_code.14  $perm_to_code.15
     PUSH        $perm_to_code.14
     XOR         $perm_to_code.j.0  $spointer
     XORI        $perm_to_code.15  0
-    # /local[j = 0](17, 9)
-    # from (= j 0) at (18, 9)
+    # /local[j = 0](17, 9, 278)
+    # from (= j 0) at (18, 9, 302)
     # eq[4]
     EXCH        $perm_to_code.18  $perm_to_code.j.0
     XOR         $perm_to_code.19  $perm_to_code.18
@@ -8318,7 +8318,7 @@ perm_to_code.eq4_top_post:
     # do-code
     # skip
     NOP         
-    # until (= j k) at (26, 9)
+    # until (= j k) at (26, 9, 477)
     # eq[6]
     EXCH        $perm_to_code.22  $perm_to_code.j.0
     XOR         $perm_to_code.23  $perm_to_code.22
@@ -8355,9 +8355,9 @@ perm_to_code.eq6_top_post:
     EXCH        $perm_to_code.22  $perm_to_code.j.0
     # /eq[6]
     # if[0]
-    # if[0]((> x[j] x[k]))
+    # if[0]((&gt; x[j] x[k]))
     # gt[8]
-    # indexing x[j](21, 17)
+    # indexing x[j](21, 17, 358)
     EXCH        $perm_to_code.30  $perm_to_code.j.0
     XOR         $perm_to_code.31  $perm_to_code.30
     EXCH        $perm_to_code.30  $perm_to_code.j.0
@@ -8368,7 +8368,7 @@ perm_to_code.eq6_top_post:
     XOR         $perm_to_code.29  $perm_to_code.28
     EXCH        $perm_to_code.28  $perm_to_code.27
     # ind-expr
-    # indexing x[k](21, 24)
+    # indexing x[k](21, 24, 365)
     EXCH        $perm_to_code.35  $perm_to_code.k.0
     XOR         $perm_to_code.36  $perm_to_code.35
     EXCH        $perm_to_code.35  $perm_to_code.k.0
@@ -8410,7 +8410,7 @@ perm_to_code.gt8_top_post:
     EXCH        $perm_to_code.35  $perm_to_code.k.0
     XOR         $perm_to_code.36  $perm_to_code.35
     EXCH        $perm_to_code.35  $perm_to_code.k.0
-    # /indexing x[k](21, 24)
+    # /indexing x[k](21, 24, 365)
     # /ind-expr
     EXCH        $perm_to_code.28  $perm_to_code.27
     XOR         $perm_to_code.29  $perm_to_code.28
@@ -8421,7 +8421,7 @@ perm_to_code.gt8_top_post:
     EXCH        $perm_to_code.30  $perm_to_code.j.0
     XOR         $perm_to_code.31  $perm_to_code.30
     EXCH        $perm_to_code.30  $perm_to_code.j.0
-    # /indexing x[j](21, 17)
+    # /indexing x[j](21, 17, 358)
     # /gt[8]
 perm_to_code.if0_if:
     # x[j] -= 1
@@ -8442,7 +8442,7 @@ perm_to_code.if0_if:
     EXCH        $perm_to_code.51  $perm_to_code.j.0
     # /x[j] -= 1
     # geq[11]
-    # indexing x[j](24, 17)
+    # indexing x[j](24, 17, 438)
     EXCH        $perm_to_code.41  $perm_to_code.j.0
     XOR         $perm_to_code.42  $perm_to_code.41
     EXCH        $perm_to_code.41  $perm_to_code.j.0
@@ -8453,7 +8453,7 @@ perm_to_code.if0_if:
     XOR         $perm_to_code.40  $perm_to_code.39
     EXCH        $perm_to_code.39  $perm_to_code.38
     # ind-expr
-    # indexing x[k](24, 25)
+    # indexing x[k](24, 25, 446)
     EXCH        $perm_to_code.46  $perm_to_code.k.0
     XOR         $perm_to_code.47  $perm_to_code.46
     EXCH        $perm_to_code.46  $perm_to_code.k.0
@@ -8477,7 +8477,7 @@ perm_to_code.geq11_bot_pre:
 perm_to_code.if0_then:
     BRA         perm_to_code.if0_bot
     # gt[9]
-    # indexing x[j](21, 17)
+    # indexing x[j](21, 17, 358)
     EXCH        $perm_to_code.30  $perm_to_code.j.0
     XOR         $perm_to_code.31  $perm_to_code.30
     EXCH        $perm_to_code.30  $perm_to_code.j.0
@@ -8488,7 +8488,7 @@ perm_to_code.if0_then:
     XOR         $perm_to_code.29  $perm_to_code.28
     EXCH        $perm_to_code.28  $perm_to_code.27
     # ind-expr
-    # indexing x[k](21, 24)
+    # indexing x[k](21, 24, 365)
     EXCH        $perm_to_code.35  $perm_to_code.k.0
     XOR         $perm_to_code.36  $perm_to_code.35
     EXCH        $perm_to_code.35  $perm_to_code.k.0
@@ -8530,7 +8530,7 @@ perm_to_code.gt9_top_post:
     EXCH        $perm_to_code.35  $perm_to_code.k.0
     XOR         $perm_to_code.36  $perm_to_code.35
     EXCH        $perm_to_code.35  $perm_to_code.k.0
-    # /indexing x[k](21, 24)
+    # /indexing x[k](21, 24, 365)
     # /ind-expr
     EXCH        $perm_to_code.28  $perm_to_code.27
     XOR         $perm_to_code.29  $perm_to_code.28
@@ -8541,13 +8541,13 @@ perm_to_code.gt9_top_post:
     EXCH        $perm_to_code.30  $perm_to_code.j.0
     XOR         $perm_to_code.31  $perm_to_code.30
     EXCH        $perm_to_code.30  $perm_to_code.j.0
-    # /indexing x[j](21, 17)
+    # /indexing x[j](21, 17, 358)
     # /gt[9]
     # skip
     NOP         
     # fi[0]((geq x[j] x[k]))
     # geq[10]
-    # indexing x[j](24, 17)
+    # indexing x[j](24, 17, 438)
     EXCH        $perm_to_code.41  $perm_to_code.j.0
     XOR         $perm_to_code.42  $perm_to_code.41
     EXCH        $perm_to_code.41  $perm_to_code.j.0
@@ -8558,7 +8558,7 @@ perm_to_code.gt9_top_post:
     XOR         $perm_to_code.40  $perm_to_code.39
     EXCH        $perm_to_code.39  $perm_to_code.38
     # ind-expr
-    # indexing x[k](24, 25)
+    # indexing x[k](24, 25, 446)
     EXCH        $perm_to_code.46  $perm_to_code.k.0
     XOR         $perm_to_code.47  $perm_to_code.46
     EXCH        $perm_to_code.46  $perm_to_code.k.0
@@ -8600,7 +8600,7 @@ perm_to_code.geq10_top_post:
     EXCH        $perm_to_code.46  $perm_to_code.k.0
     XOR         $perm_to_code.47  $perm_to_code.46
     EXCH        $perm_to_code.46  $perm_to_code.k.0
-    # /indexing x[k](24, 25)
+    # /indexing x[k](24, 25, 446)
     # /ind-expr
     EXCH        $perm_to_code.39  $perm_to_code.38
     XOR         $perm_to_code.40  $perm_to_code.39
@@ -8611,7 +8611,7 @@ perm_to_code.geq10_top_post:
     EXCH        $perm_to_code.41  $perm_to_code.j.0
     XOR         $perm_to_code.42  $perm_to_code.41
     EXCH        $perm_to_code.41  $perm_to_code.j.0
-    # /indexing x[j](24, 17)
+    # /indexing x[j](24, 17, 438)
     # /geq[10]
     # /if[0]
     # j += 1
@@ -8685,7 +8685,7 @@ perm_to_code.eq7_top_post:
     XOR         $perm_to_code.23  $perm_to_code.22
     EXCH        $perm_to_code.22  $perm_to_code.j.0
     # /eq[7]
-    # delocal[j = k](27, 23)
+    # delocal[j = k](27, 23, 511)
     EXCH        $perm_to_code.16  $perm_to_code.k.0
     XOR         $perm_to_code.17  $perm_to_code.16
     EXCH        $perm_to_code.16  $perm_to_code.k.0
@@ -8695,7 +8695,7 @@ perm_to_code.eq7_top_post:
     EXCH        $perm_to_code.16  $perm_to_code.k.0
     XOR         $perm_to_code.17  $perm_to_code.16
     EXCH        $perm_to_code.16  $perm_to_code.k.0
-    # /delocal[j = k](27, 23)
+    # /delocal[j = k](27, 23, 511)
     # eq[1]
     EXCH        $perm_to_code.4  $perm_to_code.k.0
     XOR         $perm_to_code.5  $perm_to_code.4
@@ -8764,13 +8764,13 @@ perm_to_code.eq3_top_post:
     XOR         $perm_to_code.10  $perm_to_code.9
     EXCH        $perm_to_code.9  $perm_to_code.k.0
     # /eq[3]
-    # delocal[k = 0](29, 19)
+    # delocal[k = 0](29, 19, 549)
     XORI        $perm_to_code.3  0
     XOR         $perm_to_code.k.0  $spointer
     POP         $perm_to_code.0
     XOR         $perm_to_code.0  $perm_to_code.3
     XORI        $perm_to_code.3  0
-    # /delocal[k = 0](29, 19)
+    # /delocal[k = 0](29, 19, 549)
 perm_to_code.bot:
     BRA         perm_to_code.top
 </span>
@@ -8877,21 +8877,21 @@ factor:
     NEG         $raddr
     PUSH        $raddr
     # factor body
-    # local[try = 0](9, 5)
+    # local[try = 0](9, 5, 274)
     XORI        $factor.1  0
     XOR         $factor.0  $factor.1
     PUSH        $factor.0
     XOR         $factor.try.0  $spointer
     XORI        $factor.1  0
-    # /local[try = 0](9, 5)
-    # local[i = 0](10, 5)
+    # /local[try = 0](9, 5, 274)
+    # local[i = 0](10, 5, 319)
     XORI        $factor.4  0
     XOR         $factor.3  $factor.4
     PUSH        $factor.3
     XOR         $factor.i.0  $spointer
     XORI        $factor.4  0
-    # /local[i = 0](10, 5)
-    # from (&& (= try 0) (> num 1)) at (11, 5)
+    # /local[i = 0](10, 5, 319)
+    # from (&& (= try 0) (&gt; num 1)) at (11, 5, 386)
     # ampamp[0]
     EXCH        $factor.6  $factor.try.0
     XOR         $factor.7  $factor.6
@@ -8959,7 +8959,7 @@ factor.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (> (* try try) num) at (24, 5)
+    # until (&gt; (* try try) num) at (24, 5, 791)
     # gt[4]
     EXCH        $factor.17  $factor.try.0
     XOR         $factor.18  $factor.17
@@ -9006,9 +9006,9 @@ factor.gt4_top_post:
     EXCH        $factor.17  $factor.try.0
     # /gt[4]
     CALL        nexttry  ($factor.try.0)
-    # from (!= fact[i] try) at (15, 9)
+    # from (!= fact[i] try) at (15, 9, 471)
     # neq[6]
-    # indexing fact[i](15, 18)
+    # indexing fact[i](15, 18, 480)
     EXCH        $factor.29  $factor.i.0
     XOR         $factor.30  $factor.29
     EXCH        $factor.29  $factor.i.0
@@ -9056,12 +9056,12 @@ factor.neq6_top_post:
     EXCH        $factor.29  $factor.i.0
     XOR         $factor.30  $factor.29
     EXCH        $factor.29  $factor.i.0
-    # /indexing fact[i](15, 18)
+    # /indexing fact[i](15, 18, 480)
     # /neq[6]
     # do-code
     # skip
     NOP         
-    # until (!= (% num try) 0) at (23, 9)
+    # until (!= (% num try) 0) at (23, 9, 764)
     # neq[8]
     EXCH        $factor.34  $arg0
     XOR         $factor.35  $factor.34
@@ -9131,7 +9131,7 @@ factor.neq8_top_post:
     XOR         $factor.46  $factor.45
     EXCH        $factor.45  $factor.i.0
     # /fact[i] += try
-    # local[z = (/ num try)](20, 13)
+    # local[z = (/ num try)](20, 13, 668)
     EXCH        $factor.50  $arg0
     XOR         $factor.51  $factor.50
     EXCH        $factor.50  $arg0
@@ -9151,15 +9151,15 @@ factor.neq8_top_post:
     EXCH        $factor.50  $arg0
     XOR         $factor.51  $factor.50
     EXCH        $factor.50  $arg0
-    # /local[z = (/ num try)](20, 13)
-    # z <=> num
+    # /local[z = (/ num try)](20, 13, 668)
+    # z &lt;=&gt; num
     EXCH        $factor.62  $factor.z.0
     EXCH        $factor.63  $arg0
     SWAP        $factor.62  $factor.63
     EXCH        $factor.63  $arg0
     EXCH        $factor.62  $factor.z.0
-    # /z <=> num
-    # delocal[z = (* num try)](22, 27)
+    # /z &lt;=&gt; num
+    # delocal[z = (* num try)](22, 27, 744)
     EXCH        $factor.56  $arg0
     XOR         $factor.57  $factor.56
     EXCH        $factor.56  $arg0
@@ -9179,9 +9179,9 @@ factor.neq8_top_post:
     EXCH        $factor.56  $arg0
     XOR         $factor.57  $factor.56
     EXCH        $factor.56  $arg0
-    # /delocal[z = (* num try)](22, 27)
+    # /delocal[z = (* num try)](22, 27, 744)
     # neq[7]
-    # indexing fact[i](15, 18)
+    # indexing fact[i](15, 18, 480)
     EXCH        $factor.29  $factor.i.0
     XOR         $factor.30  $factor.29
     EXCH        $factor.29  $factor.i.0
@@ -9229,7 +9229,7 @@ factor.neq7_top_post:
     EXCH        $factor.29  $factor.i.0
     XOR         $factor.30  $factor.29
     EXCH        $factor.29  $factor.i.0
-    # /indexing fact[i](15, 18)
+    # /indexing fact[i](15, 18, 480)
     # /neq[7]
     # neq[9]
     EXCH        $factor.34  $arg0
@@ -9445,7 +9445,7 @@ factor.if0_if:
     # /fact[i] ^= num
     # num ^= fact[i]
     EXCH        $factor.86  $arg0
-    # indexing fact[i](29, 24)
+    # indexing fact[i](29, 24, 1051)
     EXCH        $factor.90  $factor.i.0
     XOR         $factor.91  $factor.90
     EXCH        $factor.90  $factor.i.0
@@ -9467,7 +9467,7 @@ factor.if0_if:
     EXCH        $factor.90  $factor.i.0
     XOR         $factor.91  $factor.90
     EXCH        $factor.90  $factor.i.0
-    # /indexing fact[i](29, 24)
+    # /indexing fact[i](29, 24, 1051)
     EXCH        $factor.86  $arg0
     # /num ^= fact[i]
     # fact[i] ^= num
@@ -9494,7 +9494,7 @@ factor.if0_if:
     EXCH        $factor.94  $factor.i.0
     # /fact[i] ^= num
     # neq[13]
-    # indexing fact[i](33, 12)
+    # indexing fact[i](33, 12, 1115)
     EXCH        $factor.71  $factor.i.0
     XOR         $factor.72  $factor.71
     EXCH        $factor.71  $factor.i.0
@@ -9505,7 +9505,7 @@ factor.if0_if:
     XOR         $factor.70  $factor.69
     EXCH        $factor.69  $factor.68
     # ind-expr
-    # indexing fact[(- i 1)](33, 23)
+    # indexing fact[(- i 1)](33, 23, 1126)
     EXCH        $factor.76  $factor.i.0
     XOR         $factor.77  $factor.76
     EXCH        $factor.76  $factor.i.0
@@ -9567,7 +9567,7 @@ factor.neq11_top_post:
     # /num -= 1
     # fi[0]((!= fact[i] fact[(- i 1)]))
     # neq[12]
-    # indexing fact[i](33, 12)
+    # indexing fact[i](33, 12, 1115)
     EXCH        $factor.71  $factor.i.0
     XOR         $factor.72  $factor.71
     EXCH        $factor.71  $factor.i.0
@@ -9578,7 +9578,7 @@ factor.neq11_top_post:
     XOR         $factor.70  $factor.69
     EXCH        $factor.69  $factor.68
     # ind-expr
-    # indexing fact[(- i 1)](33, 23)
+    # indexing fact[(- i 1)](33, 23, 1126)
     EXCH        $factor.76  $factor.i.0
     XOR         $factor.77  $factor.76
     EXCH        $factor.76  $factor.i.0
@@ -9622,7 +9622,7 @@ factor.neq12_top_post:
     EXCH        $factor.76  $factor.i.0
     XOR         $factor.77  $factor.76
     EXCH        $factor.76  $factor.i.0
-    # /indexing fact[(- i 1)](33, 23)
+    # /indexing fact[(- i 1)](33, 23, 1126)
     # /ind-expr
     EXCH        $factor.69  $factor.68
     XOR         $factor.70  $factor.69
@@ -9633,13 +9633,13 @@ factor.neq12_top_post:
     EXCH        $factor.71  $factor.i.0
     XOR         $factor.72  $factor.71
     EXCH        $factor.71  $factor.i.0
-    # /indexing fact[i](33, 12)
+    # /indexing fact[i](33, 12, 1115)
     # /neq[12]
     # /if[0]
     # if[1]
-    # if[1]((< (* fact[(- i 1)] fact[(- i 1)]) fact[i]))
+    # if[1]((&lt; (* fact[(- i 1)] fact[(- i 1)]) fact[i]))
     # lt[14]
-    # indexing fact[(- i 1)](35, 13)
+    # indexing fact[(- i 1)](35, 13, 1145)
     EXCH        $factor.102  $factor.i.0
     XOR         $factor.103  $factor.102
     EXCH        $factor.102  $factor.i.0
@@ -9651,7 +9651,7 @@ factor.neq12_top_post:
     XOR         $factor.101  $factor.100
     EXCH        $factor.100  $factor.99
     # ind-expr
-    # indexing fact[(- i 1)](35, 25)
+    # indexing fact[(- i 1)](35, 25, 1157)
     EXCH        $factor.107  $factor.i.0
     XOR         $factor.108  $factor.107
     EXCH        $factor.107  $factor.i.0
@@ -9665,7 +9665,7 @@ factor.neq12_top_post:
     # ind-expr
     XOR         $factor.109  $factor.101
     MUL         $factor.110  $factor.109  $factor.106
-    # indexing fact[i](35, 38)
+    # indexing fact[i](35, 38, 1170)
     EXCH        $factor.114  $factor.i.0
     XOR         $factor.115  $factor.114
     EXCH        $factor.114  $factor.i.0
@@ -9707,7 +9707,7 @@ factor.lt14_top_post:
     EXCH        $factor.114  $factor.i.0
     XOR         $factor.115  $factor.114
     EXCH        $factor.114  $factor.i.0
-    # /indexing fact[i](35, 38)
+    # /indexing fact[i](35, 38, 1170)
     MUL         $factor.110  $factor.109  $factor.106
     XOR         $factor.109  $factor.101
     # /ind-expr
@@ -9721,7 +9721,7 @@ factor.lt14_top_post:
     EXCH        $factor.107  $factor.i.0
     XOR         $factor.108  $factor.107
     EXCH        $factor.107  $factor.i.0
-    # /indexing fact[(- i 1)](35, 25)
+    # /indexing fact[(- i 1)](35, 25, 1157)
     # /ind-expr
     EXCH        $factor.100  $factor.99
     XOR         $factor.101  $factor.100
@@ -9733,10 +9733,10 @@ factor.lt14_top_post:
     EXCH        $factor.102  $factor.i.0
     XOR         $factor.103  $factor.102
     EXCH        $factor.102  $factor.i.0
-    # /indexing fact[(- i 1)](35, 13)
+    # /indexing fact[(- i 1)](35, 13, 1145)
     # /lt[14]
 factor.if1_if:
-    # from (> (* try try) fact[i]) at (37, 9)
+    # from (&gt; (* try try) fact[i]) at (37, 9, 1205)
     # gt[18]
     EXCH        $factor.135  $factor.try.0
     XOR         $factor.136  $factor.135
@@ -9746,7 +9746,7 @@ factor.if1_if:
     EXCH        $factor.137  $factor.try.0
     XOR         $factor.139  $factor.136
     MUL         $factor.140  $factor.139  $factor.138
-    # indexing fact[i](37, 32)
+    # indexing fact[i](37, 32, 1228)
     EXCH        $factor.144  $factor.i.0
     XOR         $factor.145  $factor.144
     EXCH        $factor.144  $factor.i.0
@@ -9788,7 +9788,7 @@ factor.gt18_top_post:
     EXCH        $factor.144  $factor.i.0
     XOR         $factor.145  $factor.144
     EXCH        $factor.144  $factor.i.0
-    # /indexing fact[i](37, 32)
+    # /indexing fact[i](37, 32, 1228)
     MUL         $factor.140  $factor.139  $factor.138
     XOR         $factor.139  $factor.136
     EXCH        $factor.137  $factor.try.0
@@ -9801,7 +9801,7 @@ factor.gt18_top_post:
     # do-code
     # skip
     NOP         
-    # until (= try 0) at (41, 9)
+    # until (= try 0) at (41, 9, 1301)
     # eq[20]
     EXCH        $factor.147  $factor.try.0
     XOR         $factor.148  $factor.147
@@ -9843,7 +9843,7 @@ factor.eq20_top_post:
     EXCH        $factor.137  $factor.try.0
     XOR         $factor.139  $factor.136
     MUL         $factor.140  $factor.139  $factor.138
-    # indexing fact[i](37, 32)
+    # indexing fact[i](37, 32, 1228)
     EXCH        $factor.144  $factor.i.0
     XOR         $factor.145  $factor.144
     EXCH        $factor.144  $factor.i.0
@@ -9885,7 +9885,7 @@ factor.gt19_top_post:
     EXCH        $factor.144  $factor.i.0
     XOR         $factor.145  $factor.144
     EXCH        $factor.144  $factor.i.0
-    # /indexing fact[i](37, 32)
+    # /indexing fact[i](37, 32, 1228)
     MUL         $factor.140  $factor.139  $factor.138
     XOR         $factor.139  $factor.136
     EXCH        $factor.137  $factor.try.0
@@ -9927,7 +9927,7 @@ factor.eq21_top_post:
     EXCH        $factor.147  $factor.try.0
     # /eq[21]
     # lt[17]
-    # indexing fact[(- i 1)](44, 13)
+    # indexing fact[(- i 1)](44, 13, 1361)
     EXCH        $factor.120  $factor.i.0
     XOR         $factor.121  $factor.120
     EXCH        $factor.120  $factor.i.0
@@ -9939,7 +9939,7 @@ factor.eq21_top_post:
     XOR         $factor.119  $factor.118
     EXCH        $factor.118  $factor.117
     # ind-expr
-    # indexing fact[(- i 1)](44, 25)
+    # indexing fact[(- i 1)](44, 25, 1373)
     EXCH        $factor.125  $factor.i.0
     XOR         $factor.126  $factor.125
     EXCH        $factor.125  $factor.i.0
@@ -9953,7 +9953,7 @@ factor.eq21_top_post:
     # ind-expr
     XOR         $factor.127  $factor.119
     MUL         $factor.128  $factor.127  $factor.124
-    # indexing fact[i](44, 38)
+    # indexing fact[i](44, 38, 1386)
     EXCH        $factor.132  $factor.i.0
     XOR         $factor.133  $factor.132
     EXCH        $factor.132  $factor.i.0
@@ -9977,7 +9977,7 @@ factor.lt17_bot_pre:
 factor.if1_then:
     BRA         factor.if1_bot
     # lt[15]
-    # indexing fact[(- i 1)](35, 13)
+    # indexing fact[(- i 1)](35, 13, 1145)
     EXCH        $factor.102  $factor.i.0
     XOR         $factor.103  $factor.102
     EXCH        $factor.102  $factor.i.0
@@ -9989,7 +9989,7 @@ factor.if1_then:
     XOR         $factor.101  $factor.100
     EXCH        $factor.100  $factor.99
     # ind-expr
-    # indexing fact[(- i 1)](35, 25)
+    # indexing fact[(- i 1)](35, 25, 1157)
     EXCH        $factor.107  $factor.i.0
     XOR         $factor.108  $factor.107
     EXCH        $factor.107  $factor.i.0
@@ -10003,7 +10003,7 @@ factor.if1_then:
     # ind-expr
     XOR         $factor.109  $factor.101
     MUL         $factor.110  $factor.109  $factor.106
-    # indexing fact[i](35, 38)
+    # indexing fact[i](35, 38, 1170)
     EXCH        $factor.114  $factor.i.0
     XOR         $factor.115  $factor.114
     EXCH        $factor.114  $factor.i.0
@@ -10045,7 +10045,7 @@ factor.lt15_top_post:
     EXCH        $factor.114  $factor.i.0
     XOR         $factor.115  $factor.114
     EXCH        $factor.114  $factor.i.0
-    # /indexing fact[i](35, 38)
+    # /indexing fact[i](35, 38, 1170)
     MUL         $factor.110  $factor.109  $factor.106
     XOR         $factor.109  $factor.101
     # /ind-expr
@@ -10059,7 +10059,7 @@ factor.lt15_top_post:
     EXCH        $factor.107  $factor.i.0
     XOR         $factor.108  $factor.107
     EXCH        $factor.107  $factor.i.0
-    # /indexing fact[(- i 1)](35, 25)
+    # /indexing fact[(- i 1)](35, 25, 1157)
     # /ind-expr
     EXCH        $factor.100  $factor.99
     XOR         $factor.101  $factor.100
@@ -10071,11 +10071,11 @@ factor.lt15_top_post:
     EXCH        $factor.102  $factor.i.0
     XOR         $factor.103  $factor.102
     EXCH        $factor.102  $factor.i.0
-    # /indexing fact[(- i 1)](35, 13)
+    # /indexing fact[(- i 1)](35, 13, 1145)
     # /lt[15]
     # try -= fact[(- i 1)]
     EXCH        $factor.151  $factor.try.0
-    # indexing fact[(- i 1)](43, 20)
+    # indexing fact[(- i 1)](43, 20, 1343)
     EXCH        $factor.155  $factor.i.0
     XOR         $factor.156  $factor.155
     EXCH        $factor.155  $factor.i.0
@@ -10099,12 +10099,12 @@ factor.lt15_top_post:
     EXCH        $factor.155  $factor.i.0
     XOR         $factor.156  $factor.155
     EXCH        $factor.155  $factor.i.0
-    # /indexing fact[(- i 1)](43, 20)
+    # /indexing fact[(- i 1)](43, 20, 1343)
     EXCH        $factor.151  $factor.try.0
     # /try -= fact[(- i 1)]
-    # fi[1]((< (* fact[(- i 1)] fact[(- i 1)]) fact[i]))
+    # fi[1]((&lt; (* fact[(- i 1)] fact[(- i 1)]) fact[i]))
     # lt[16]
-    # indexing fact[(- i 1)](44, 13)
+    # indexing fact[(- i 1)](44, 13, 1361)
     EXCH        $factor.120  $factor.i.0
     XOR         $factor.121  $factor.120
     EXCH        $factor.120  $factor.i.0
@@ -10116,7 +10116,7 @@ factor.lt15_top_post:
     XOR         $factor.119  $factor.118
     EXCH        $factor.118  $factor.117
     # ind-expr
-    # indexing fact[(- i 1)](44, 25)
+    # indexing fact[(- i 1)](44, 25, 1373)
     EXCH        $factor.125  $factor.i.0
     XOR         $factor.126  $factor.125
     EXCH        $factor.125  $factor.i.0
@@ -10130,7 +10130,7 @@ factor.lt15_top_post:
     # ind-expr
     XOR         $factor.127  $factor.119
     MUL         $factor.128  $factor.127  $factor.124
-    # indexing fact[i](44, 38)
+    # indexing fact[i](44, 38, 1386)
     EXCH        $factor.132  $factor.i.0
     XOR         $factor.133  $factor.132
     EXCH        $factor.132  $factor.i.0
@@ -10172,7 +10172,7 @@ factor.lt16_top_post:
     EXCH        $factor.132  $factor.i.0
     XOR         $factor.133  $factor.132
     EXCH        $factor.132  $factor.i.0
-    # /indexing fact[i](44, 38)
+    # /indexing fact[i](44, 38, 1386)
     MUL         $factor.128  $factor.127  $factor.124
     XOR         $factor.127  $factor.119
     # /ind-expr
@@ -10186,7 +10186,7 @@ factor.lt16_top_post:
     EXCH        $factor.125  $factor.i.0
     XOR         $factor.126  $factor.125
     EXCH        $factor.125  $factor.i.0
-    # /indexing fact[(- i 1)](44, 25)
+    # /indexing fact[(- i 1)](44, 25, 1373)
     # /ind-expr
     EXCH        $factor.118  $factor.117
     XOR         $factor.119  $factor.118
@@ -10198,24 +10198,24 @@ factor.lt16_top_post:
     EXCH        $factor.120  $factor.i.0
     XOR         $factor.121  $factor.120
     EXCH        $factor.120  $factor.i.0
-    # /indexing fact[(- i 1)](44, 13)
+    # /indexing fact[(- i 1)](44, 13, 1361)
     # /lt[16]
     # /if[1]
     CALL        zeroi  ($factor.i.0,$arg1)
-    # delocal[i = 0](47, 19)
+    # delocal[i = 0](47, 19, 1466)
     XORI        $factor.5  0
     XOR         $factor.i.0  $spointer
     POP         $factor.3
     XOR         $factor.3  $factor.5
     XORI        $factor.5  0
-    # /delocal[i = 0](47, 19)
-    # delocal[try = 0](48, 21)
+    # /delocal[i = 0](47, 19, 1466)
+    # delocal[try = 0](48, 21, 1490)
     XORI        $factor.2  0
     XOR         $factor.try.0  $spointer
     POP         $factor.0
     XOR         $factor.0  $factor.2
     XORI        $factor.2  0
-    # /delocal[try = 0](48, 21)
+    # /delocal[try = 0](48, 21, 1490)
 factor.bot:
     BRA         factor.top
 zeroi.top:
@@ -10226,9 +10226,9 @@ zeroi:
     NEG         $raddr
     PUSH        $raddr
     # zeroi body
-    # from (= fact[(+ i 1)] 0) at (51, 5)
+    # from (= fact[(+ i 1)] 0) at (51, 5, 1534)
     # eq[0]
-    # indexing fact[(+ i 1)](51, 14)
+    # indexing fact[(+ i 1)](51, 14, 1543)
     EXCH        $zeroi.3  $arg0
     XOR         $zeroi.4  $zeroi.3
     EXCH        $zeroi.3  $arg0
@@ -10278,12 +10278,12 @@ zeroi.eq0_top_post:
     EXCH        $zeroi.3  $arg0
     XOR         $zeroi.4  $zeroi.3
     EXCH        $zeroi.3  $arg0
-    # /indexing fact[(+ i 1)](51, 14)
+    # /indexing fact[(+ i 1)](51, 14, 1543)
     # /eq[0]
     # do-code
     # skip
     NOP         
-    # until (= i 0) at (55, 5)
+    # until (= i 0) at (55, 5, 1593)
     # eq[2]
     EXCH        $zeroi.9  $arg0
     XOR         $zeroi.10  $zeroi.9
@@ -10321,7 +10321,7 @@ zeroi.eq2_top_post:
     EXCH        $zeroi.13  $arg0
     # /i -= 1
     # eq[1]
-    # indexing fact[(+ i 1)](51, 14)
+    # indexing fact[(+ i 1)](51, 14, 1543)
     EXCH        $zeroi.3  $arg0
     XOR         $zeroi.4  $zeroi.3
     EXCH        $zeroi.3  $arg0
@@ -10371,7 +10371,7 @@ zeroi.eq1_top_post:
     EXCH        $zeroi.3  $arg0
     XOR         $zeroi.4  $zeroi.3
     EXCH        $zeroi.3  $arg0
-    # /indexing fact[(+ i 1)](51, 14)
+    # /indexing fact[(+ i 1)](51, 14, 1543)
     # /eq[1]
     # eq[3]
     EXCH        $zeroi.9  $arg0
@@ -10732,21 +10732,21 @@ factor:
     NEG         $raddr
     PUSH        $raddr
     # factor body
-    # local[try = 0](12, 5)
+    # local[try = 0](12, 5, 327)
     XORI        $factor.1  0
     XOR         $factor.0  $factor.1
     PUSH        $factor.0
     XOR         $factor.try.0  $spointer
     XORI        $factor.1  0
-    # /local[try = 0](12, 5)
-    # local[i = 0](13, 5)
+    # /local[try = 0](12, 5, 327)
+    # local[i = 0](13, 5, 372)
     XORI        $factor.4  0
     XOR         $factor.3  $factor.4
     PUSH        $factor.3
     XOR         $factor.i.0  $spointer
     XORI        $factor.4  0
-    # /local[i = 0](13, 5)
-    # from (&& (= try 0) (> num 1)) at (14, 5)
+    # /local[i = 0](13, 5, 372)
+    # from (&& (= try 0) (&gt; num 1)) at (14, 5, 439)
     # ampamp[0]
     EXCH        $factor.6  $factor.try.0
     XOR         $factor.7  $factor.6
@@ -10814,7 +10814,7 @@ factor.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (> (* try try) num) at (27, 5)
+    # until (&gt; (* try try) num) at (27, 5, 838)
     # gt[4]
     EXCH        $factor.17  $factor.try.0
     XOR         $factor.18  $factor.17
@@ -10861,9 +10861,9 @@ factor.gt4_top_post:
     EXCH        $factor.17  $factor.try.0
     # /gt[4]
     CALL        nexttry  ($factor.try.0)
-    # from (!= fact[i] try) at (18, 9)
+    # from (!= fact[i] try) at (18, 9, 522)
     # neq[6]
-    # indexing fact[i](18, 18)
+    # indexing fact[i](18, 18, 531)
     EXCH        $factor.29  $factor.i.0
     XOR         $factor.30  $factor.29
     EXCH        $factor.29  $factor.i.0
@@ -10911,12 +10911,12 @@ factor.neq6_top_post:
     EXCH        $factor.29  $factor.i.0
     XOR         $factor.30  $factor.29
     EXCH        $factor.29  $factor.i.0
-    # /indexing fact[i](18, 18)
+    # /indexing fact[i](18, 18, 531)
     # /neq[6]
     # do-code
     # skip
     NOP         
-    # until (!= (% num try) 0) at (26, 9)
+    # until (!= (% num try) 0) at (26, 9, 811)
     # neq[8]
     EXCH        $factor.34  $arg0
     XOR         $factor.35  $factor.34
@@ -10986,7 +10986,7 @@ factor.neq8_top_post:
     XOR         $factor.46  $factor.45
     EXCH        $factor.45  $factor.i.0
     # /fact[i] += try
-    # local[z = (/ num try)](23, 13)
+    # local[z = (/ num try)](23, 13, 719)
     EXCH        $factor.50  $arg0
     XOR         $factor.51  $factor.50
     EXCH        $factor.50  $arg0
@@ -11006,15 +11006,15 @@ factor.neq8_top_post:
     EXCH        $factor.50  $arg0
     XOR         $factor.51  $factor.50
     EXCH        $factor.50  $arg0
-    # /local[z = (/ num try)](23, 13)
-    # z <=> num
+    # /local[z = (/ num try)](23, 13, 719)
+    # z &lt;=&gt; num
     EXCH        $factor.62  $factor.z.0
     EXCH        $factor.63  $arg0
     SWAP        $factor.62  $factor.63
     EXCH        $factor.63  $arg0
     EXCH        $factor.62  $factor.z.0
-    # /z <=> num
-    # delocal[z = (* num try)](25, 27)
+    # /z &lt;=&gt; num
+    # delocal[z = (* num try)](25, 27, 791)
     EXCH        $factor.56  $arg0
     XOR         $factor.57  $factor.56
     EXCH        $factor.56  $arg0
@@ -11034,9 +11034,9 @@ factor.neq8_top_post:
     EXCH        $factor.56  $arg0
     XOR         $factor.57  $factor.56
     EXCH        $factor.56  $arg0
-    # /delocal[z = (* num try)](25, 27)
+    # /delocal[z = (* num try)](25, 27, 791)
     # neq[7]
-    # indexing fact[i](18, 18)
+    # indexing fact[i](18, 18, 531)
     EXCH        $factor.29  $factor.i.0
     XOR         $factor.30  $factor.29
     EXCH        $factor.29  $factor.i.0
@@ -11084,7 +11084,7 @@ factor.neq7_top_post:
     EXCH        $factor.29  $factor.i.0
     XOR         $factor.30  $factor.29
     EXCH        $factor.29  $factor.i.0
-    # /indexing fact[i](18, 18)
+    # /indexing fact[i](18, 18, 531)
     # /neq[7]
     # neq[9]
     EXCH        $factor.34  $arg0
@@ -11300,7 +11300,7 @@ factor.if0_if:
     # /fact[i] ^= num
     # num ^= fact[i]
     EXCH        $factor.86  $arg0
-    # indexing fact[i](32, 24)
+    # indexing fact[i](32, 24, 1098)
     EXCH        $factor.90  $factor.i.0
     XOR         $factor.91  $factor.90
     EXCH        $factor.90  $factor.i.0
@@ -11322,7 +11322,7 @@ factor.if0_if:
     EXCH        $factor.90  $factor.i.0
     XOR         $factor.91  $factor.90
     EXCH        $factor.90  $factor.i.0
-    # /indexing fact[i](32, 24)
+    # /indexing fact[i](32, 24, 1098)
     EXCH        $factor.86  $arg0
     # /num ^= fact[i]
     # fact[i] ^= num
@@ -11349,7 +11349,7 @@ factor.if0_if:
     EXCH        $factor.94  $factor.i.0
     # /fact[i] ^= num
     # neq[13]
-    # indexing fact[i](36, 12)
+    # indexing fact[i](36, 12, 1162)
     EXCH        $factor.71  $factor.i.0
     XOR         $factor.72  $factor.71
     EXCH        $factor.71  $factor.i.0
@@ -11360,7 +11360,7 @@ factor.if0_if:
     XOR         $factor.70  $factor.69
     EXCH        $factor.69  $factor.68
     # ind-expr
-    # indexing fact[(- i 1)](36, 23)
+    # indexing fact[(- i 1)](36, 23, 1173)
     EXCH        $factor.76  $factor.i.0
     XOR         $factor.77  $factor.76
     EXCH        $factor.76  $factor.i.0
@@ -11422,7 +11422,7 @@ factor.neq11_top_post:
     # /num -= 1
     # fi[0]((!= fact[i] fact[(- i 1)]))
     # neq[12]
-    # indexing fact[i](36, 12)
+    # indexing fact[i](36, 12, 1162)
     EXCH        $factor.71  $factor.i.0
     XOR         $factor.72  $factor.71
     EXCH        $factor.71  $factor.i.0
@@ -11433,7 +11433,7 @@ factor.neq11_top_post:
     XOR         $factor.70  $factor.69
     EXCH        $factor.69  $factor.68
     # ind-expr
-    # indexing fact[(- i 1)](36, 23)
+    # indexing fact[(- i 1)](36, 23, 1173)
     EXCH        $factor.76  $factor.i.0
     XOR         $factor.77  $factor.76
     EXCH        $factor.76  $factor.i.0
@@ -11477,7 +11477,7 @@ factor.neq12_top_post:
     EXCH        $factor.76  $factor.i.0
     XOR         $factor.77  $factor.76
     EXCH        $factor.76  $factor.i.0
-    # /indexing fact[(- i 1)](36, 23)
+    # /indexing fact[(- i 1)](36, 23, 1173)
     # /ind-expr
     EXCH        $factor.69  $factor.68
     XOR         $factor.70  $factor.69
@@ -11488,13 +11488,13 @@ factor.neq12_top_post:
     EXCH        $factor.71  $factor.i.0
     XOR         $factor.72  $factor.71
     EXCH        $factor.71  $factor.i.0
-    # /indexing fact[i](36, 12)
+    # /indexing fact[i](36, 12, 1162)
     # /neq[12]
     # /if[0]
     # if[1]
-    # if[1]((< (* fact[(- i 1)] fact[(- i 1)]) fact[i]))
+    # if[1]((&lt; (* fact[(- i 1)] fact[(- i 1)]) fact[i]))
     # lt[14]
-    # indexing fact[(- i 1)](38, 13)
+    # indexing fact[(- i 1)](38, 13, 1192)
     EXCH        $factor.102  $factor.i.0
     XOR         $factor.103  $factor.102
     EXCH        $factor.102  $factor.i.0
@@ -11506,7 +11506,7 @@ factor.neq12_top_post:
     XOR         $factor.101  $factor.100
     EXCH        $factor.100  $factor.99
     # ind-expr
-    # indexing fact[(- i 1)](38, 25)
+    # indexing fact[(- i 1)](38, 25, 1204)
     EXCH        $factor.107  $factor.i.0
     XOR         $factor.108  $factor.107
     EXCH        $factor.107  $factor.i.0
@@ -11520,7 +11520,7 @@ factor.neq12_top_post:
     # ind-expr
     XOR         $factor.109  $factor.101
     MUL         $factor.110  $factor.109  $factor.106
-    # indexing fact[i](38, 38)
+    # indexing fact[i](38, 38, 1217)
     EXCH        $factor.114  $factor.i.0
     XOR         $factor.115  $factor.114
     EXCH        $factor.114  $factor.i.0
@@ -11562,7 +11562,7 @@ factor.lt14_top_post:
     EXCH        $factor.114  $factor.i.0
     XOR         $factor.115  $factor.114
     EXCH        $factor.114  $factor.i.0
-    # /indexing fact[i](38, 38)
+    # /indexing fact[i](38, 38, 1217)
     MUL         $factor.110  $factor.109  $factor.106
     XOR         $factor.109  $factor.101
     # /ind-expr
@@ -11576,7 +11576,7 @@ factor.lt14_top_post:
     EXCH        $factor.107  $factor.i.0
     XOR         $factor.108  $factor.107
     EXCH        $factor.107  $factor.i.0
-    # /indexing fact[(- i 1)](38, 25)
+    # /indexing fact[(- i 1)](38, 25, 1204)
     # /ind-expr
     EXCH        $factor.100  $factor.99
     XOR         $factor.101  $factor.100
@@ -11588,10 +11588,10 @@ factor.lt14_top_post:
     EXCH        $factor.102  $factor.i.0
     XOR         $factor.103  $factor.102
     EXCH        $factor.102  $factor.i.0
-    # /indexing fact[(- i 1)](38, 13)
+    # /indexing fact[(- i 1)](38, 13, 1192)
     # /lt[14]
 factor.if1_if:
-    # from (> (* try try) fact[i]) at (39, 9)
+    # from (&gt; (* try try) fact[i]) at (39, 9, 1247)
     # gt[18]
     EXCH        $factor.135  $factor.try.0
     XOR         $factor.136  $factor.135
@@ -11601,7 +11601,7 @@ factor.if1_if:
     EXCH        $factor.137  $factor.try.0
     XOR         $factor.139  $factor.136
     MUL         $factor.140  $factor.139  $factor.138
-    # indexing fact[i](39, 32)
+    # indexing fact[i](39, 32, 1270)
     EXCH        $factor.144  $factor.i.0
     XOR         $factor.145  $factor.144
     EXCH        $factor.144  $factor.i.0
@@ -11643,7 +11643,7 @@ factor.gt18_top_post:
     EXCH        $factor.144  $factor.i.0
     XOR         $factor.145  $factor.144
     EXCH        $factor.144  $factor.i.0
-    # /indexing fact[i](39, 32)
+    # /indexing fact[i](39, 32, 1270)
     MUL         $factor.140  $factor.139  $factor.138
     XOR         $factor.139  $factor.136
     EXCH        $factor.137  $factor.try.0
@@ -11656,7 +11656,7 @@ factor.gt18_top_post:
     # do-code
     # skip
     NOP         
-    # until (= try 0) at (43, 9)
+    # until (= try 0) at (43, 9, 1343)
     # eq[20]
     EXCH        $factor.147  $factor.try.0
     XOR         $factor.148  $factor.147
@@ -11698,7 +11698,7 @@ factor.eq20_top_post:
     EXCH        $factor.137  $factor.try.0
     XOR         $factor.139  $factor.136
     MUL         $factor.140  $factor.139  $factor.138
-    # indexing fact[i](39, 32)
+    # indexing fact[i](39, 32, 1270)
     EXCH        $factor.144  $factor.i.0
     XOR         $factor.145  $factor.144
     EXCH        $factor.144  $factor.i.0
@@ -11740,7 +11740,7 @@ factor.gt19_top_post:
     EXCH        $factor.144  $factor.i.0
     XOR         $factor.145  $factor.144
     EXCH        $factor.144  $factor.i.0
-    # /indexing fact[i](39, 32)
+    # /indexing fact[i](39, 32, 1270)
     MUL         $factor.140  $factor.139  $factor.138
     XOR         $factor.139  $factor.136
     EXCH        $factor.137  $factor.try.0
@@ -11782,7 +11782,7 @@ factor.eq21_top_post:
     EXCH        $factor.147  $factor.try.0
     # /eq[21]
     # lt[17]
-    # indexing fact[(- i 1)](46, 13)
+    # indexing fact[(- i 1)](46, 13, 1403)
     EXCH        $factor.120  $factor.i.0
     XOR         $factor.121  $factor.120
     EXCH        $factor.120  $factor.i.0
@@ -11794,7 +11794,7 @@ factor.eq21_top_post:
     XOR         $factor.119  $factor.118
     EXCH        $factor.118  $factor.117
     # ind-expr
-    # indexing fact[(- i 1)](46, 25)
+    # indexing fact[(- i 1)](46, 25, 1415)
     EXCH        $factor.125  $factor.i.0
     XOR         $factor.126  $factor.125
     EXCH        $factor.125  $factor.i.0
@@ -11808,7 +11808,7 @@ factor.eq21_top_post:
     # ind-expr
     XOR         $factor.127  $factor.119
     MUL         $factor.128  $factor.127  $factor.124
-    # indexing fact[i](46, 38)
+    # indexing fact[i](46, 38, 1428)
     EXCH        $factor.132  $factor.i.0
     XOR         $factor.133  $factor.132
     EXCH        $factor.132  $factor.i.0
@@ -11832,7 +11832,7 @@ factor.lt17_bot_pre:
 factor.if1_then:
     BRA         factor.if1_bot
     # lt[15]
-    # indexing fact[(- i 1)](38, 13)
+    # indexing fact[(- i 1)](38, 13, 1192)
     EXCH        $factor.102  $factor.i.0
     XOR         $factor.103  $factor.102
     EXCH        $factor.102  $factor.i.0
@@ -11844,7 +11844,7 @@ factor.if1_then:
     XOR         $factor.101  $factor.100
     EXCH        $factor.100  $factor.99
     # ind-expr
-    # indexing fact[(- i 1)](38, 25)
+    # indexing fact[(- i 1)](38, 25, 1204)
     EXCH        $factor.107  $factor.i.0
     XOR         $factor.108  $factor.107
     EXCH        $factor.107  $factor.i.0
@@ -11858,7 +11858,7 @@ factor.if1_then:
     # ind-expr
     XOR         $factor.109  $factor.101
     MUL         $factor.110  $factor.109  $factor.106
-    # indexing fact[i](38, 38)
+    # indexing fact[i](38, 38, 1217)
     EXCH        $factor.114  $factor.i.0
     XOR         $factor.115  $factor.114
     EXCH        $factor.114  $factor.i.0
@@ -11900,7 +11900,7 @@ factor.lt15_top_post:
     EXCH        $factor.114  $factor.i.0
     XOR         $factor.115  $factor.114
     EXCH        $factor.114  $factor.i.0
-    # /indexing fact[i](38, 38)
+    # /indexing fact[i](38, 38, 1217)
     MUL         $factor.110  $factor.109  $factor.106
     XOR         $factor.109  $factor.101
     # /ind-expr
@@ -11914,7 +11914,7 @@ factor.lt15_top_post:
     EXCH        $factor.107  $factor.i.0
     XOR         $factor.108  $factor.107
     EXCH        $factor.107  $factor.i.0
-    # /indexing fact[(- i 1)](38, 25)
+    # /indexing fact[(- i 1)](38, 25, 1204)
     # /ind-expr
     EXCH        $factor.100  $factor.99
     XOR         $factor.101  $factor.100
@@ -11926,11 +11926,11 @@ factor.lt15_top_post:
     EXCH        $factor.102  $factor.i.0
     XOR         $factor.103  $factor.102
     EXCH        $factor.102  $factor.i.0
-    # /indexing fact[(- i 1)](38, 13)
+    # /indexing fact[(- i 1)](38, 13, 1192)
     # /lt[15]
     # try -= fact[(- i 1)]
     EXCH        $factor.151  $factor.try.0
-    # indexing fact[(- i 1)](45, 20)
+    # indexing fact[(- i 1)](45, 20, 1385)
     EXCH        $factor.155  $factor.i.0
     XOR         $factor.156  $factor.155
     EXCH        $factor.155  $factor.i.0
@@ -11954,12 +11954,12 @@ factor.lt15_top_post:
     EXCH        $factor.155  $factor.i.0
     XOR         $factor.156  $factor.155
     EXCH        $factor.155  $factor.i.0
-    # /indexing fact[(- i 1)](45, 20)
+    # /indexing fact[(- i 1)](45, 20, 1385)
     EXCH        $factor.151  $factor.try.0
     # /try -= fact[(- i 1)]
-    # fi[1]((< (* fact[(- i 1)] fact[(- i 1)]) fact[i]))
+    # fi[1]((&lt; (* fact[(- i 1)] fact[(- i 1)]) fact[i]))
     # lt[16]
-    # indexing fact[(- i 1)](46, 13)
+    # indexing fact[(- i 1)](46, 13, 1403)
     EXCH        $factor.120  $factor.i.0
     XOR         $factor.121  $factor.120
     EXCH        $factor.120  $factor.i.0
@@ -11971,7 +11971,7 @@ factor.lt15_top_post:
     XOR         $factor.119  $factor.118
     EXCH        $factor.118  $factor.117
     # ind-expr
-    # indexing fact[(- i 1)](46, 25)
+    # indexing fact[(- i 1)](46, 25, 1415)
     EXCH        $factor.125  $factor.i.0
     XOR         $factor.126  $factor.125
     EXCH        $factor.125  $factor.i.0
@@ -11985,7 +11985,7 @@ factor.lt15_top_post:
     # ind-expr
     XOR         $factor.127  $factor.119
     MUL         $factor.128  $factor.127  $factor.124
-    # indexing fact[i](46, 38)
+    # indexing fact[i](46, 38, 1428)
     EXCH        $factor.132  $factor.i.0
     XOR         $factor.133  $factor.132
     EXCH        $factor.132  $factor.i.0
@@ -12027,7 +12027,7 @@ factor.lt16_top_post:
     EXCH        $factor.132  $factor.i.0
     XOR         $factor.133  $factor.132
     EXCH        $factor.132  $factor.i.0
-    # /indexing fact[i](46, 38)
+    # /indexing fact[i](46, 38, 1428)
     MUL         $factor.128  $factor.127  $factor.124
     XOR         $factor.127  $factor.119
     # /ind-expr
@@ -12041,7 +12041,7 @@ factor.lt16_top_post:
     EXCH        $factor.125  $factor.i.0
     XOR         $factor.126  $factor.125
     EXCH        $factor.125  $factor.i.0
-    # /indexing fact[(- i 1)](46, 25)
+    # /indexing fact[(- i 1)](46, 25, 1415)
     # /ind-expr
     EXCH        $factor.118  $factor.117
     XOR         $factor.119  $factor.118
@@ -12053,24 +12053,24 @@ factor.lt16_top_post:
     EXCH        $factor.120  $factor.i.0
     XOR         $factor.121  $factor.120
     EXCH        $factor.120  $factor.i.0
-    # /indexing fact[(- i 1)](46, 13)
+    # /indexing fact[(- i 1)](46, 13, 1403)
     # /lt[16]
     # /if[1]
     CALL        zeroi  ($factor.i.0,$arg1)
-    # delocal[i = 0](49, 19)
+    # delocal[i = 0](49, 19, 1508)
     XORI        $factor.5  0
     XOR         $factor.i.0  $spointer
     POP         $factor.3
     XOR         $factor.3  $factor.5
     XORI        $factor.5  0
-    # /delocal[i = 0](49, 19)
-    # delocal[try = 0](50, 21)
+    # /delocal[i = 0](49, 19, 1508)
+    # delocal[try = 0](50, 21, 1532)
     XORI        $factor.2  0
     XOR         $factor.try.0  $spointer
     POP         $factor.0
     XOR         $factor.0  $factor.2
     XORI        $factor.2  0
-    # /delocal[try = 0](50, 21)
+    # /delocal[try = 0](50, 21, 1532)
 factor.bot:
     BRA         factor.top
 zeroi.top:
@@ -12081,9 +12081,9 @@ zeroi:
     NEG         $raddr
     PUSH        $raddr
     # zeroi body
-    # from (= fact[(+ i 1)] 0) at (53, 5)
+    # from (= fact[(+ i 1)] 0) at (53, 5, 1576)
     # eq[0]
-    # indexing fact[(+ i 1)](53, 14)
+    # indexing fact[(+ i 1)](53, 14, 1585)
     EXCH        $zeroi.3  $arg0
     XOR         $zeroi.4  $zeroi.3
     EXCH        $zeroi.3  $arg0
@@ -12133,12 +12133,12 @@ zeroi.eq0_top_post:
     EXCH        $zeroi.3  $arg0
     XOR         $zeroi.4  $zeroi.3
     EXCH        $zeroi.3  $arg0
-    # /indexing fact[(+ i 1)](53, 14)
+    # /indexing fact[(+ i 1)](53, 14, 1585)
     # /eq[0]
     # do-code
     # skip
     NOP         
-    # until (= i 0) at (57, 5)
+    # until (= i 0) at (57, 5, 1635)
     # eq[2]
     EXCH        $zeroi.9  $arg0
     XOR         $zeroi.10  $zeroi.9
@@ -12176,7 +12176,7 @@ zeroi.eq2_top_post:
     EXCH        $zeroi.13  $arg0
     # /i -= 1
     # eq[1]
-    # indexing fact[(+ i 1)](53, 14)
+    # indexing fact[(+ i 1)](53, 14, 1585)
     EXCH        $zeroi.3  $arg0
     XOR         $zeroi.4  $zeroi.3
     EXCH        $zeroi.3  $arg0
@@ -12226,7 +12226,7 @@ zeroi.eq1_top_post:
     EXCH        $zeroi.3  $arg0
     XOR         $zeroi.4  $zeroi.3
     EXCH        $zeroi.3  $arg0
-    # /indexing fact[(+ i 1)](53, 14)
+    # /indexing fact[(+ i 1)](53, 14, 1585)
     # /eq[1]
     # eq[3]
     EXCH        $zeroi.9  $arg0
@@ -12556,13 +12556,13 @@ fib.eq1_top_post:
     EXCH        $fib.13  $arg1
     EXCH        $fib.12  $arg0
     # /x1 += x2
-    # x1 <=> x2
+    # x1 &lt;=&gt; x2
     EXCH        $fib.15  $arg0
     EXCH        $fib.16  $arg1
     SWAP        $fib.15  $fib.16
     EXCH        $fib.16  $arg1
     EXCH        $fib.15  $arg0
-    # /x1 <=> x2
+    # /x1 &lt;=&gt; x2
     # fi[0]((= x1 x2))
     # eq[2]
     EXCH        $fib.4  $arg0
@@ -12765,13 +12765,13 @@ fib.eq1_top_post:
     EXCH        $fib.13  $arg1
     EXCH        $fib.12  $arg0
     # /x1 += x2
-    # x1 <=> x2
+    # x1 &lt;=&gt; x2
     EXCH        $fib.15  $arg0
     EXCH        $fib.16  $arg1
     SWAP        $fib.15  $fib.16
     EXCH        $fib.16  $arg1
     EXCH        $fib.15  $arg0
-    # /x1 <=> x2
+    # /x1 &lt;=&gt; x2
     # fi[0]((= x1 x2))
     # eq[2]
     EXCH        $fib.4  $arg0
@@ -12853,14 +12853,14 @@ root:
     NEG         $raddr
     PUSH        $raddr
     # root body
-    # local[bit = 1](8, 5)
+    # local[bit = 1](8, 5, 120)
     XORI        $root.1  1
     XOR         $root.0  $root.1
     PUSH        $root.0
     XOR         $root.bit.0  $spointer
     XORI        $root.1  1
-    # /local[bit = 1](8, 5)
-    # from (= bit 1) at (9, 5)
+    # /local[bit = 1](8, 5, 120)
+    # from (= bit 1) at (9, 5, 142)
     # eq[0]
     EXCH        $root.3  $root.bit.0
     XOR         $root.4  $root.3
@@ -12895,7 +12895,7 @@ root.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (> (* bit bit) num) at (13, 5)
+    # until (&gt; (* bit bit) num) at (13, 5, 239)
     # gt[2]
     EXCH        $root.7  $root.bit.0
     XOR         $root.8  $root.7
@@ -13018,7 +13018,7 @@ root.gt3_top_post:
     XOR         $root.8  $root.7
     EXCH        $root.7  $root.bit.0
     # /gt[3]
-    # from (> (* bit bit) num) at (15, 5)
+    # from (&gt; (* bit bit) num) at (15, 5, 268)
     # gt[4]
     EXCH        $root.16  $root.bit.0
     XOR         $root.17  $root.16
@@ -13286,7 +13286,7 @@ root.neq10_top_post:
     EXCH        $root.44  $arg1
     # /neq[10]
     # /if[0]
-    # until (= bit 1) at (24, 5)
+    # until (= bit 1) at (24, 5, 482)
     # eq[6]
     EXCH        $root.25  $root.bit.0
     XOR         $root.26  $root.25
@@ -13396,13 +13396,13 @@ root.eq7_top_post:
     XOR         $root.26  $root.25
     EXCH        $root.25  $root.bit.0
     # /eq[7]
-    # delocal[bit = 1](25, 21)
+    # delocal[bit = 1](25, 21, 516)
     XORI        $root.2  1
     XOR         $root.bit.0  $spointer
     POP         $root.0
     XOR         $root.0  $root.2
     XORI        $root.2  1
-    # /delocal[bit = 1](25, 21)
+    # /delocal[bit = 1](25, 21, 516)
     # num -= (* root root)
     EXCH        $root.58  $arg0
     EXCH        $root.59  $arg1
@@ -13434,7 +13434,7 @@ doublebit:
     NEG         $raddr
     PUSH        $raddr
     # doublebit body
-    # local[z = bit](28, 5)
+    # local[z = bit](28, 5, 576)
     EXCH        $doublebit.1  $arg0
     XOR         $doublebit.2  $doublebit.1
     EXCH        $doublebit.1  $arg0
@@ -13444,7 +13444,7 @@ doublebit:
     EXCH        $doublebit.1  $arg0
     XOR         $doublebit.2  $doublebit.1
     EXCH        $doublebit.1  $arg0
-    # /local[z = bit](28, 5)
+    # /local[z = bit](28, 5, 576)
     # bit += z
     EXCH        $doublebit.8  $arg0
     EXCH        $doublebit.9  $doublebit.z.0
@@ -13456,7 +13456,7 @@ doublebit:
     EXCH        $doublebit.9  $doublebit.z.0
     EXCH        $doublebit.8  $arg0
     # /bit += z
-    # delocal[z = (/ bit 2)](30, 19)
+    # delocal[z = (/ bit 2)](30, 19, 625)
     EXCH        $doublebit.3  $arg0
     XOR         $doublebit.4  $doublebit.3
     EXCH        $doublebit.3  $arg0
@@ -13472,7 +13472,7 @@ doublebit:
     EXCH        $doublebit.3  $arg0
     XOR         $doublebit.4  $doublebit.3
     EXCH        $doublebit.3  $arg0
-    # /delocal[z = (/ bit 2)](30, 19)
+    # /delocal[z = (/ bit 2)](30, 19, 625)
 doublebit.bot:
     BRA         doublebit.top
 </span>
@@ -13517,14 +13517,14 @@ root:
     NEG         $raddr
     PUSH        $raddr
     # root body
-    # local[bit = 1](8, 5)
+    # local[bit = 1](8, 5, 123)
     XORI        $root.1  1
     XOR         $root.0  $root.1
     PUSH        $root.0
     XOR         $root.bit.0  $spointer
     XORI        $root.1  1
-    # /local[bit = 1](8, 5)
-    # from (= bit 1) at (9, 5)
+    # /local[bit = 1](8, 5, 123)
+    # from (= bit 1) at (9, 5, 145)
     # eq[0]
     EXCH        $root.3  $root.bit.0
     XOR         $root.4  $root.3
@@ -13559,7 +13559,7 @@ root.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (> (* bit bit) num) at (13, 5)
+    # until (&gt; (* bit bit) num) at (13, 5, 242)
     # gt[2]
     EXCH        $root.7  $root.bit.0
     XOR         $root.8  $root.7
@@ -13682,7 +13682,7 @@ root.gt3_top_post:
     XOR         $root.8  $root.7
     EXCH        $root.7  $root.bit.0
     # /gt[3]
-    # from (> (* bit bit) num) at (15, 5)
+    # from (&gt; (* bit bit) num) at (15, 5, 271)
     # gt[4]
     EXCH        $root.16  $root.bit.0
     XOR         $root.17  $root.16
@@ -13950,7 +13950,7 @@ root.neq10_top_post:
     EXCH        $root.44  $arg1
     # /neq[10]
     # /if[0]
-    # until (= bit 1) at (24, 5)
+    # until (= bit 1) at (24, 5, 485)
     # eq[6]
     EXCH        $root.25  $root.bit.0
     XOR         $root.26  $root.25
@@ -14060,13 +14060,13 @@ root.eq7_top_post:
     XOR         $root.26  $root.25
     EXCH        $root.25  $root.bit.0
     # /eq[7]
-    # delocal[bit = 1](25, 21)
+    # delocal[bit = 1](25, 21, 519)
     XORI        $root.2  1
     XOR         $root.bit.0  $spointer
     POP         $root.0
     XOR         $root.0  $root.2
     XORI        $root.2  1
-    # /delocal[bit = 1](25, 21)
+    # /delocal[bit = 1](25, 21, 519)
     # num -= (* root root)
     EXCH        $root.58  $arg0
     EXCH        $root.59  $arg1
@@ -14098,7 +14098,7 @@ doublebit:
     NEG         $raddr
     PUSH        $raddr
     # doublebit body
-    # local[z = bit](28, 5)
+    # local[z = bit](28, 5, 579)
     EXCH        $doublebit.1  $arg0
     XOR         $doublebit.2  $doublebit.1
     EXCH        $doublebit.1  $arg0
@@ -14108,7 +14108,7 @@ doublebit:
     EXCH        $doublebit.1  $arg0
     XOR         $doublebit.2  $doublebit.1
     EXCH        $doublebit.1  $arg0
-    # /local[z = bit](28, 5)
+    # /local[z = bit](28, 5, 579)
     # bit += z
     EXCH        $doublebit.8  $arg0
     EXCH        $doublebit.9  $doublebit.z.0
@@ -14120,7 +14120,7 @@ doublebit:
     EXCH        $doublebit.9  $doublebit.z.0
     EXCH        $doublebit.8  $arg0
     # /bit += z
-    # delocal[z = (/ bit 2)](30, 19)
+    # delocal[z = (/ bit 2)](30, 19, 628)
     EXCH        $doublebit.3  $arg0
     XOR         $doublebit.4  $doublebit.3
     EXCH        $doublebit.3  $arg0
@@ -14136,7 +14136,7 @@ doublebit:
     EXCH        $doublebit.3  $arg0
     XOR         $doublebit.4  $doublebit.3
     EXCH        $doublebit.3  $arg0
-    # /delocal[z = (/ bit 2)](30, 19)
+    # /delocal[z = (/ bit 2)](30, 19, 628)
 doublebit.bot:
     BRA         doublebit.top
 </span>
@@ -14325,21 +14325,21 @@ encode:
     NEG         $raddr
     PUSH        $raddr
     # encode body
-    # local[i = 0](13, 5)
+    # local[i = 0](13, 5, 223)
     XORI        $encode.1  0
     XOR         $encode.0  $encode.1
     PUSH        $encode.0
     XOR         $encode.i.0  $spointer
     XORI        $encode.1  0
-    # /local[i = 0](13, 5)
-    # local[j = 0](14, 5)
+    # /local[i = 0](13, 5, 223)
+    # local[j = 0](14, 5, 243)
     XORI        $encode.4  0
     XOR         $encode.3  $encode.4
     PUSH        $encode.3
     XOR         $encode.j.0  $spointer
     XORI        $encode.4  0
-    # /local[j = 0](14, 5)
-    # from (&& (= i 0) (= j 0)) at (15, 5)
+    # /local[j = 0](14, 5, 243)
+    # from (&& (= i 0) (= j 0)) at (15, 5, 263)
     # ampamp[0]
     EXCH        $encode.6  $encode.i.0
     XOR         $encode.7  $encode.6
@@ -14407,9 +14407,9 @@ encode.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= text[i] 0) at (28, 5)
+    # until (= text[i] 0) at (28, 5, 553)
     # eq[4]
-    # indexing text[i](28, 15)
+    # indexing text[i](28, 15, 563)
     EXCH        $encode.20  $encode.i.0
     XOR         $encode.21  $encode.20
     EXCH        $encode.20  $encode.i.0
@@ -14453,7 +14453,7 @@ encode.eq4_top_post:
     EXCH        $encode.20  $encode.i.0
     XOR         $encode.21  $encode.20
     EXCH        $encode.20  $encode.i.0
-    # /indexing text[i](28, 15)
+    # /indexing text[i](28, 15, 563)
     # /eq[4]
     # arc[j] += text[i]
     EXCH        $encode.26  $encode.j.0
@@ -14463,7 +14463,7 @@ encode.eq4_top_post:
     ADD1        $encode.24
     ADD         $encode.24  $encode.27
     EXCH        $encode.25  $encode.24
-    # indexing text[i](18, 23)
+    # indexing text[i](18, 23, 326)
     EXCH        $encode.31  $encode.i.0
     XOR         $encode.32  $encode.31
     EXCH        $encode.31  $encode.i.0
@@ -14485,7 +14485,7 @@ encode.eq4_top_post:
     EXCH        $encode.31  $encode.i.0
     XOR         $encode.32  $encode.31
     EXCH        $encode.31  $encode.i.0
-    # /indexing text[i](18, 23)
+    # /indexing text[i](18, 23, 326)
     EXCH        $encode.25  $encode.24
     SUB         $encode.24  $encode.27
     SUB1        $encode.24
@@ -14502,7 +14502,7 @@ encode.eq4_top_post:
     ADD1        $encode.33
     ADD         $encode.33  $encode.36
     EXCH        $encode.34  $encode.33
-    # indexing arc[j](19, 22)
+    # indexing arc[j](19, 22, 373)
     EXCH        $encode.40  $encode.j.0
     XOR         $encode.41  $encode.40
     EXCH        $encode.40  $encode.j.0
@@ -14524,7 +14524,7 @@ encode.eq4_top_post:
     EXCH        $encode.40  $encode.j.0
     XOR         $encode.41  $encode.40
     EXCH        $encode.40  $encode.j.0
-    # /indexing arc[j](19, 22)
+    # /indexing arc[j](19, 22, 373)
     EXCH        $encode.34  $encode.33
     SUB         $encode.33  $encode.36
     SUB1        $encode.33
@@ -14533,9 +14533,9 @@ encode.eq4_top_post:
     XOR         $encode.36  $encode.35
     EXCH        $encode.35  $encode.i.0
     # /text[i] -= arc[j]
-    # from (= arc[(+ j 1)] 0) at (20, 9)
+    # from (= arc[(+ j 1)] 0) at (20, 9, 385)
     # eq[6]
-    # indexing arc[(+ j 1)](20, 17)
+    # indexing arc[(+ j 1)](20, 17, 393)
     EXCH        $encode.45  $encode.j.0
     XOR         $encode.46  $encode.45
     EXCH        $encode.45  $encode.j.0
@@ -14585,7 +14585,7 @@ encode.eq6_top_post:
     EXCH        $encode.45  $encode.j.0
     XOR         $encode.46  $encode.45
     EXCH        $encode.45  $encode.j.0
-    # /indexing arc[(+ j 1)](20, 17)
+    # /indexing arc[(+ j 1)](20, 17, 393)
     # /eq[6]
     # do-code
     # arc[(+ j 1)] += 1
@@ -14616,9 +14616,9 @@ encode.eq6_top_post:
     ADD1        $encode.68
     EXCH        $encode.68  $encode.i.0
     # /i += 1
-    # until (!= arc[j] text[i]) at (26, 9)
+    # until (!= arc[j] text[i]) at (26, 9, 510)
     # neq[8]
-    # indexing arc[j](26, 18)
+    # indexing arc[j](26, 18, 519)
     EXCH        $encode.54  $encode.j.0
     XOR         $encode.55  $encode.54
     EXCH        $encode.54  $encode.j.0
@@ -14629,7 +14629,7 @@ encode.eq6_top_post:
     XOR         $encode.53  $encode.52
     EXCH        $encode.52  $encode.51
     # ind-expr
-    # indexing text[i](26, 29)
+    # indexing text[i](26, 29, 530)
     EXCH        $encode.59  $encode.i.0
     XOR         $encode.60  $encode.59
     EXCH        $encode.59  $encode.i.0
@@ -14671,7 +14671,7 @@ encode.neq8_top_post:
     EXCH        $encode.59  $encode.i.0
     XOR         $encode.60  $encode.59
     EXCH        $encode.59  $encode.i.0
-    # /indexing text[i](26, 29)
+    # /indexing text[i](26, 29, 530)
     # /ind-expr
     EXCH        $encode.52  $encode.51
     XOR         $encode.53  $encode.52
@@ -14682,7 +14682,7 @@ encode.neq8_top_post:
     EXCH        $encode.54  $encode.j.0
     XOR         $encode.55  $encode.54
     EXCH        $encode.54  $encode.j.0
-    # /indexing arc[j](26, 18)
+    # /indexing arc[j](26, 18, 519)
     # /neq[8]
     # text[i] -= arc[j]
     EXCH        $encode.71  $encode.i.0
@@ -14692,7 +14692,7 @@ encode.neq8_top_post:
     ADD1        $encode.69
     ADD         $encode.69  $encode.72
     EXCH        $encode.70  $encode.69
-    # indexing arc[j](25, 27)
+    # indexing arc[j](25, 27, 498)
     EXCH        $encode.76  $encode.j.0
     XOR         $encode.77  $encode.76
     EXCH        $encode.76  $encode.j.0
@@ -14714,7 +14714,7 @@ encode.neq8_top_post:
     EXCH        $encode.76  $encode.j.0
     XOR         $encode.77  $encode.76
     EXCH        $encode.76  $encode.j.0
-    # /indexing arc[j](25, 27)
+    # /indexing arc[j](25, 27, 498)
     EXCH        $encode.70  $encode.69
     SUB         $encode.69  $encode.72
     SUB1        $encode.69
@@ -14724,7 +14724,7 @@ encode.neq8_top_post:
     EXCH        $encode.71  $encode.i.0
     # /text[i] -= arc[j]
     # eq[7]
-    # indexing arc[(+ j 1)](20, 17)
+    # indexing arc[(+ j 1)](20, 17, 393)
     EXCH        $encode.45  $encode.j.0
     XOR         $encode.46  $encode.45
     EXCH        $encode.45  $encode.j.0
@@ -14774,10 +14774,10 @@ encode.eq7_top_post:
     EXCH        $encode.45  $encode.j.0
     XOR         $encode.46  $encode.45
     EXCH        $encode.45  $encode.j.0
-    # /indexing arc[(+ j 1)](20, 17)
+    # /indexing arc[(+ j 1)](20, 17, 393)
     # /eq[7]
     # neq[9]
-    # indexing arc[j](26, 18)
+    # indexing arc[j](26, 18, 519)
     EXCH        $encode.54  $encode.j.0
     XOR         $encode.55  $encode.54
     EXCH        $encode.54  $encode.j.0
@@ -14788,7 +14788,7 @@ encode.eq7_top_post:
     XOR         $encode.53  $encode.52
     EXCH        $encode.52  $encode.51
     # ind-expr
-    # indexing text[i](26, 29)
+    # indexing text[i](26, 29, 530)
     EXCH        $encode.59  $encode.i.0
     XOR         $encode.60  $encode.59
     EXCH        $encode.59  $encode.i.0
@@ -14830,7 +14830,7 @@ encode.neq9_top_post:
     EXCH        $encode.59  $encode.i.0
     XOR         $encode.60  $encode.59
     EXCH        $encode.59  $encode.i.0
-    # /indexing text[i](26, 29)
+    # /indexing text[i](26, 29, 530)
     # /ind-expr
     EXCH        $encode.52  $encode.51
     XOR         $encode.53  $encode.52
@@ -14841,7 +14841,7 @@ encode.neq9_top_post:
     EXCH        $encode.54  $encode.j.0
     XOR         $encode.55  $encode.54
     EXCH        $encode.54  $encode.j.0
-    # /indexing arc[j](26, 18)
+    # /indexing arc[j](26, 18, 519)
     # /neq[9]
     # j += 2
     EXCH        $encode.78  $encode.j.0
@@ -14915,7 +14915,7 @@ encode.eq2_top_post:
     EXCH        $encode.6  $encode.i.0
     # /ampamp[2]
     # eq[5]
-    # indexing text[i](28, 15)
+    # indexing text[i](28, 15, 563)
     EXCH        $encode.20  $encode.i.0
     XOR         $encode.21  $encode.20
     EXCH        $encode.20  $encode.i.0
@@ -14959,11 +14959,11 @@ encode.eq5_top_post:
     EXCH        $encode.20  $encode.i.0
     XOR         $encode.21  $encode.20
     EXCH        $encode.20  $encode.i.0
-    # /indexing text[i](28, 15)
+    # /indexing text[i](28, 15, 563)
     # /eq[5]
-    # from (= arc[j] 0) at (31, 5)
+    # from (= arc[j] 0) at (31, 5, 607)
     # eq[10]
-    # indexing arc[j](31, 13)
+    # indexing arc[j](31, 13, 615)
     EXCH        $encode.83  $encode.j.0
     XOR         $encode.84  $encode.83
     EXCH        $encode.83  $encode.j.0
@@ -15007,7 +15007,7 @@ encode.eq10_top_post:
     EXCH        $encode.83  $encode.j.0
     XOR         $encode.84  $encode.83
     EXCH        $encode.83  $encode.j.0
-    # /indexing arc[j](31, 13)
+    # /indexing arc[j](31, 13, 615)
     # /eq[10]
     # do-code
     # j -= 2
@@ -15019,7 +15019,7 @@ encode.eq10_top_post:
     # /j -= 2
     # i -= arc[(+ j 1)]
     EXCH        $encode.93  $encode.i.0
-    # indexing arc[(+ j 1)](34, 17)
+    # indexing arc[(+ j 1)](34, 17, 661)
     EXCH        $encode.97  $encode.j.0
     XOR         $encode.98  $encode.97
     EXCH        $encode.97  $encode.j.0
@@ -15047,10 +15047,10 @@ encode.eq10_top_post:
     EXCH        $encode.97  $encode.j.0
     XOR         $encode.98  $encode.97
     EXCH        $encode.97  $encode.j.0
-    # /indexing arc[(+ j 1)](34, 17)
+    # /indexing arc[(+ j 1)](34, 17, 661)
     EXCH        $encode.93  $encode.i.0
     # /i -= arc[(+ j 1)]
-    # until (= i 0) at (36, 5)
+    # until (= i 0) at (36, 5, 685)
     # eq[12]
     EXCH        $encode.87  $encode.i.0
     XOR         $encode.88  $encode.87
@@ -15085,7 +15085,7 @@ encode.eq12_top_post:
     # skip
     NOP         
     # eq[11]
-    # indexing arc[j](31, 13)
+    # indexing arc[j](31, 13, 615)
     EXCH        $encode.83  $encode.j.0
     XOR         $encode.84  $encode.83
     EXCH        $encode.83  $encode.j.0
@@ -15129,7 +15129,7 @@ encode.eq11_top_post:
     EXCH        $encode.83  $encode.j.0
     XOR         $encode.84  $encode.83
     EXCH        $encode.83  $encode.j.0
-    # /indexing arc[j](31, 13)
+    # /indexing arc[j](31, 13, 615)
     # /eq[11]
     # eq[13]
     EXCH        $encode.87  $encode.i.0
@@ -15162,20 +15162,20 @@ encode.eq13_top_post:
     XOR         $encode.88  $encode.87
     EXCH        $encode.87  $encode.i.0
     # /eq[13]
-    # delocal[j = 0](37, 19)
+    # delocal[j = 0](37, 19, 715)
     XORI        $encode.5  0
     XOR         $encode.j.0  $spointer
     POP         $encode.3
     XOR         $encode.3  $encode.5
     XORI        $encode.5  0
-    # /delocal[j = 0](37, 19)
-    # delocal[i = 0](38, 19)
+    # /delocal[j = 0](37, 19, 715)
+    # delocal[i = 0](38, 19, 737)
     XORI        $encode.2  0
     XOR         $encode.i.0  $spointer
     POP         $encode.0
     XOR         $encode.0  $encode.2
     XORI        $encode.2  0
-    # /delocal[i = 0](38, 19)
+    # /delocal[i = 0](38, 19, 737)
 encode.bot:
     BRA         encode.top
 </span>
@@ -15484,21 +15484,21 @@ encode:
     NEG         $raddr
     PUSH        $raddr
     # encode body
-    # local[i = 0](21, 5)
+    # local[i = 0](21, 5, 351)
     XORI        $encode.1  0
     XOR         $encode.0  $encode.1
     PUSH        $encode.0
     XOR         $encode.i.0  $spointer
     XORI        $encode.1  0
-    # /local[i = 0](21, 5)
-    # local[j = 0](22, 5)
+    # /local[i = 0](21, 5, 351)
+    # local[j = 0](22, 5, 371)
     XORI        $encode.4  0
     XOR         $encode.3  $encode.4
     PUSH        $encode.3
     XOR         $encode.j.0  $spointer
     XORI        $encode.4  0
-    # /local[j = 0](22, 5)
-    # from (&& (= i 0) (= j 0)) at (23, 5)
+    # /local[j = 0](22, 5, 371)
+    # from (&& (= i 0) (= j 0)) at (23, 5, 391)
     # ampamp[0]
     EXCH        $encode.6  $encode.i.0
     XOR         $encode.7  $encode.6
@@ -15566,9 +15566,9 @@ encode.eq0_top_post:
     # do-code
     # skip
     NOP         
-    # until (= text[i] 0) at (36, 5)
+    # until (= text[i] 0) at (36, 5, 681)
     # eq[4]
-    # indexing text[i](36, 15)
+    # indexing text[i](36, 15, 691)
     EXCH        $encode.20  $encode.i.0
     XOR         $encode.21  $encode.20
     EXCH        $encode.20  $encode.i.0
@@ -15612,7 +15612,7 @@ encode.eq4_top_post:
     EXCH        $encode.20  $encode.i.0
     XOR         $encode.21  $encode.20
     EXCH        $encode.20  $encode.i.0
-    # /indexing text[i](36, 15)
+    # /indexing text[i](36, 15, 691)
     # /eq[4]
     # arc[j] += text[i]
     EXCH        $encode.26  $encode.j.0
@@ -15622,7 +15622,7 @@ encode.eq4_top_post:
     ADD1        $encode.24
     ADD         $encode.24  $encode.27
     EXCH        $encode.25  $encode.24
-    # indexing text[i](26, 23)
+    # indexing text[i](26, 23, 454)
     EXCH        $encode.31  $encode.i.0
     XOR         $encode.32  $encode.31
     EXCH        $encode.31  $encode.i.0
@@ -15644,7 +15644,7 @@ encode.eq4_top_post:
     EXCH        $encode.31  $encode.i.0
     XOR         $encode.32  $encode.31
     EXCH        $encode.31  $encode.i.0
-    # /indexing text[i](26, 23)
+    # /indexing text[i](26, 23, 454)
     EXCH        $encode.25  $encode.24
     SUB         $encode.24  $encode.27
     SUB1        $encode.24
@@ -15661,7 +15661,7 @@ encode.eq4_top_post:
     ADD1        $encode.33
     ADD         $encode.33  $encode.36
     EXCH        $encode.34  $encode.33
-    # indexing arc[j](27, 22)
+    # indexing arc[j](27, 22, 501)
     EXCH        $encode.40  $encode.j.0
     XOR         $encode.41  $encode.40
     EXCH        $encode.40  $encode.j.0
@@ -15683,7 +15683,7 @@ encode.eq4_top_post:
     EXCH        $encode.40  $encode.j.0
     XOR         $encode.41  $encode.40
     EXCH        $encode.40  $encode.j.0
-    # /indexing arc[j](27, 22)
+    # /indexing arc[j](27, 22, 501)
     EXCH        $encode.34  $encode.33
     SUB         $encode.33  $encode.36
     SUB1        $encode.33
@@ -15692,9 +15692,9 @@ encode.eq4_top_post:
     XOR         $encode.36  $encode.35
     EXCH        $encode.35  $encode.i.0
     # /text[i] -= arc[j]
-    # from (= arc[(+ j 1)] 0) at (28, 9)
+    # from (= arc[(+ j 1)] 0) at (28, 9, 513)
     # eq[6]
-    # indexing arc[(+ j 1)](28, 17)
+    # indexing arc[(+ j 1)](28, 17, 521)
     EXCH        $encode.45  $encode.j.0
     XOR         $encode.46  $encode.45
     EXCH        $encode.45  $encode.j.0
@@ -15744,7 +15744,7 @@ encode.eq6_top_post:
     EXCH        $encode.45  $encode.j.0
     XOR         $encode.46  $encode.45
     EXCH        $encode.45  $encode.j.0
-    # /indexing arc[(+ j 1)](28, 17)
+    # /indexing arc[(+ j 1)](28, 17, 521)
     # /eq[6]
     # do-code
     # arc[(+ j 1)] += 1
@@ -15775,9 +15775,9 @@ encode.eq6_top_post:
     ADD1        $encode.68
     EXCH        $encode.68  $encode.i.0
     # /i += 1
-    # until (!= arc[j] text[i]) at (34, 9)
+    # until (!= arc[j] text[i]) at (34, 9, 638)
     # neq[8]
-    # indexing arc[j](34, 18)
+    # indexing arc[j](34, 18, 647)
     EXCH        $encode.54  $encode.j.0
     XOR         $encode.55  $encode.54
     EXCH        $encode.54  $encode.j.0
@@ -15788,7 +15788,7 @@ encode.eq6_top_post:
     XOR         $encode.53  $encode.52
     EXCH        $encode.52  $encode.51
     # ind-expr
-    # indexing text[i](34, 29)
+    # indexing text[i](34, 29, 658)
     EXCH        $encode.59  $encode.i.0
     XOR         $encode.60  $encode.59
     EXCH        $encode.59  $encode.i.0
@@ -15830,7 +15830,7 @@ encode.neq8_top_post:
     EXCH        $encode.59  $encode.i.0
     XOR         $encode.60  $encode.59
     EXCH        $encode.59  $encode.i.0
-    # /indexing text[i](34, 29)
+    # /indexing text[i](34, 29, 658)
     # /ind-expr
     EXCH        $encode.52  $encode.51
     XOR         $encode.53  $encode.52
@@ -15841,7 +15841,7 @@ encode.neq8_top_post:
     EXCH        $encode.54  $encode.j.0
     XOR         $encode.55  $encode.54
     EXCH        $encode.54  $encode.j.0
-    # /indexing arc[j](34, 18)
+    # /indexing arc[j](34, 18, 647)
     # /neq[8]
     # text[i] -= arc[j]
     EXCH        $encode.71  $encode.i.0
@@ -15851,7 +15851,7 @@ encode.neq8_top_post:
     ADD1        $encode.69
     ADD         $encode.69  $encode.72
     EXCH        $encode.70  $encode.69
-    # indexing arc[j](33, 27)
+    # indexing arc[j](33, 27, 626)
     EXCH        $encode.76  $encode.j.0
     XOR         $encode.77  $encode.76
     EXCH        $encode.76  $encode.j.0
@@ -15873,7 +15873,7 @@ encode.neq8_top_post:
     EXCH        $encode.76  $encode.j.0
     XOR         $encode.77  $encode.76
     EXCH        $encode.76  $encode.j.0
-    # /indexing arc[j](33, 27)
+    # /indexing arc[j](33, 27, 626)
     EXCH        $encode.70  $encode.69
     SUB         $encode.69  $encode.72
     SUB1        $encode.69
@@ -15883,7 +15883,7 @@ encode.neq8_top_post:
     EXCH        $encode.71  $encode.i.0
     # /text[i] -= arc[j]
     # eq[7]
-    # indexing arc[(+ j 1)](28, 17)
+    # indexing arc[(+ j 1)](28, 17, 521)
     EXCH        $encode.45  $encode.j.0
     XOR         $encode.46  $encode.45
     EXCH        $encode.45  $encode.j.0
@@ -15933,10 +15933,10 @@ encode.eq7_top_post:
     EXCH        $encode.45  $encode.j.0
     XOR         $encode.46  $encode.45
     EXCH        $encode.45  $encode.j.0
-    # /indexing arc[(+ j 1)](28, 17)
+    # /indexing arc[(+ j 1)](28, 17, 521)
     # /eq[7]
     # neq[9]
-    # indexing arc[j](34, 18)
+    # indexing arc[j](34, 18, 647)
     EXCH        $encode.54  $encode.j.0
     XOR         $encode.55  $encode.54
     EXCH        $encode.54  $encode.j.0
@@ -15947,7 +15947,7 @@ encode.eq7_top_post:
     XOR         $encode.53  $encode.52
     EXCH        $encode.52  $encode.51
     # ind-expr
-    # indexing text[i](34, 29)
+    # indexing text[i](34, 29, 658)
     EXCH        $encode.59  $encode.i.0
     XOR         $encode.60  $encode.59
     EXCH        $encode.59  $encode.i.0
@@ -15989,7 +15989,7 @@ encode.neq9_top_post:
     EXCH        $encode.59  $encode.i.0
     XOR         $encode.60  $encode.59
     EXCH        $encode.59  $encode.i.0
-    # /indexing text[i](34, 29)
+    # /indexing text[i](34, 29, 658)
     # /ind-expr
     EXCH        $encode.52  $encode.51
     XOR         $encode.53  $encode.52
@@ -16000,7 +16000,7 @@ encode.neq9_top_post:
     EXCH        $encode.54  $encode.j.0
     XOR         $encode.55  $encode.54
     EXCH        $encode.54  $encode.j.0
-    # /indexing arc[j](34, 18)
+    # /indexing arc[j](34, 18, 647)
     # /neq[9]
     # j += 2
     EXCH        $encode.78  $encode.j.0
@@ -16074,7 +16074,7 @@ encode.eq2_top_post:
     EXCH        $encode.6  $encode.i.0
     # /ampamp[2]
     # eq[5]
-    # indexing text[i](36, 15)
+    # indexing text[i](36, 15, 691)
     EXCH        $encode.20  $encode.i.0
     XOR         $encode.21  $encode.20
     EXCH        $encode.20  $encode.i.0
@@ -16118,11 +16118,11 @@ encode.eq5_top_post:
     EXCH        $encode.20  $encode.i.0
     XOR         $encode.21  $encode.20
     EXCH        $encode.20  $encode.i.0
-    # /indexing text[i](36, 15)
+    # /indexing text[i](36, 15, 691)
     # /eq[5]
-    # from (= arc[j] 0) at (39, 5)
+    # from (= arc[j] 0) at (39, 5, 735)
     # eq[10]
-    # indexing arc[j](39, 13)
+    # indexing arc[j](39, 13, 743)
     EXCH        $encode.83  $encode.j.0
     XOR         $encode.84  $encode.83
     EXCH        $encode.83  $encode.j.0
@@ -16166,7 +16166,7 @@ encode.eq10_top_post:
     EXCH        $encode.83  $encode.j.0
     XOR         $encode.84  $encode.83
     EXCH        $encode.83  $encode.j.0
-    # /indexing arc[j](39, 13)
+    # /indexing arc[j](39, 13, 743)
     # /eq[10]
     # do-code
     # j -= 2
@@ -16178,7 +16178,7 @@ encode.eq10_top_post:
     # /j -= 2
     # i -= arc[(+ j 1)]
     EXCH        $encode.93  $encode.i.0
-    # indexing arc[(+ j 1)](42, 17)
+    # indexing arc[(+ j 1)](42, 17, 789)
     EXCH        $encode.97  $encode.j.0
     XOR         $encode.98  $encode.97
     EXCH        $encode.97  $encode.j.0
@@ -16206,10 +16206,10 @@ encode.eq10_top_post:
     EXCH        $encode.97  $encode.j.0
     XOR         $encode.98  $encode.97
     EXCH        $encode.97  $encode.j.0
-    # /indexing arc[(+ j 1)](42, 17)
+    # /indexing arc[(+ j 1)](42, 17, 789)
     EXCH        $encode.93  $encode.i.0
     # /i -= arc[(+ j 1)]
-    # until (= i 0) at (44, 5)
+    # until (= i 0) at (44, 5, 813)
     # eq[12]
     EXCH        $encode.87  $encode.i.0
     XOR         $encode.88  $encode.87
@@ -16244,7 +16244,7 @@ encode.eq12_top_post:
     # skip
     NOP         
     # eq[11]
-    # indexing arc[j](39, 13)
+    # indexing arc[j](39, 13, 743)
     EXCH        $encode.83  $encode.j.0
     XOR         $encode.84  $encode.83
     EXCH        $encode.83  $encode.j.0
@@ -16288,7 +16288,7 @@ encode.eq11_top_post:
     EXCH        $encode.83  $encode.j.0
     XOR         $encode.84  $encode.83
     EXCH        $encode.83  $encode.j.0
-    # /indexing arc[j](39, 13)
+    # /indexing arc[j](39, 13, 743)
     # /eq[11]
     # eq[13]
     EXCH        $encode.87  $encode.i.0
@@ -16321,20 +16321,20 @@ encode.eq13_top_post:
     XOR         $encode.88  $encode.87
     EXCH        $encode.87  $encode.i.0
     # /eq[13]
-    # delocal[j = 0](45, 19)
+    # delocal[j = 0](45, 19, 843)
     XORI        $encode.5  0
     XOR         $encode.j.0  $spointer
     POP         $encode.3
     XOR         $encode.3  $encode.5
     XORI        $encode.5  0
-    # /delocal[j = 0](45, 19)
-    # delocal[i = 0](46, 19)
+    # /delocal[j = 0](45, 19, 843)
+    # delocal[i = 0](46, 19, 865)
     XORI        $encode.2  0
     XOR         $encode.i.0  $spointer
     POP         $encode.0
     XOR         $encode.0  $encode.2
     XORI        $encode.2  0
-    # /delocal[i = 0](46, 19)
+    # /delocal[i = 0](46, 19, 865)
 encode.bot:
     BRA         encode.top
 </span>
@@ -16635,13 +16635,13 @@ f.geq1_top_post:
     XOR         $f.32  $f.c
     XORI        $f.34  2
     # /c[2] += a
-    # a <=> z
+    # a &lt;=&gt; z
     EXCH        $f.37  $arg3
     EXCH        $f.38  $arg2
     SWAP        $f.37  $f.38
     EXCH        $f.38  $arg2
     EXCH        $f.37  $arg3
-    # /a <=> z
+    # /a &lt;=&gt; z
     # fi[0]((= (+ x y) 250))
     # eq[2]
     EXCH        $f.13  $arg0

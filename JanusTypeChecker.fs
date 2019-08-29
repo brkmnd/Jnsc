@@ -13,8 +13,8 @@ type Procedure = {
  * - Binding is checked that same id does not appear on right side
  * *)
 (* AUX functions *)
-let fail msg (y,x) =
-    failwith (sprintf "(%d,%d): %s" y x msg)
+let fail msg (y,x,cpos) =
+    failwith (sprintf "(%d,%d,%d): %s" y x cpos msg)
 type Scope () =
     let scope = new Dictionary<string,DataType>()
     let usedIds = new List<string>()
@@ -26,11 +26,11 @@ type Scope () =
     member this.add (atom : Atom) =
         match atom with
         | Id (t,_,id,_) -> this.add(id,t)
-        | _ -> fail (sprintf "trying to add non-id '%A' to scope" atom) (-1,-1)
+        | _ -> fail (sprintf "trying to add non-id '%A' to scope" atom) (-1,-1,-1)
     member this.add (atom : Atom,v) =
         match atom with
         | Id (_,_,id,_) -> this.add(id,v)
-        | _ -> fail (sprintf "some error") (-1,-1)
+        | _ -> fail (sprintf "some error") (-1,-1,-1)
     member this.get (id) =
         if scope.ContainsKey(id) then scope.[id]
         else Empty
@@ -78,7 +78,7 @@ type Procedures() =
         bps.Add("size",(Array Int,Int))
         fun (id) ->
             if bps.ContainsKey(id) then bps.[id]
-            else fail (sprintf "trying to fetch buildin proc '%s' that does not exist" id) (-1,-1)
+            else fail (sprintf "trying to fetch buildin proc '%s' that does not exist" id) (-1,-1,-1)
     static member getOp (op) =
         match op with
         // arit unary operators
@@ -107,7 +107,7 @@ type Procedures() =
     member this.get(id,pos) =
         if ps.ContainsKey(id) then ps.[id]
         else fail (sprintf "trying to fetch procedure '%s' that is not yet declared" id) pos
-    member this.get(id) = this.get(id,(-1,-1))
+    member this.get(id) = this.get(id,(-1,-1,-1))
     member this.foreach(f) = for p in ps do (f p.Key p.Value)
 
 

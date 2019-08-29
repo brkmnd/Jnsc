@@ -9,14 +9,14 @@ type Prg =
     | Error
 and Stmt =
     | Proc of string * (Atom list) * (Stmt list)
-    | BindOp of string * Atom * Expr * (int * int)
-    | Call of string * (Atom list) * (int * int)
-    | Uncall of string * (Atom list) * (int * int)
-    | CallExt of string * (Atom list) * (int * int)
+    | BindOp of string * Atom * Expr * (int * int * int)
+    | Call of string * (Atom list) * (int * int * int)
+    | Uncall of string * (Atom list) * (int * int * int)
+    | CallExt of string * (Atom list) * (int * int * int)
     | Decs of Atom list
-    | If of Expr * (Stmt list) * (Stmt list) * Expr * ((int * int) * (int * int))
-    | From of Expr * (Stmt list) * (Stmt list) * Expr * ((int * int) * (int * int))
-    | Local of Atom * Expr * (Stmt list) * Atom * Expr * ((int * int) * (int * int))
+    | If of Expr * (Stmt list) * (Stmt list) * Expr * ((int * int * int) * (int * int * int))
+    | From of Expr * (Stmt list) * (Stmt list) * Expr * ((int * int * int) * (int * int * int))
+    | Local of Atom * Expr * (Stmt list) * Atom * Expr * ((int * int * int) * (int * int * int))
     | Skip
     with
     static member toString (s) =
@@ -32,8 +32,8 @@ and Stmt =
                 (Expr.toString r)
         | _ -> ""
 and Expr =
-    | BinOp of string * Expr * Expr * (int * int)
-    | UnaOp of string * Expr * (int * int)
+    | BinOp of string * Expr * Expr * (int * int * int)
+    | UnaOp of string * Expr * (int * int * int)
     | Literal of Atom
     with
     static member op2sym (op) =
@@ -81,12 +81,12 @@ and Expr =
                 (Expr.toString arg)
         | Literal atom -> Atom.toString atom
     static member (+) (e : Expr,v : int) =
-        BinOp ("plus",e,Literal (Val "1"),(-1,-1))
+        BinOp ("plus",e,Literal (Val "1"),(-1,-1,-1))
 and Atom =
-    | Id of DataType * DataAtts * string * (int * int)
+    | Id of DataType * DataAtts * string * (int * int * int)
     | Val of string
-    | Index of Atom * Expr * (int * int)
-    | CallBuildin of string * (Atom list) * (int * int)
+    | Index of Atom * Expr * (int * int * int)
+    | CallBuildin of string * (Atom list) * (int * int * int)
     | Nil
     with
     static member (+) (arg1,arg2) =

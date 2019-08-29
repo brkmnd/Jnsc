@@ -2,9 +2,6 @@ module JanusLexer
 open System.Collections.Generic
 open System.Text.RegularExpressions
 let mutable getToken_i = 0
-let token2str = function
-    | JanusParser.token.LBRACKET pos -> "nmoge"
-    | _ -> "note"
 let lex inStr =
     let linesIndex = new List<int>()
     let linesIndexLast () =
@@ -23,7 +20,7 @@ let lex inStr =
         // Ignore
         " +|\\n"
     let addToken xIndex (tGroup : GroupCollection) =
-        let pos = (linesIndex.Count + 1,xIndex - (linesIndexLast()))
+        let pos = (linesIndex.Count + 1,xIndex - (linesIndexLast()),xIndex)
         if tGroup.[1].Value <> "" then
             match tGroup.[1].Value with
             | "int"         -> tokens.Add(JanusParser.token.INT pos)
@@ -94,7 +91,7 @@ let lex inStr =
     if residueStr <> "" then
         failwith ("garbage in program: '"+residueStr+"'")
     else
-        tokens.Add(JanusParser.token.EOI (linesIndex.Count + 1,linesIndexLast()))
+        tokens.Add(JanusParser.token.EOI (linesIndex.Count + 1,linesIndexLast(),inStr.Length - 1))
         Array.init
             (tokens.Count)
             (fun _ ->
