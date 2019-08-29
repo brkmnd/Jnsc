@@ -2,6 +2,9 @@ module JanusLexer
 open System.Collections.Generic
 open System.Text.RegularExpressions
 let mutable getToken_i = 0
+let token2str = function
+    | JanusParser.token.LBRACKET pos -> "nmoge"
+    | _ -> "note"
 let lex inStr =
     let linesIndex = new List<int>()
     let linesIndexLast () =
@@ -89,7 +92,7 @@ let lex inStr =
         ""
     let residueStr = Regex.Replace(inStr,regToken,matchF)
     if residueStr <> "" then
-        failwith ("Garbage in program: '"+residueStr+"'")
+        failwith ("garbage in program: '"+residueStr+"'")
     else
         tokens.Add(JanusParser.token.EOI (linesIndex.Count + 1,linesIndexLast()))
         Array.init

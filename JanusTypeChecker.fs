@@ -12,10 +12,9 @@ type Procedure = {
  * - Var is checked whether in scope
  * - Binding is checked that same id does not appear on right side
  * *)
-exception JanusTypeError of string
 (* AUX functions *)
 let fail msg (y,x) =
-    raise (JanusTypeError (sprintf "(%d,%d): %s" y x msg))
+    failwith (sprintf "(%d,%d): %s" y x msg)
 type Scope () =
     let scope = new Dictionary<string,DataType>()
     let usedIds = new List<string>()

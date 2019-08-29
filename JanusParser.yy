@@ -8,7 +8,7 @@ let parse_error_rich =
     Some (fun (ctxt: FSharp.Text.Parsing.ParseErrorContext<_>) ->
         ErrorContextDescriptor <-
             match ctxt.CurrentToken with
-            | None -> "At beginning of input\n"
+            | None -> "at beginning of input\n"
             | Some token -> sprintf "at token %A\n" token
         )
 
@@ -53,7 +53,6 @@ let defDataAtts = {size = -1}
 /* Buildin Procedures */
 %token<int*int> SIZE
 %token<int*int> SHOW
-
 /* Precedence and so on */
 %nonassoc BIND_UP BIND_PLUS BIND_MINUS
 %left COMMA

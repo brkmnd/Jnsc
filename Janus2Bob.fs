@@ -1,7 +1,6 @@
 module Janus2Bob
 open System.Collections.Generic
 open JanusAbSyn
-
 (* Instruction Args
  * *)
 type InstrArg =
