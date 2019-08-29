@@ -23,7 +23,7 @@ and Stmt =
         match s with
         | BindOp (op,l,r,_) ->
             let ops =
-                if op = "switch" then "<=>"
+                if op = "switch" then "&lt;=&gt;"
                 else sprintf "%s=" (Expr.op2sym op)
             sprintf
                 "%s %s %s"
@@ -47,8 +47,8 @@ and Expr =
         | "ampamp"  -> "&&"
         | "eq"      -> "="
         | "neq"     -> "!="
-        | "gt"      -> ">"
-        | "lt"      -> "<"
+        | "gt"      -> "&gt;" //">"
+        | "lt"      -> "&lt;" //"<"
         | _ -> op
     static member isLitOne (a) =
         match a with
