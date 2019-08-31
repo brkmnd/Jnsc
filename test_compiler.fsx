@@ -1,10 +1,10 @@
 #r "FsLexYacc.Runtime.9.0.2/lib/net46/FsLexYacc.Runtime.dll"
-#load "JanusAbSyn.fs"
-#load "JanusParser.fs"
-#load "JanusLexer.fs"
-#load "JanusTypeChecker.fs"
-#load "JanusCompilerBob.fs"
-#load "Jnsc.fs"
+#load "JanusCompiler/JanusAbSyn.fs"
+#load "JanusCompiler/JanusParser.fs"
+#load "JanusCompiler/JanusLexer.fs"
+#load "JanusCompiler/JanusTypeChecker.fs"
+#load "JanusCompiler/JanusCompilerBob.fs"
+#load "JanusCompiler/Jnsc.fs"
 open System
 open System.IO
 open System.Text
@@ -68,9 +68,11 @@ let fopen name =
             ""
             l
     (res,msg)
-let compileJanus str =
+let compileJanus str prgName =
     // on success return bobcode
     // on error print error and return empty string
+    Jnsc.clear()
+    printfn_color (sprintf "\n--compiling %s" prgName) ConsoleColor.Yellow
     let res = Jnsc.toBob str
     if res|>Jnsc.hasSuccess then
         res.code
@@ -142,7 +144,7 @@ let main args =
                 res.fromFile(prg)
                 results <- results + res.toString() + ","
                 Html.addCodeLine (Html.newH2 (sprintf "%s" prg))
-                Html.addCodeLine (Html.newBobCode (compileJanus src))
+                Html.addCodeLine (Html.newBobCode (compileJanus src prg))
                 Html.addCodeLine (Html.newPout "")
                 Html.addCodeLine (Html.newPerror "")
                 Html.addCodeLine (Html.newCodeBox "")

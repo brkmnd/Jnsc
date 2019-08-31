@@ -14,10 +14,39 @@ type Procedure = {
  * *)
 (* AUX functions *)
 let fail msg (y,x,cpos) =
-    failwith (sprintf "(%d,%d,%d): %s" y x cpos msg)
+    failwith (sprintf " at (%d,%d,%d) %s" y x cpos msg)
+
+(* Error messages
+ * *)
+let fMsgCond given =
+    sprintf "condition expects (bool) but is given (%s)" given
+let fMsgBind op t =
+    sprintf
+        "binding with %s expects right hand side to be of type (int) but is given (%s)"
+        (Expr.op2sym op)
+        t
+let fMsgBind1 op id0 =
+    let idStr =
+        match id0 with
+        | Id (_,_,id,_) -> id
+        | _ -> ""
+    sprintf
+        "binding with %s can't contain the same id '%s' on left and right hand side"
+        (Expr.op2sym op)
+        idStr
+let fMsgArgs calleeSig callerSig id =
+    let expct = DataType.toString calleeSig
+    let given = DataType.toString callerSig
+    sprintf "'%s' expects (%s) but is given (%s)" id expct given
+let fMsgNotInScope id = sprintf "'%s' not in scope" id
+
+(* Scope
+ * Is instantiated
+ * *)
 type Scope () =
     let scope = new Dictionary<string,DataType>()
     let usedIds = new List<string>()
+    let fMsgNonId = "[internal] non-id in scope"
     let mutable captureUsed = false
     member this.add (id : string,v) =
         if scope.ContainsKey (id) then
@@ -26,18 +55,24 @@ type Scope () =
     member this.add (atom : Atom) =
         match atom with
         | Id (t,_,id,_) -> this.add(id,t)
-        | _ -> fail (sprintf "trying to add non-id '%A' to scope" atom) (-1,-1,-1)
+        | _ -> fail (sprintf "%s" fMsgNonId) (-1,-1,-1)
     member this.add (atom : Atom,v) =
         match atom with
         | Id (_,_,id,_) -> this.add(id,v)
-        | _ -> fail (sprintf "some error") (-1,-1,-1)
+        | _ -> fail (sprintf "%s" fMsgNonId) (-1,-1,-1)
     member this.get (id) =
         if scope.ContainsKey(id) then scope.[id]
         else Empty
     member this.get (atom : Atom) =
         match atom with
-        | Id (_,_,id,_) -> this.get (id)
-        | _ -> failwith (sprintf "non id get in scope '%A'" atom)
+        | Id (_,_,id,pos) ->
+            if scope.ContainsKey(id) then this.get(id)
+            else fail (fMsgNotInScope id) pos
+        | _ -> fail (sprintf "%s" fMsgNonId) (-1,-1,-1)
+    member this.getIgn (atom : Atom) =
+        match atom with
+        | Id (_,_,id,pos) when scope.ContainsKey(id) -> this.get(id)
+        | _ -> Empty
     member this.contains (k) = scope.ContainsKey (k)
     member this.foreach (f) = for v in scope do (f v.Key v.Value)
     member this.getTypes (args) =
@@ -45,9 +80,9 @@ type Scope () =
         // In here replace every id with type obtained from scope
         let rec exec = function
             | [] -> Empty
-            | [Id (_,_,id,_)] -> this.get(id)
+            | [id] when id|>Atom.isId -> this.get(id)
             | [a] -> Atom.filterType a
-            | (Id (_,_,id,_))::xs ->
+            | id::xs when id|>Atom.isId ->
                 Product (this.get(id),exec xs)
             | a::xs ->
                 Product (Atom.filterType a,exec xs)
@@ -70,11 +105,16 @@ type Scope () =
         match v with
         | Id (_,_,id,_) -> this.usedCheckClear (id)
         | _ -> this.usedClear(); this.usedDeactivate(); false
+
+(* Procedures
+ * keep track of type sig of operators and
+ * user defined procedures
+ * *)
 type Procedures() =
     let ps = new Dictionary<string,Procedure>()
     static member getBuildin =
         let bps = new Dictionary<string,(DataType * DataType)>()
-        bps.Add("show",(Array Int,Empty))
+        //bps.Add("show",(Array Int,Empty))
         bps.Add("size",(Array Int,Int))
         fun (id) ->
             if bps.ContainsKey(id) then bps.[id]
@@ -111,32 +151,16 @@ type Procedures() =
     member this.foreach(f) = for p in ps do (f p.Key p.Value)
 
 
+(* Pseudo Evaluation
+ * Traverse AbSynTree buttom up and try to append types
+ * to first leaves and then nodes
+ * *)
 let rec evalProc (proc : Procedure) (procs : Procedures) =
     let scope : Scope = evalArgs proc.args (new Scope())
     evalStmts proc.body scope procs
 and evalStmts stmts scope procs =
     List.fold (fun _ stmt -> evalStmt stmt scope procs) () stmts
 and evalStmt stmt scope (procs : Procedures) =
-    let fMsgCond given =
-        sprintf "condition expects (bool) but is given (%s)" given
-    let fMsgBind op t =
-        sprintf
-            "binding with %s expects right hand side to be of type (int) but is given (%s)"
-            (Expr.op2sym op)
-            t
-    let fMsgBind1 op id0 =
-        let idStr =
-            match id0 with
-            | Id (_,_,id,_) -> id
-            | _ -> ""
-        sprintf
-            "binding with %s can't contain the same id '%s' on left and right hand side"
-            (Expr.op2sym op)
-            idStr
-    let fMsgArgs calleeSig callerSig id =
-        let expct = DataType.toString calleeSig
-        let given = DataType.toString callerSig
-        sprintf "'%s' expects (%s) but is given (%s)" id expct given
     match stmt with
     | Decs decs ->
         List.fold (fun _ dec -> scope.add(dec)) () decs
@@ -164,11 +188,16 @@ and evalStmt stmt scope (procs : Procedures) =
         else fail (fMsgArgs calleeSig callerSig id) pos
     | Local (id1,e1,s,id2,e2,pos) ->
         let te1 = evalExpr e1 scope
-        let old1 = scope.get(id1)
+        let old1 = scope.getIgn(id1)
         let toScope1 = scope.add(id1)
         let t1 = scope.get(id1)
         if t1 != te1 then
-            fail (sprintf "some type error %A != %A" t1 te1) (fst pos)
+            let msg =
+                sprintf
+                    "local declaration expected %s but is given %s"
+                    (DataType.toString t1)
+                    (DataType.toString te1)
+            fail msg (fst pos)
         elif Atom.toString id1 <> Atom.toString id2 then
             let msg =
                 sprintf
@@ -227,7 +256,7 @@ and evalAtom atom (scope : Scope) =
     match atom with
     | Id (_,_,id,pos) ->
         if not (scope.contains (id)) then
-            fail (sprintf "'%s' not in scope" id) pos
+            fail (fMsgNotInScope id) pos
         elif (scope.get(id))|>DataType.isArray then
             fail (sprintf "can't operate directly on array '%s'" id) pos
         else
@@ -236,7 +265,7 @@ and evalAtom atom (scope : Scope) =
     | Index (Id (_,_,id,_),e,pos) ->
         let te = evalExpr e scope
         if not (scope.contains (id)) then
-            fail (sprintf "'%s' not in scope" id) pos
+            fail (fMsgNotInScope id) pos
         elif te != Int then
             fail (sprintf "index expects (int) expression but is given (%s)" (DataType.toString te)) pos
         else

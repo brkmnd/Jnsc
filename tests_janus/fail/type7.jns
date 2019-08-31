@@ -1,0 +1,10 @@
+procedure main()
+    int x
+    int y
+    x += 100
+    y += 150
+    call f(x,y,z)
+procedure f(int x, int y,int z)
+    x += 2
+    y += 2
+    z += 100

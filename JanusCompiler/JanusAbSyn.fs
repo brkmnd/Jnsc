@@ -133,6 +133,10 @@ and Atom =
         match a with
         | Index _ -> true
         | _ -> false
+    static member isId (a) =
+        match a with
+        | Id _ -> true
+        | _ -> false
     static member filterType (a) =
         match a with
         | Id (t,_,_,_) -> t

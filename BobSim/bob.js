@@ -30,7 +30,7 @@ var BobLang = function(machine){
         //m.t = some/none
         //m.v = value if some, else null
         if(o[m.tt] !== undefined){
-            return o[m.tt](m.tt,m.tv,{x:m.posX,y:m.posY});
+            return o[m.tt](m.tt,m.tv,{x:m.posX,y:m.posY,t:m.posT});
             }
         };
     var addToken2tree = function(tree,node){
@@ -246,55 +246,55 @@ var BobLang = function(machine){
                     linepos.start = posX;
                     }
                 if(typeof i1 !== "undefined"){
-                    retval[retI] = {t:"some",tt:"reg",tv:i1,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"some",tt:"reg",tv:i1,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i2 !== "undefined"){
-                    retval[retI] = {t:"some",tt:"imm",tv:i2,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"some",tt:"imm",tv:i2,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i3 !== "undefined"){
-                    retval[retI] = {t:"some",tt:"id",tv:i3,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"some",tt:"id",tv:i3,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i4 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"plus",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"plus",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i5 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"minus",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"minus",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i6 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"times",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"times",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i7 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"colon",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"colon",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i8 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"comma",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"comma",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i9 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"lbracket",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"lbracket",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i10 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"lpar",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"lpar",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i11 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"rbracket",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"rbracket",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i12 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"rpar",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"rpar",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 else if(typeof i13 !== "undefined"){
-                    retval[retI] = {t:"none",tt:"eol",tv:null,posX:posX - linepos.start,posY:linepos.lnr};
+                    retval[retI] = {t:"none",tt:"eol",tv:null,posX:posX - linepos.start,posY:linepos.lnr,posT:posX};
                     retI++;
                     }
                 return "";
@@ -305,8 +305,9 @@ var BobLang = function(machine){
             retval["__res"] = resStr;
             }
         else {
-            retval[retI] = {t:"none",tt:"eol",tv:null,posX:linepos.x - linepos.start,posY:linepos.lnr};
-            retval[retI + 1] = {t:"none",v:null,tt:"$",tv:null,posX:linepos.x - linepos.start,posY:linepos.lnr};
+            var posT = inStr.length;
+            retval[retI] = {t:"none",tt:"eol",tv:null,posX:linepos.x - linepos.start,posY:linepos.lnr,posT:posT};
+            retval[retI + 1] = {t:"none",v:null,tt:"$",tv:null,posX:linepos.x - linepos.start,posY:linepos.lnr,posT:posT};
             }
         return retval;
         };
@@ -1390,8 +1391,9 @@ var BobLang = function(machine){
                     return {absyn:absyn,labels:labels,error:false};
                 case "error":
                     var token = tokens[i];
-                    var msg = errors.syntax({x:token.posX,y:token.posY},entry.v)
-                    return {absyn:null,labels:null,error:true,msg:msg};
+                    var pos = {x:token.posX,y:token.posY,t:token.posT};
+                    var msg = errors.syntax(pos,entry.v)
+                    return {absyn:null,labels:null,error:true,msg:msg,errorPos:pos};
                 }
             }
         };
@@ -1447,6 +1449,7 @@ var BobLang = function(machine){
                     };
                 return ret;
                 }(),
+            failPos:{x:-1,y:-1,t:-1},
             fail:function(instr,msg){
                 var msg0 = function(){
                     var m = "error";
@@ -1460,12 +1463,19 @@ var BobLang = function(machine){
                         }
                     return m + ": ";
                     }();
+                statusEval.failPos = instr.pos;
                 statusEval.running = false;
                 statusEval.error = true;
                 statusEval.msgError = msg0 + msg;
                 if(statusEval.errorType === null){
                     statusEval.errorType = "general";
                     }
+                },
+            failEmptyPrg:function(){
+                statusEval.running = false;
+                statusEval.error = true;
+                statusEval.msgError = "error: empty program";
+                statusEval.errorType = "general";
                 },
             failSegfault:function(instr){
                 statusEval.fail(instr,"segfault");
@@ -1643,7 +1653,7 @@ var BobLang = function(machine){
         pos.pc -= pos.br;
         return pos;
         };
-    var calcOffset = function(arg,pos,labels){
+    var calcOffset = function(arg,pos,labels,instr){
         var pc = pos.pc;
         var i = 0;
         switch(arg.type){
@@ -1653,11 +1663,11 @@ var BobLang = function(machine){
                 if(i === undefined){
                     var msg = "label '"+l+"' not defined";
                     statusEval.fail(instr,msg);
-                    return 0;
+                    return -1;
                     }
                 break;
             default:
-                alert("not yet in calcOffset");
+                //alert("not yet in calcOffset");
                 break;
             }
         return i - pc;
@@ -1730,10 +1740,14 @@ var BobLang = function(machine){
         };
     var popStackFrame = function(){ 
         var frame = machine.stackFrame.pop();
+        if(frame === null){
+            return false;
+            }
         for(var i = 0; i < frame.length; i++){
             var arg = frame[i];
             machine.regs.write(arg.name,arg.v);
             }
+        return true;
         };
     var checkArgType = function(instr,sig){
         if(instr.givenSig === undefined){
@@ -2014,7 +2028,7 @@ var BobLang = function(machine){
             case "bra":
                 var sig = [argsSigId];
                 var f = function(t){
-                    var off = calcOffset(iarg(0),model.pos,labels);
+                    var off = calcOffset(iarg(0),model.pos,labels,instr);
                     model.pos.br = calcBr(off,model.pos);
                     trackBranch(true);
                     };
@@ -2024,7 +2038,7 @@ var BobLang = function(machine){
                 var sig = [argsSigId];
                 var f = function(){
                     // first br then change dir
-                    var off = calcOffset(iarg(0),model.pos,labels);
+                    var off = calcOffset(iarg(0),model.pos,labels,instr);
                     model.pos.br = 0 - calcBr(off,model.pos);
                     model.pos.revDir();
                     trackTrace(true);
@@ -2037,7 +2051,7 @@ var BobLang = function(machine){
                     var a = argRead(iarg(0));
                     var p = a === 0;
                     if(p){
-                        var off = calcOffset(iarg(1),model.pos,labels);
+                        var off = calcOffset(iarg(1),model.pos,labels,instr);
                         model.pos.br = calcBr(off,model.pos);
                         }
                     trackBranch(p);
@@ -2050,7 +2064,7 @@ var BobLang = function(machine){
                     var a = argRead(iarg(0));
                     var p = a !== 0;
                     if(p){
-                        var off = calcOffset(iarg(1),model.pos,labels);
+                        var off = calcOffset(iarg(1),model.pos,labels,instr);
                         model.pos.br = calcBr(off,model.pos);
                         }
                     trackBranch(p);
@@ -2064,7 +2078,7 @@ var BobLang = function(machine){
                     var b = argRead(instr.args[1]);
                     var p = a === b;
                     if(p){
-                        var off = calcOffset(iarg(2),model.pos,labels);
+                        var off = calcOffset(iarg(2),model.pos,labels,instr);
                         model.pos.br = calcBr(off,model.pos);
                         }
                     trackBranch(p);
@@ -2078,7 +2092,7 @@ var BobLang = function(machine){
                     var b = argRead(instr.args[1]);
                     var p = a !== b;
                     if(p){
-                        var off = calcOffset(iarg(2),model.pos,labels);
+                        var off = calcOffset(iarg(2),model.pos,labels,instr);
                         model.pos.br = calcBr(off,model.pos);
                         }
                     trackBranch(p);
@@ -2092,7 +2106,7 @@ var BobLang = function(machine){
                     var b = argRead(instr.args[1]);
                     var p = a > b;
                     if(p){
-                        var off = calcOffset(iarg(2),model.pos,labels);
+                        var off = calcOffset(iarg(2),model.pos,labels,instr);
                         model.pos.br = calcBr(off,model.pos);
                         }
                     trackBranch(p);
@@ -2106,7 +2120,7 @@ var BobLang = function(machine){
                     var b = argRead(iarg(1));
                     var p = a >= b;
                     if(p){
-                        var off = calcOffset(iarg(2),model.pos,labels);
+                        var off = calcOffset(iarg(2),model.pos,labels,instr);
                         model.pos.br = calcBr(off,model.pos);
                         }
                     trackBranch(p);
@@ -2120,7 +2134,7 @@ var BobLang = function(machine){
                     var b = argRead(iarg(1));
                     var p = a < b;
                     if(p){
-                        var off = calcOffset(iarg(2),model.pos,labels);
+                        var off = calcOffset(iarg(2),model.pos,labels,instr);
                         model.pos.br = calcBr(off,model.pos);
                         }
                     trackBranch(p);
@@ -2134,7 +2148,7 @@ var BobLang = function(machine){
                     var b = argRead(instr.args[1]);
                     var p = a <= b;
                     if(p){
-                        var off = calcOffset(iarg(2),model.pos,labels);
+                        var off = calcOffset(iarg(2),model.pos,labels,instr);
                         model.pos.br = calcBr(off,model.pos);
                         }
                     trackBranch(p);
@@ -2169,7 +2183,7 @@ var BobLang = function(machine){
                 var sig = [argsSigIdApp];
                 var f = function(t){
                     var appArgs = instr.args[1];
-                    var off = calcOffset(iarg(0),model.pos,labels);
+                    var off = calcOffset(iarg(0),model.pos,labels,instr);
                     var br = calcBr(off,model.pos);
                     if(br !== 0){
                         pushStackFrame(appArgs.v);
@@ -2186,7 +2200,7 @@ var BobLang = function(machine){
                 var sig = [argsSigIdApp];
                 var f = function(t){
                     var appArgs = iarg(1);
-                    var off = calcOffset(iarg(0),model.pos,labels);
+                    var off = calcOffset(iarg(0),model.pos,labels,instr);
                     var br = 0 - calcBr(off,model.pos);
                     statusEval.traces.addJmp(instr,model,true);
                     if(br !== 0){
@@ -2239,8 +2253,10 @@ var BobLang = function(machine){
                 }
             };
         var model = {mem:machine.mem,regs:machine.regs,pos:pos};
-        statusEval = new StatusEval();
         statusEval.prgLen = prg.length;
+        if(prg.length === 0){
+            statusEval.failEmptyPrg()
+            }
         while(statusEval.running){
             var instr = prg[pos.pc];
             evalInstr(model,instr,labels);
@@ -2260,9 +2276,11 @@ var BobLang = function(machine){
         };
     return {
         exec:function(input){
+            statusEval = new StatusEval();
             var lexed = lexer(input);
             var parsed = parser(lexed);
             if(parsed.error){
+                statusEval.failPos = parsed.errorPos;
                 return {error:true,type:"syntax",msg:parsed.msg,statusEval:statusEval};
                 }
             var setSpointer = function(){

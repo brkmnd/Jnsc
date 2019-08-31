@@ -1,6 +1,21 @@
-module JanusCompilerBob
+module JanusCompilerBobExt
+(* Compiles to extended version of Bob - that is one that uses mem refs [] in branches
+ * Currently not maintained
+ * *)
 open System.Collections.Generic
 open JanusAbSyn
+
+(* Global state - warnings and so on *)
+let warnings = new List<string>()
+let internalErrors = new List<string>()
+let addWarning (w) =
+    warnings.Add(w)
+let addIntError (msg) =
+    internalErrors.Add(msg)
+let clearGs () =
+    warnings.Clear()
+    internalErrors.Clear()
+
 (* Instruction Args
  * *)
 type InstrArg =
@@ -19,12 +34,10 @@ type InstrArg =
         match arg with
         | Atom.Id (_,_,id,_) -> Register id
         | Val v -> Imm v
-        | _ -> failwith "not yet in InstrArg.fromArg"
+        | _ ->
+            addIntError (sprintf "can't handle '%A' in InstrArg.fromArg" arg)
+            Null
     static member fromArgs (args) = List.map InstrArg.fromArg args
-    static member fromExpr (e) =
-        match e with
-        | Literal l -> InstrArg.fromArg l
-        | _ -> failwith "not yet in InstrArg.fromExpr"
     static member toString(arg) =
         match arg with
         | Compound (_,args) ->
@@ -129,12 +142,6 @@ type TransState (procName) =
         Register (sprintf "%s.%s.%d" procName name dLocal)
     member this.rAddr = Register "raddr"
     member this.sp = Register "spointer"
-(* Global state - warnings and so on *)
-let warnings = new List<string>()
-let addWarning (w) =
-    warnings.Add(sprintf "warning: %s" w)
-let clearGs () =
-    warnings.Clear()
 (* Module holding BobCode - some funs more abstract than the BOB ISA
  * Every function in here should return a string containing BOB code
  * *)            
@@ -194,7 +201,9 @@ module BobCode =
     // Labels
     let label = function
         | Id id -> sprintf "%s:\n" id
-        | _ -> failwith "not id in BobCode.label"
+        | a ->
+            addIntError (sprintf "'%A' is not id in BobCode.label" a)
+            "*err:\n"
     // Instrs - arit
     let add = new2Arg "ADD"
     let add1 = new1Arg "ADD1"
@@ -243,7 +252,7 @@ module BobCode =
         exec 0
 
 (* Scope as class that is instantiated
- * The core scope is a map of string |-> InstrArg
+ * The core scope is a map of string (key) |-> InstrArg
  * *)
 type Scope (args : Atom list) =
     let add2scope i (scope : Dictionary<string,InstrArg>) = function
@@ -258,24 +267,31 @@ type Scope (args : Atom list) =
             (0,new Dictionary<string,InstrArg>())
             args
     let fetched =
-        // A dictionary containing pointer that have been
+        // A dictionary containing pointers that have been
         // fetched with exch. If these are exch'ed again
         // the program will have undefined behavior
         new Dictionary<InstrArg,InstrArg>()
     member this.get(id : string) =
         if scope.ContainsKey (id) then scope.[id]
-        else failwith (sprintf "'%s' not in scope" id)
+        else
+            // scope is checked by type checker
+            addIntError (sprintf "'%s' not in scope" id)
+            Null
     member this.get(id : Atom) =
         match id with
         | Atom.Id (_,_,id,_) -> this.get (id)
-        | _ -> failwith (sprintf "'%A' can't be used to access scope" id)
+        | _ ->
+            addIntError (sprintf "'%A' can't be used to access scope" id)
+            Null
     member this.getIgn(id : Atom) =
         match id with
         | Atom.Id (_,_,id,_) ->
             if scope.ContainsKey(id) then scope.[id]
             else Register id
         | Val v -> Imm v
-        | _ -> failwith "not yet scope.getIgn"
+        | a ->
+            addIntError (sprintf "'%A' can't be used in scope.getIgn" a)
+            Null
     member this.getIgn(id : string) =
         if scope.ContainsKey (id) then scope.[id]
         else Null
@@ -288,21 +304,9 @@ type Scope (args : Atom list) =
     member this.add(id,v) =
         if scope.ContainsKey(id) then scope.[id] <- v
         else scope.Add(id,v)
-    member this.remove(id) =
-        if scope.ContainsKey(id) then scope.[id] <- Null
-        else failwith (sprintf "'%s' not in scope" id)
     member this.foreach (f) =
         for v in scope do (f v.Key v.Value)
-    // fetched methods
-    member this.addFetched (k,v) =
-        if fetched.ContainsKey(k) then fetched.[k] <- v
-        else fetched.Add(k,v)
-    member this.getFetched (k) =
-        if fetched.ContainsKey (k) then fetched.[k]
-        else failwith (sprintf "'%A' not in fetched for get" k)
-    member this.containsFetched (k) = fetched.ContainsKey(k)
-    member this.clearFetched () = fetched.Clear()
-(* Misc Functoins *) 
+(* Misc Functions *) 
 let isBinOp = function
     | "plus"
     | "minus" -> true
@@ -315,10 +319,6 @@ let isBinComp = function
     | "eq"
     | "neq" -> true
     | _ -> false
-let invBinCond = function
-    | "eq" -> "neq"
-    | "neq" -> "eq"
-    | op -> failwith (sprintf "not bin cond '%s'" op) 
 (* Traverse starting point
  * Traversing returns a string of code on success
  * *)
@@ -355,7 +355,7 @@ and traverseProcs acc = function
 and traverseStmts acc (scope : Scope) state stmts0 =
     match stmts0 with
     | (Decs decs)::stmts ->
-        let pre_decs,post_decs = traverseDecs scope state decs
+        let pre_decs,post_decs = traverseMainDecs scope state decs
         let code_stmts = traverseStmts acc scope state stmts
         let code =
             BobCode.commMainDecs +
@@ -674,8 +674,8 @@ and traverseBindPtr (scope : Scope) (state : TransState) = function
         let pre = BobCode.exch (reg,reg_ptr)
         let post = pre
         (pre,post,reg)
-and traverseDecs (scope : Scope) (state : TransState) = function
-    // Assume dir = 0, that is main cannot be uncalled
+and traverseMainDecs (scope : Scope) (state : TransState) = function
+    // Assume dir = 0, that is main (the only place to declare cannot be uncalled
     | (Atom.Id (Array _,atts,id,_))::decs ->
         let imm_size = Imm (string atts.size)
         let reg_size = state.calleeGetAdd()
@@ -685,7 +685,9 @@ and traverseDecs (scope : Scope) (state : TransState) = function
                 BobCode.push (Register "0") +
                 BobCode.xor (Register elmId,state.sp)
             let code_dealloc =
-                // use fresh regs
+                BobCode.xor (Register elmId,state.sp) +
+                // use res. regs - these should be held fresh
+                // in order to zero clear stack
                 BobCode.pop (Register (sprintf "res.%s" elmId))
             (pre + code_alloc,code_dealloc + post)
         let scope0 =
@@ -701,28 +703,29 @@ and traverseDecs (scope : Scope) (state : TransState) = function
             BobCode.xor (Register id,state.sp) +
             code_pre
         let code_dealloc =
-            // Let array head stay internal
             code_post +
+            BobCode.xor (Register id,state.sp) +
             BobCode.pop (reg_size) +
             BobCode.xori (reg_size,imm_size)
-        let next_pre,next_post = traverseDecs scope0 state decs
+        let next_pre,next_post = traverseMainDecs scope0 state decs
         (code_alloc + next_pre,next_post + code_dealloc)
     | (Atom.Id (Int,_,id,_))::decs ->
         let code_alloc =
             BobCode.push (Register "0") +
             BobCode.xor (Register id,state.sp)
         let code_dealloc =
-            // use fresh regs in order to zero clear stack
+            BobCode.xor (Register id,state.sp) +
+            // use res. regs - these should be held fresh
+            // in order to zero clear stack
             BobCode.pop (Register (sprintf "res.%s" id))
         let scope0 =
             scope.add (id,Address (Register id))
             scope
-        let next_pre,next_post = traverseDecs scope0 state decs
+        let next_pre,next_post = traverseMainDecs scope0 state decs
         (code_alloc + next_pre,next_post + code_dealloc)
-        //traverseDecs acc0 scope0 state decs
     | [] -> ("","")
     // Syntactically impossible
-    | _::decs -> traverseDecs scope state decs
+    | _::decs -> traverseMainDecs scope state decs
 and traverseExpr (scope : Scope) (state : TransState) = function
     // Returns pre-code * post-code * target register (holding result)
     // Shortcut expressions are the kind that can omit EXCH and the like
@@ -853,7 +856,12 @@ and traverseAtom (scope : Scope) (state : TransState) = function
             BobCode.exch (reg_temp,reg_addr) +
             BobCode.comm ("/" + name)
         (pre,post,reg_size)
-    | _ -> failwith "not yet traverseAtom in Janus2BOB"
+    | CallBuildin _ ->
+        // catched by type checker
+        ("","",Null)
+    | Nil ->
+        // is not used yet
+        ("","",Null)
 and traverseBinOp (scope : Scope) (state : TransState) op reg1 reg2 =
     // Returns pre, post and reg holding result
     // These are symmetrical, that is clean up is done
@@ -932,7 +940,7 @@ and traverseBinOp (scope : Scope) (state : TransState) op reg1 reg2 =
         exprCompare name BobCode.bleq BobCode.bgt
     // rest
     | _ ->
-        let w = sprintf "not imp op '%s' in traverseBinOp" op
+        let w = sprintf "not implemented op '%s' in traverseBinOp" op
         warnings.Add(w)
         (BobCode.comm w,BobCode.nop(),reg1)
 and traverseBindOp (scope : Scope) (state : TransState) op reg1 reg2 =
@@ -1000,6 +1008,7 @@ and traverseExprBranch (scope : Scope) (state : TransState) inv = function
     | expr ->
         addWarning (sprintf "not in traverseExprBranch %A" expr)
         fun _ -> (BobCode.nop(),"")
+(*
 and traverseAtomBranch (scope : Scope) (state : TransState) = function
     // Returns an InstrArg argument. Branches differs since they can
     // handle mem refs. directly
@@ -1046,7 +1055,7 @@ and traverseCompOp (scope : Scope) (state : TransState) inv op args =
     // These are conditions that BOB can handle directly.
     // That is no additional code is needed.
     // The branch instruction goes into post code, and pre
-    // are left empty
+    // is left empty
     let isZero = InstrArg.isImmZero
     match (op,args) with
     | ("eq",[arg1;arg2]) ->
@@ -1075,13 +1084,16 @@ and traverseCompOp (scope : Scope) (state : TransState) inv op args =
     | ("geq",[arg1;arg2]) ->
         if inv then fun label -> ("",BobCode.blt (arg1,arg2,label))
         else fun label -> ("",BobCode.bgeq (arg1,arg2,label))
-    | _ -> failwith (sprintf "not yet traverseCompOp '%s'" op)
+    | _ ->
+        addWarning (sprintf "not yet traverseCompOp '%s'" op)
+        fun label -> ("","")
+        *)
 (* Clear global state in all module.
  * This includes .NET data structs and so on.
  * Clearing is important since global values are
  * treated as static
  * *)
-let clear () =
+let clearModule () =
     clearGs()
 
-let compile tree = (traverse tree,warnings)
+let compile tree = (traverse tree,warnings,internalErrors)
