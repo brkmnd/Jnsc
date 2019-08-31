@@ -71,13 +71,12 @@ let fopen name =
 let compileJanus str prgName =
     // on success return bobcode
     // on error print error and return empty string
-    Jnsc.clear()
-    printfn_color (sprintf "\n--compiling %s" prgName) ConsoleColor.Yellow
     let res = Jnsc.toBob str
+    printfn_color (sprintf "\n--compiling %s" prgName) ConsoleColor.Yellow
     if res|>Jnsc.hasSuccess then
         res.code
     else
-        printfn "%s" (res|>Jnsc.echoError)
+        printfn_color (sprintf "%s" (res|>Jnsc.echoError)) ConsoleColor.Red
         ""
 module Html =
     let mutable code = ""

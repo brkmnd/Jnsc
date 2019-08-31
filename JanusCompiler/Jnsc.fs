@@ -40,8 +40,14 @@ let private typeCheck tree =
 let private comp2bob tree =
     try (JanusCompilerBob.compile tree,"") with
     | Failure msg -> (("",new List<string>(),new List<string>()),msg)
+let clear() =
+    // Clear all static collections
+    // in all modules
+    JanusCompilerBob.clearModule()
+    JanusLexer.clearModule()
 let toBob str =
     let lexbuf = FSharp.Text.Lexing.LexBuffer<char>.FromString str
+    let clearFirst = clear()
     match lex str with
     | (tokens,"") ->
         match parse tokens lexbuf with
@@ -65,6 +71,3 @@ let echoError res =
     | TypeError msg -> sprintf "type-error: %s" msg
     | CompilerError msg -> sprintf "compiler-error: %s" msg
     | _ -> ""
-let clear() =
-    JanusCompilerBob.clearModule()
-    JanusLexer.clearModule()
