@@ -1,3 +1,4 @@
+// fails on if -> true fi -> false
 procedure main()
     int x
     int y

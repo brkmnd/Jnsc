@@ -74,6 +74,7 @@ let compileJanus str prgName =
     let res = Jnsc.toBob str
     printfn_color (sprintf "\n--compiling %s" prgName) ConsoleColor.Yellow
     if res|>Jnsc.hasSuccess then
+        printfn_color "success" ConsoleColor.Green
         res.code
     else
         printfn_color (sprintf "%s" (res|>Jnsc.echoError)) ConsoleColor.Red

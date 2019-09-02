@@ -838,6 +838,7 @@ and traverseAtom (scope : Scope) (state : TransState) = function
         (code_pre,code_post,reg_target)
     | CallBuildin ("size",[Atom.Id (_,_,id,_)],_) ->
         // Typechecker checks whether in scope
+        // size is stored in head of array
         let name = sprintf "size(%s)" id
         let reg_size = state.calleeGetAdd()
         let reg_addr = InstrArg.unfoldAddress (scope.get(id))

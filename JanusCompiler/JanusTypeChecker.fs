@@ -73,7 +73,14 @@ type Scope () =
         match atom with
         | Id (_,_,id,pos) when scope.ContainsKey(id) -> this.get(id)
         | _ -> Empty
-    member this.contains (k) = scope.ContainsKey (k)
+    member this.contains (k) =
+        if scope.ContainsKey (k) then
+            match scope.[k] with
+            | Empty ->
+                // We do not want
+                false
+            | _ -> true
+        else false
     member this.foreach (f) = for v in scope do (f v.Key v.Value)
     member this.getTypes (args) =
         // Get types from a list of Atoms
@@ -163,6 +170,8 @@ and evalStmts stmts scope procs =
 and evalStmt stmt scope (procs : Procedures) =
     match stmt with
     | Decs decs ->
+        // We do not store old values
+        // since we cant declare inside local/delocal
         List.fold (fun _ dec -> scope.add(dec)) () decs
     | BindOp (op,id,e,pos) ->
         let tid = evalAtom id scope 
