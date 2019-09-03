@@ -1593,6 +1593,7 @@ var BobLang = function(machine){
         return res;
         };
     var argsSigUnit = args2typeSig([]);
+    var argsSigImm = args2typeSig([dummyArgImm]);
     var argsSigReg = args2typeSig([dummyArgReg]);
     var argsSigRegReg = args2typeSig([dummyArgReg,dummyArgReg]);
     var argsSigRegId = args2typeSig([dummyArgReg,dummyArgId]);
@@ -1608,6 +1609,7 @@ var BobLang = function(machine){
         dummyArgId
         ]);
     var argsSigId = args2typeSig([dummyArgId]);
+    var argsSigMem = args2typeSig([dummyArgMem]);
     var argsSigMemId = args2typeSig([
         dummyArgMem,
         dummyArgId
@@ -2234,6 +2236,17 @@ var BobLang = function(machine){
                 break;
             case "nop":
                 var sig = [argsSigUnit];
+                var f = function(t){};
+                execInstr(instr,sig,f);
+                break;
+            // error handling / misc
+            case "echo":
+                var sig = [
+                    argsSigMem,
+                    argsSigImm,
+                    argsSigId,
+                    argsSigReg
+                    ];
                 var f = function(t){};
                 execInstr(instr,sig,f);
                 break;
