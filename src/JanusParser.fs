@@ -3,7 +3,7 @@ module JanusParser
 #nowarn "64";; // turn off warnings that type variables used in production annotations are instantiated to concrete type
 open FSharp.Text.Lexing
 open FSharp.Text.Parsing.ParseHelpers
-# 1 "JanusCompiler/JanusParser.yy"
+# 1 "src/JanusParser.yy"
 
 open JanusAbSyn
 
@@ -30,7 +30,7 @@ let add2decs v decs =
 let defDataAtts = {size = -1}
 
 
-# 33 "JanusCompiler/JanusParser.fs"
+# 33 "src/JanusParser.fs"
 // This type is the type of tokens accepted by the parser
 type token = 
   | SHOW of (int*int*int)
@@ -475,7 +475,7 @@ let _fsyacc_reductionSymbolCounts = [|1us; 2us; 2us; 1us; 4us; 1us; 1us; 6us; 0u
 let _fsyacc_productionToNonTerminalTable = [|0us; 1us; 2us; 3us; 3us; 4us; 4us; 5us; 6us; 6us; 6us; 7us; 7us; 8us; 8us; 9us; 9us; 10us; 10us; 10us; 10us; 10us; 10us; 10us; 10us; 10us; 10us; 10us; 10us; 11us; 11us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 12us; 13us; 13us; 13us; 13us; 13us; 13us; 14us; 14us; 14us; 15us; 16us; 16us; 16us; 17us; 18us; 18us; 19us; |]
 let _fsyacc_immediateActions = [|65535us; 49152us; 65535us; 16385us; 65535us; 16386us; 65535us; 65535us; 65535us; 16388us; 16389us; 16390us; 65535us; 65535us; 65535us; 65535us; 65535us; 16391us; 65535us; 65535us; 16393us; 65535us; 65535us; 16394us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16396us; 65535us; 65535us; 65535us; 16397us; 65535us; 16400us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16403us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16407us; 65535us; 65535us; 65535us; 65535us; 16408us; 65535us; 65535us; 65535us; 65535us; 65535us; 16409us; 65535us; 65535us; 65535us; 65535us; 65535us; 16410us; 65535us; 65535us; 65535us; 16411us; 16412us; 65535us; 65535us; 16413us; 16415us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16433us; 16434us; 65535us; 65535us; 16436us; 16437us; 16438us; 65535us; 65535us; 65535us; 16439us; 65535us; 65535us; 65535us; 16440us; 65535us; 65535us; 65535us; 16441us; 16442us; 16443us; 16444us; 16445us; 16446us; 65535us; 65535us; 16448us; 16449us; |]
 let _fsyacc_reductions ()  =    [| 
-# 478 "JanusCompiler/JanusParser.fs"
+# 478 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Prg)) in
             Microsoft.FSharp.Core.Operators.box
@@ -484,42 +484,42 @@ let _fsyacc_reductions ()  =    [|
                       raise (FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_startstart_entry));
-# 487 "JanusCompiler/JanusParser.fs"
+# 487 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'prog)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 75 "JanusCompiler/JanusParser.yy"
+# 75 "src/JanusParser.yy"
                                       _1 
                    )
-# 75 "JanusCompiler/JanusParser.yy"
+# 75 "src/JanusParser.yy"
                  : Prg));
-# 499 "JanusCompiler/JanusParser.fs"
+# 499 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'p_main)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'p)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 78 "JanusCompiler/JanusParser.yy"
+# 78 "src/JanusParser.yy"
                                       add2prcs _1 _2 
                    )
-# 78 "JanusCompiler/JanusParser.yy"
+# 78 "src/JanusParser.yy"
                  : 'prog));
-# 511 "JanusCompiler/JanusParser.fs"
+# 511 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 81 "JanusCompiler/JanusParser.yy"
+# 81 "src/JanusParser.yy"
                                                    _1 defDataAtts 
                    )
-# 81 "JanusCompiler/JanusParser.yy"
+# 81 "src/JanusParser.yy"
                  : 'd));
-# 522 "JanusCompiler/JanusParser.fs"
+# 522 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -528,34 +528,34 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 82 "JanusCompiler/JanusParser.yy"
+# 82 "src/JanusParser.yy"
                                                    fun t -> _1 {size = (int _3)} (Array t) 
                    )
-# 82 "JanusCompiler/JanusParser.yy"
+# 82 "src/JanusParser.yy"
                  : 'd));
-# 536 "JanusCompiler/JanusParser.fs"
+# 536 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 85 "JanusCompiler/JanusParser.yy"
+# 85 "src/JanusParser.yy"
                                        Int 
                    )
-# 85 "JanusCompiler/JanusParser.yy"
+# 85 "src/JanusParser.yy"
                  : 't));
-# 547 "JanusCompiler/JanusParser.fs"
+# 547 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 86 "JanusCompiler/JanusParser.yy"
+# 86 "src/JanusParser.yy"
                                        Stack 
                    )
-# 86 "JanusCompiler/JanusParser.yy"
+# 86 "src/JanusParser.yy"
                  : 't));
-# 558 "JanusCompiler/JanusParser.fs"
+# 558 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -566,22 +566,22 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 89 "JanusCompiler/JanusParser.yy"
+# 89 "src/JanusParser.yy"
                                                                 Proc ("main",[],_5::_6) 
                    )
-# 89 "JanusCompiler/JanusParser.yy"
+# 89 "src/JanusParser.yy"
                  : 'p_main));
-# 574 "JanusCompiler/JanusParser.fs"
+# 574 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 92 "JanusCompiler/JanusParser.yy"
+# 92 "src/JanusParser.yy"
                                                Decs [] 
                    )
-# 92 "JanusCompiler/JanusParser.yy"
+# 92 "src/JanusParser.yy"
                  : 'declare));
-# 584 "JanusCompiler/JanusParser.fs"
+# 584 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'd)) in
@@ -589,12 +589,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 93 "JanusCompiler/JanusParser.yy"
+# 93 "src/JanusParser.yy"
                                                add2decs (_2 Int) _3 
                    )
-# 93 "JanusCompiler/JanusParser.yy"
+# 93 "src/JanusParser.yy"
                  : 'declare));
-# 597 "JanusCompiler/JanusParser.fs"
+# 597 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
@@ -602,22 +602,22 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 94 "JanusCompiler/JanusParser.yy"
+# 94 "src/JanusParser.yy"
                                                Decs [] 
                    )
-# 94 "JanusCompiler/JanusParser.yy"
+# 94 "src/JanusParser.yy"
                  : 'declare));
-# 610 "JanusCompiler/JanusParser.fs"
+# 610 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 97 "JanusCompiler/JanusParser.yy"
+# 97 "src/JanusParser.yy"
                                                            Procs [] 
                    )
-# 97 "JanusCompiler/JanusParser.yy"
+# 97 "src/JanusParser.yy"
                  : 'p));
-# 620 "JanusCompiler/JanusParser.fs"
+# 620 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'q)) in
@@ -629,12 +629,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 98 "JanusCompiler/JanusParser.yy"
+# 98 "src/JanusParser.yy"
                                                                 add2prcs (Proc(_2,_4,_6)) _7 
                    )
-# 98 "JanusCompiler/JanusParser.yy"
+# 98 "src/JanusParser.yy"
                  : 'p));
-# 637 "JanusCompiler/JanusParser.fs"
+# 637 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 't)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'x_arg)) in
@@ -643,47 +643,47 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 101 "JanusCompiler/JanusParser.yy"
+# 101 "src/JanusParser.yy"
                                                    (_2 _1)::_4 
                    )
-# 101 "JanusCompiler/JanusParser.yy"
+# 101 "src/JanusParser.yy"
                  : 'p_args));
-# 651 "JanusCompiler/JanusParser.fs"
+# 651 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 't)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'x_arg)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 102 "JanusCompiler/JanusParser.yy"
+# 102 "src/JanusParser.yy"
                                                    [_2 _1] 
                    )
-# 102 "JanusCompiler/JanusParser.yy"
+# 102 "src/JanusParser.yy"
                  : 'p_args));
-# 663 "JanusCompiler/JanusParser.fs"
+# 663 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 's)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 105 "JanusCompiler/JanusParser.yy"
+# 105 "src/JanusParser.yy"
                                                    _1 
                    )
-# 105 "JanusCompiler/JanusParser.yy"
+# 105 "src/JanusParser.yy"
                  : 's_comp));
-# 674 "JanusCompiler/JanusParser.fs"
+# 674 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 's)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 's_comp)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 106 "JanusCompiler/JanusParser.yy"
+# 106 "src/JanusParser.yy"
                                                    _1 @ _2 
                    )
-# 106 "JanusCompiler/JanusParser.yy"
+# 106 "src/JanusParser.yy"
                  : 's_comp));
-# 686 "JanusCompiler/JanusParser.fs"
+# 686 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'bind_op)) in
@@ -691,12 +691,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 108 "JanusCompiler/JanusParser.yy"
+# 108 "src/JanusParser.yy"
                                                                 [BindOp (fst _2,_1 defDataAtts Var,_3,snd _2)] 
                    )
-# 108 "JanusCompiler/JanusParser.yy"
+# 108 "src/JanusParser.yy"
                  : 's));
-# 699 "JanusCompiler/JanusParser.fs"
+# 699 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -707,14 +707,14 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 109 "JanusCompiler/JanusParser.yy"
+# 109 "src/JanusParser.yy"
                                                                
                              [BindOp (fst _5,Index (_1 defDataAtts (Array Var),_3,_2),_6,snd _5)]
                              
                    )
-# 109 "JanusCompiler/JanusParser.yy"
+# 109 "src/JanusParser.yy"
                  : 's));
-# 717 "JanusCompiler/JanusParser.fs"
+# 717 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -722,14 +722,14 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 112 "JanusCompiler/JanusParser.yy"
+# 112 "src/JanusParser.yy"
                                                                   
                              [BindOp ("switch",_1 defDataAtts Var,Literal (_3 defDataAtts Var),_2)]
                              
                    )
-# 112 "JanusCompiler/JanusParser.yy"
+# 112 "src/JanusParser.yy"
                  : 's));
-# 732 "JanusCompiler/JanusParser.fs"
+# 732 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
@@ -742,12 +742,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 115 "JanusCompiler/JanusParser.yy"
+# 115 "src/JanusParser.yy"
                                                                 [If (_2,_4,_6,_8,(_1,_7))] 
                    )
-# 115 "JanusCompiler/JanusParser.yy"
+# 115 "src/JanusParser.yy"
                  : 's));
-# 750 "JanusCompiler/JanusParser.fs"
+# 750 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
@@ -760,12 +760,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 116 "JanusCompiler/JanusParser.yy"
+# 116 "src/JanusParser.yy"
                                                                              [From (_2,_4,_6,_8,(_1,_7))] 
                    )
-# 116 "JanusCompiler/JanusParser.yy"
+# 116 "src/JanusParser.yy"
                  : 's));
-# 768 "JanusCompiler/JanusParser.fs"
+# 768 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 't)) in
@@ -781,14 +781,14 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 117 "JanusCompiler/JanusParser.yy"
+# 117 "src/JanusParser.yy"
                                                                        
                              [Local (_3 defDataAtts _2,_5,_6,_9 defDataAtts _8,_11,(_1,_10))]
                              
                    )
-# 117 "JanusCompiler/JanusParser.yy"
+# 117 "src/JanusParser.yy"
                  : 's));
-# 791 "JanusCompiler/JanusParser.fs"
+# 791 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'q)) in
@@ -798,12 +798,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 120 "JanusCompiler/JanusParser.yy"
+# 120 "src/JanusParser.yy"
                                                                    [Call (_2,_4,_1)] 
                    )
-# 120 "JanusCompiler/JanusParser.yy"
+# 120 "src/JanusParser.yy"
                  : 's));
-# 806 "JanusCompiler/JanusParser.fs"
+# 806 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'q)) in
@@ -813,12 +813,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 121 "JanusCompiler/JanusParser.yy"
+# 121 "src/JanusParser.yy"
                                                                    [Uncall (_2,_4,_1)] 
                    )
-# 121 "JanusCompiler/JanusParser.yy"
+# 121 "src/JanusParser.yy"
                  : 's));
-# 821 "JanusCompiler/JanusParser.fs"
+# 821 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -829,12 +829,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 122 "JanusCompiler/JanusParser.yy"
+# 122 "src/JanusParser.yy"
                                                                    [] 
                    )
-# 122 "JanusCompiler/JanusParser.yy"
+# 122 "src/JanusParser.yy"
                  : 's));
-# 837 "JanusCompiler/JanusParser.fs"
+# 837 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -845,12 +845,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 123 "JanusCompiler/JanusParser.yy"
+# 123 "src/JanusParser.yy"
                                                                    [] 
                    )
-# 123 "JanusCompiler/JanusParser.yy"
+# 123 "src/JanusParser.yy"
                  : 's));
-# 853 "JanusCompiler/JanusParser.fs"
+# 853 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -859,23 +859,23 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 124 "JanusCompiler/JanusParser.yy"
+# 124 "src/JanusParser.yy"
                                                                    [CallExt ("show",[_3 defDataAtts Var],_1)] 
                    )
-# 124 "JanusCompiler/JanusParser.yy"
+# 124 "src/JanusParser.yy"
                  : 's));
-# 867 "JanusCompiler/JanusParser.fs"
+# 867 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 125 "JanusCompiler/JanusParser.yy"
+# 125 "src/JanusParser.yy"
                                                                    [Skip] 
                    )
-# 125 "JanusCompiler/JanusParser.yy"
+# 125 "src/JanusParser.yy"
                  : 's));
-# 878 "JanusCompiler/JanusParser.fs"
+# 878 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -883,46 +883,46 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 128 "JanusCompiler/JanusParser.yy"
+# 128 "src/JanusParser.yy"
                                                    [_1 defDataAtts Var] @ _3 
                    )
-# 128 "JanusCompiler/JanusParser.yy"
+# 128 "src/JanusParser.yy"
                  : 'call_args));
-# 891 "JanusCompiler/JanusParser.fs"
+# 891 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 129 "JanusCompiler/JanusParser.yy"
+# 129 "src/JanusParser.yy"
                                                    [_1 defDataAtts Var] 
                    )
-# 129 "JanusCompiler/JanusParser.yy"
+# 129 "src/JanusParser.yy"
                  : 'call_args));
-# 902 "JanusCompiler/JanusParser.fs"
+# 902 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e_lit)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 132 "JanusCompiler/JanusParser.yy"
+# 132 "src/JanusParser.yy"
                                                    _1 
                    )
-# 132 "JanusCompiler/JanusParser.yy"
+# 132 "src/JanusParser.yy"
                  : 'e));
-# 913 "JanusCompiler/JanusParser.fs"
+# 913 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 133 "JanusCompiler/JanusParser.yy"
+# 133 "src/JanusParser.yy"
                                                    UnaOp ("minus",_2,_1) 
                    )
-# 133 "JanusCompiler/JanusParser.yy"
+# 133 "src/JanusParser.yy"
                  : 'e));
-# 925 "JanusCompiler/JanusParser.fs"
+# 925 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -930,12 +930,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 134 "JanusCompiler/JanusParser.yy"
+# 134 "src/JanusParser.yy"
                                                    BinOp ("plus",_1,_3,_2) 
                    )
-# 134 "JanusCompiler/JanusParser.yy"
+# 134 "src/JanusParser.yy"
                  : 'e));
-# 938 "JanusCompiler/JanusParser.fs"
+# 938 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -943,12 +943,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 135 "JanusCompiler/JanusParser.yy"
+# 135 "src/JanusParser.yy"
                                                    BinOp ("minus",_1,_3,_2) 
                    )
-# 135 "JanusCompiler/JanusParser.yy"
+# 135 "src/JanusParser.yy"
                  : 'e));
-# 951 "JanusCompiler/JanusParser.fs"
+# 951 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -956,12 +956,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 136 "JanusCompiler/JanusParser.yy"
+# 136 "src/JanusParser.yy"
                                                    BinOp ("up",_1,_3,_2) 
                    )
-# 136 "JanusCompiler/JanusParser.yy"
+# 136 "src/JanusParser.yy"
                  : 'e));
-# 964 "JanusCompiler/JanusParser.fs"
+# 964 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -969,12 +969,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 137 "JanusCompiler/JanusParser.yy"
+# 137 "src/JanusParser.yy"
                                                    BinOp ("times",_1,_3,_2) 
                    )
-# 137 "JanusCompiler/JanusParser.yy"
+# 137 "src/JanusParser.yy"
                  : 'e));
-# 977 "JanusCompiler/JanusParser.fs"
+# 977 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -982,12 +982,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 138 "JanusCompiler/JanusParser.yy"
+# 138 "src/JanusParser.yy"
                                                    BinOp ("div",_1,_3,_2) 
                    )
-# 138 "JanusCompiler/JanusParser.yy"
+# 138 "src/JanusParser.yy"
                  : 'e));
-# 990 "JanusCompiler/JanusParser.fs"
+# 990 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -995,12 +995,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 139 "JanusCompiler/JanusParser.yy"
+# 139 "src/JanusParser.yy"
                                                    BinOp ("perc",_1,_3,_2) 
                    )
-# 139 "JanusCompiler/JanusParser.yy"
+# 139 "src/JanusParser.yy"
                  : 'e));
-# 1003 "JanusCompiler/JanusParser.fs"
+# 1003 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1008,12 +1008,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 140 "JanusCompiler/JanusParser.yy"
+# 140 "src/JanusParser.yy"
                                                    BinOp ("amp",_1,_3,_2) 
                    )
-# 140 "JanusCompiler/JanusParser.yy"
+# 140 "src/JanusParser.yy"
                  : 'e));
-# 1016 "JanusCompiler/JanusParser.fs"
+# 1016 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1021,12 +1021,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 141 "JanusCompiler/JanusParser.yy"
+# 141 "src/JanusParser.yy"
                                                    BinOp ("ampamp",_1,_3,_2) 
                    )
-# 141 "JanusCompiler/JanusParser.yy"
+# 141 "src/JanusParser.yy"
                  : 'e));
-# 1029 "JanusCompiler/JanusParser.fs"
+# 1029 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1034,12 +1034,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 142 "JanusCompiler/JanusParser.yy"
+# 142 "src/JanusParser.yy"
                                                    BinOp ("mid",_1,_3,_2) 
                    )
-# 142 "JanusCompiler/JanusParser.yy"
+# 142 "src/JanusParser.yy"
                  : 'e));
-# 1042 "JanusCompiler/JanusParser.fs"
+# 1042 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1047,12 +1047,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 143 "JanusCompiler/JanusParser.yy"
+# 143 "src/JanusParser.yy"
                                                    BinOp ("midmid",_1,_3,_2) 
                    )
-# 143 "JanusCompiler/JanusParser.yy"
+# 143 "src/JanusParser.yy"
                  : 'e));
-# 1055 "JanusCompiler/JanusParser.fs"
+# 1055 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1060,12 +1060,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 144 "JanusCompiler/JanusParser.yy"
+# 144 "src/JanusParser.yy"
                                                    BinOp ("lt",_1,_3,_2) 
                    )
-# 144 "JanusCompiler/JanusParser.yy"
+# 144 "src/JanusParser.yy"
                  : 'e));
-# 1068 "JanusCompiler/JanusParser.fs"
+# 1068 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1073,12 +1073,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 145 "JanusCompiler/JanusParser.yy"
+# 145 "src/JanusParser.yy"
                                                    BinOp ("gt",_1,_3,_2) 
                    )
-# 145 "JanusCompiler/JanusParser.yy"
+# 145 "src/JanusParser.yy"
                  : 'e));
-# 1081 "JanusCompiler/JanusParser.fs"
+# 1081 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1086,12 +1086,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 146 "JanusCompiler/JanusParser.yy"
+# 146 "src/JanusParser.yy"
                                                    BinOp ("eq",_1,_3,_2) 
                    )
-# 146 "JanusCompiler/JanusParser.yy"
+# 146 "src/JanusParser.yy"
                  : 'e));
-# 1094 "JanusCompiler/JanusParser.fs"
+# 1094 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1099,12 +1099,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 147 "JanusCompiler/JanusParser.yy"
+# 147 "src/JanusParser.yy"
                                                    BinOp ("neq",_1,_3,_2) 
                    )
-# 147 "JanusCompiler/JanusParser.yy"
+# 147 "src/JanusParser.yy"
                  : 'e));
-# 1107 "JanusCompiler/JanusParser.fs"
+# 1107 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1112,12 +1112,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 148 "JanusCompiler/JanusParser.yy"
+# 148 "src/JanusParser.yy"
                                                    BinOp ("leq",_1,_3,_2) 
                    )
-# 148 "JanusCompiler/JanusParser.yy"
+# 148 "src/JanusParser.yy"
                  : 'e));
-# 1120 "JanusCompiler/JanusParser.fs"
+# 1120 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1125,12 +1125,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 149 "JanusCompiler/JanusParser.yy"
+# 149 "src/JanusParser.yy"
                                                    BinOp ("geq",_1,_3,_2) 
                    )
-# 149 "JanusCompiler/JanusParser.yy"
+# 149 "src/JanusParser.yy"
                  : 'e));
-# 1133 "JanusCompiler/JanusParser.fs"
+# 1133 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'e)) in
@@ -1138,34 +1138,34 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 152 "JanusCompiler/JanusParser.yy"
+# 152 "src/JanusParser.yy"
                                                    _2 
                    )
-# 152 "JanusCompiler/JanusParser.yy"
+# 152 "src/JanusParser.yy"
                  : 'e_lit));
-# 1146 "JanusCompiler/JanusParser.fs"
+# 1146 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'c)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 153 "JanusCompiler/JanusParser.yy"
+# 153 "src/JanusParser.yy"
                                                    Literal (Val _1) 
                    )
-# 153 "JanusCompiler/JanusParser.yy"
+# 153 "src/JanusParser.yy"
                  : 'e_lit));
-# 1157 "JanusCompiler/JanusParser.fs"
+# 1157 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 154 "JanusCompiler/JanusParser.yy"
+# 154 "src/JanusParser.yy"
                                                    Literal (_1 defDataAtts Var) 
                    )
-# 154 "JanusCompiler/JanusParser.yy"
+# 154 "src/JanusParser.yy"
                  : 'e_lit));
-# 1168 "JanusCompiler/JanusParser.fs"
+# 1168 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'x)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1174,34 +1174,34 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 155 "JanusCompiler/JanusParser.yy"
+# 155 "src/JanusParser.yy"
                                                    Literal (Index (_1 defDataAtts (Array Var),_3,_2)) 
                    )
-# 155 "JanusCompiler/JanusParser.yy"
+# 155 "src/JanusParser.yy"
                  : 'e_lit));
-# 1182 "JanusCompiler/JanusParser.fs"
+# 1182 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'e_p_buildin)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 156 "JanusCompiler/JanusParser.yy"
+# 156 "src/JanusParser.yy"
                                                    Literal _1 
                    )
-# 156 "JanusCompiler/JanusParser.yy"
+# 156 "src/JanusParser.yy"
                  : 'e_lit));
-# 1193 "JanusCompiler/JanusParser.fs"
+# 1193 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 157 "JanusCompiler/JanusParser.yy"
+# 157 "src/JanusParser.yy"
                                                    Literal Nil 
                    )
-# 157 "JanusCompiler/JanusParser.yy"
+# 157 "src/JanusParser.yy"
                  : 'e_lit));
-# 1204 "JanusCompiler/JanusParser.fs"
+# 1204 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1210,12 +1210,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 159 "JanusCompiler/JanusParser.yy"
+# 159 "src/JanusParser.yy"
                                                    CallBuildin ("size",[_3 defDataAtts Var],_1) 
                    )
-# 159 "JanusCompiler/JanusParser.yy"
+# 159 "src/JanusParser.yy"
                  : 'e_p_buildin));
-# 1218 "JanusCompiler/JanusParser.fs"
+# 1218 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1224,12 +1224,12 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 160 "JanusCompiler/JanusParser.yy"
+# 160 "src/JanusParser.yy"
                                                    Nil 
                    )
-# 160 "JanusCompiler/JanusParser.yy"
+# 160 "src/JanusParser.yy"
                  : 'e_p_buildin));
-# 1232 "JanusCompiler/JanusParser.fs"
+# 1232 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1238,78 +1238,78 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 161 "JanusCompiler/JanusParser.yy"
+# 161 "src/JanusParser.yy"
                                                    Nil 
                    )
-# 161 "JanusCompiler/JanusParser.yy"
+# 161 "src/JanusParser.yy"
                  : 'e_p_buildin));
-# 1246 "JanusCompiler/JanusParser.fs"
+# 1246 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string*(int*int*int))) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 163 "JanusCompiler/JanusParser.yy"
+# 163 "src/JanusParser.yy"
                                                    fst _1 
                    )
-# 163 "JanusCompiler/JanusParser.yy"
+# 163 "src/JanusParser.yy"
                  : 'c));
-# 1257 "JanusCompiler/JanusParser.fs"
+# 1257 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 166 "JanusCompiler/JanusParser.yy"
+# 166 "src/JanusParser.yy"
                                            ("plus",_1) 
                    )
-# 166 "JanusCompiler/JanusParser.yy"
+# 166 "src/JanusParser.yy"
                  : 'bind_op));
-# 1268 "JanusCompiler/JanusParser.fs"
+# 1268 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 167 "JanusCompiler/JanusParser.yy"
+# 167 "src/JanusParser.yy"
                                            ("minus",_1) 
                    )
-# 167 "JanusCompiler/JanusParser.yy"
+# 167 "src/JanusParser.yy"
                  : 'bind_op));
-# 1279 "JanusCompiler/JanusParser.fs"
+# 1279 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 168 "JanusCompiler/JanusParser.yy"
+# 168 "src/JanusParser.yy"
                                            ("up",_1) 
                    )
-# 168 "JanusCompiler/JanusParser.yy"
+# 168 "src/JanusParser.yy"
                  : 'bind_op));
-# 1290 "JanusCompiler/JanusParser.fs"
+# 1290 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string*(int*int*int))) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 171 "JanusCompiler/JanusParser.yy"
+# 171 "src/JanusParser.yy"
                                        fun atts t -> Id (t,atts,fst _1,snd _1) 
                    )
-# 171 "JanusCompiler/JanusParser.yy"
+# 171 "src/JanusParser.yy"
                  : 'x));
-# 1301 "JanusCompiler/JanusParser.fs"
+# 1301 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string*(int*int*int))) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 174 "JanusCompiler/JanusParser.yy"
+# 174 "src/JanusParser.yy"
                                                        fun t -> Id (t,defDataAtts,fst _1,snd _1) 
                    )
-# 174 "JanusCompiler/JanusParser.yy"
+# 174 "src/JanusParser.yy"
                  : 'x_arg));
-# 1312 "JanusCompiler/JanusParser.fs"
+# 1312 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string*(int*int*int))) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : int*int*int)) in
@@ -1317,24 +1317,24 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 175 "JanusCompiler/JanusParser.yy"
+# 175 "src/JanusParser.yy"
                                                        fun t -> Id (Array t,defDataAtts,fst _1,snd _1) 
                    )
-# 175 "JanusCompiler/JanusParser.yy"
+# 175 "src/JanusParser.yy"
                  : 'x_arg));
-# 1325 "JanusCompiler/JanusParser.fs"
+# 1325 "src/JanusParser.fs"
         (fun (parseState : FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string*(int*int*int))) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 177 "JanusCompiler/JanusParser.yy"
+# 177 "src/JanusParser.yy"
                                            fst _1 
                    )
-# 177 "JanusCompiler/JanusParser.yy"
+# 177 "src/JanusParser.yy"
                  : 'q));
 |]
-# 1337 "JanusCompiler/JanusParser.fs"
+# 1337 "src/JanusParser.fs"
 let tables () : FSharp.Text.Parsing.Tables<_> = 
   { reductions= _fsyacc_reductions ();
     endOfInputTag = _fsyacc_endOfInputTag;

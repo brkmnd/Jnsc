@@ -1410,6 +1410,7 @@ var BobLang = function(machine){
      *  - traces to be used for keeping track of jumps etc.
      * */
     var StatusEval = function(){
+        var echoes = [];
         return {
             prgLen:0,
             errorType:null,
@@ -1417,6 +1418,15 @@ var BobLang = function(machine){
             error:false,
             msgError:null,
             msgStatus:null,
+            foreachEchoes:function(f){
+                for(var i = 0; i < echoes.length; i++){
+                    f(echoes[i]);
+                    }
+                },
+            addEcho:function(instr,e){
+                var msg = "echo at "+printPos(instr.pos)+": "+e;
+                echoes.push(msg);
+                },
             stats:{
                 instrExecs:0,
                 instrCount:0,
@@ -2241,13 +2251,23 @@ var BobLang = function(machine){
                 break;
             // error handling / misc
             case "echo":
+                // if id, echo offset
                 var sig = [
                     argsSigMem,
                     argsSigImm,
                     argsSigId,
                     argsSigReg
                     ];
-                var f = function(t){};
+                var f = function(t){
+                    var a = iarg(0);
+                    var v = function(){
+                        if(a.type === "id"){
+                            return calcOffset(a,model.pos,labels,instr).toString();
+                            }
+                        return argRead(iarg(0)).toString();
+                        }();
+                    statusEval.addEcho(instr,v);
+                    };
                 execInstr(instr,sig,f);
                 break;
             default:

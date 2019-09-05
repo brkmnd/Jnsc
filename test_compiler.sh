@@ -1,4 +1,4 @@
-mono FsLexYacc.9.0.2/build/fsyacc/net46/fsyacc.exe --module "JanusParser" JanusCompiler/JanusParser.yy
+mono FsLexYacc.9.0.2/build/fsyacc/net46/fsyacc.exe --module "JanusParser" src/JanusParser.yy
 fsharpc test_compiler.fsx --standalone
 PRGS="if1 if1_un"
 PRGS="$PRGS else1 else1_un "

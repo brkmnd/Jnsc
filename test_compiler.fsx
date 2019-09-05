@@ -1,10 +1,10 @@
 #r "FsLexYacc.Runtime.9.0.2/lib/net46/FsLexYacc.Runtime.dll"
-#load "JanusCompiler/JanusAbSyn.fs"
-#load "JanusCompiler/JanusParser.fs"
-#load "JanusCompiler/JanusLexer.fs"
-#load "JanusCompiler/JanusTypeChecker.fs"
-#load "JanusCompiler/JanusCompilerBob.fs"
-#load "JanusCompiler/Jnsc.fs"
+#load "src/JanusAbSyn.fs"
+#load "src/JanusParser.fs"
+#load "src/JanusLexer.fs"
+#load "src/JanusTypeChecker.fs"
+#load "src/JanusCompilerBob.fs"
+#load "src/Jnsc.fs"
 open System
 open System.IO
 open System.Text
