@@ -1,4 +1,4 @@
-# Janus2Bob
+# JNSC - Compiler tools for the reversible language Janus
 JNSC - A compiler that compiles the reversible programming language Janus to the reversible instruction set Bob
 
 - The project is described at http://brkmnd.com/pages/projects/Default.aspx?id=43
